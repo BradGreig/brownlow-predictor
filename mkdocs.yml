@@ -1,0 +1,19 @@
+site_name: AFL Brownlow Predictor
+theme:
+  name: material
+  features:
+    - toc.integrate
+repo_url: https://bradgreig.github.io/brownlow-predictor/
+plugins: []
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+      toc_depth: 3
