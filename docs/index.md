@@ -10,7 +10,7 @@ On this page you can find the following:
 - [Predictive models](#predictive-models)
 - [Predictions](#predictions)
 
-## why
+## What is the Brownlow and why predict it?
 
 The AFL [Brownlow](https://en.wikipedia.org/wiki/Brownlow_Medal) medal is awarded to the best and fairest player over the course of the AFL season. Voting is performed after each game by the three officiating match umpires in a 3-2-1 fashion (3 being the best). At the end of the season the votes are collated and the Brownlow medal (a.k.a Charlie after its namesake) is awarded. 
 
