@@ -14,7 +14,7 @@ On this page you can find the following:
 
 The AFL [Brownlow](https://en.wikipedia.org/wiki/Brownlow_Medal) medal is awarded to the best and fairest player over the course of the AFL season. Voting is performed after each game by the three officiating match umpires in a 3-2-1 fashion (3 being the best). At the end of the season the votes are collated and the Brownlow medal (a.k.a Charlie after its namesake) is awarded. 
 
-The voting is completely blind, with results unknown until the night of the medal ceremony (held at the start of the week before the AFL Grand Final). Since the voting is performed by the match umpires, the voting is completely subjective rather than being objectively based on some pre-determined criteria. This makes it more difficult as a predictive model, however, that just adds to the intrigue in exploring the performance of predictive models. 
+The voting is completely blind, with results unknown until the night of the medal ceremony (held at the start of the week before the AFL Grand Final). Since the voting is performed by the match umpires, the voting is completely subjective rather than being objectively based on some pre-determined criteria. This makes it more difficult as a predictive model, however, that just adds to the intrigue in exploring the performance of predictive models. For this reason, the goal is not to create a perfect predictive model, instead it is just to see how well such models work.
 
 Despite the fact that the voting is subjective, the votes do typically correlate with a players statistical performance as we shall explore further below. Although there are some fun historical outliers of players recieving votes for not a very statistically significant performance.
 
@@ -28,15 +28,17 @@ However, as mentioned earlier, Brownlow voting is subjective, therefore raw play
 
 A great source for AFL statistics is the [fitzRoy](https://cran.r-project.org/web/packages/fitzRoy/vignettes/fitzRoy.html) R package. This conveniently provides an API for obtaining all manner of AFL statistics sourced from multiple databases. This obviously will be of great use for this project.
 
-However, I found it only contained AFL fantasy scores dating back to 2010. After a little bit of time hacking together some scripts to scrape data off [Footywire](https://www.footywire.com/)(one of the main repositories of statistical information) I was able to obtain fantasy data for the 2007 - 2009 seasons. 
+However, I found it only contained AFL fantasy scores dating back to 2010. Which to be fair, is almost certainly more than enough. However, for the fun of it, I decided to see if I could find any additional data to create a larger database than previous models. After a little bit of time hacking together some scripts to scrape data off [Footywire](https://www.footywire.com/)(one of the main repositories of statistical information) I was able to obtain additional fantasy data for the 2007 - 2009 seasons. 
 
-In total, I have individual player statistical data spanning 2007 - 2024 to explore.
+In total, I have individual player statistical data (including Brownlow and fantasy scores) spanning 2007 - 2023 to explore. This corresponds to a total of 3023 games. The goal is to create a predictive model for the 2024 season, so we have those 198 games as well. Obviously without the Brownlow information.
 
 ## Data Insights
 
-There is a considerable amount of available data, not all of which correlate with a players chances of getting Brownlow votes. Let's take a look into the data and see what may be useful to predict a players chances of receiving Brownlow votes. This will help us decide what information to focus on for predicting our models.
+There is a considerable amount of individual player statistical data available, not all of which correlate with a players chances of getting Brownlow votes. Let's take a look into the data and see what interesting insights we can obtain about what statistics may be useful to predict a players chances of receiving Brownlow votes. This will help us decide what information to focus on for predicting our models.
 
-For the purposes of creating predictive models, raw numbers are not helpful. Instead, we need to normalise the data in a representative fashion. For example, based on the maximum value obtained within each match. This also has a secondary benefit of dealing with the shortened matches of 2020 due to Covid-19.
+For the purposes of creating predictive models, raw numbers are not going to be overly helpful for most statistics. This is for multiple reasons: (i) game conditions; wet/dry games lead to different distributions of statistics, (ii) game styles; rule changes over the years lead to different team strategies and game style and (iii) allows us to deal with the shortened matches in 2020 due to Covid-19. There are a few different ways we could choose to do this and we will look into a few of those here. For example, we can normalise each individual statistic according to the match statistics (which emphasises players who got the most disposals/goals etc.). This could either be as a zero to one (one being highest total of that statistic). Alternatively, this could be as a fraction (e.g. 10 per cent of all goals kicked in the game). We could equally just rank all players 1-40 odd, for the most/least of each statistic. All these should work out to behave similarly, but some are more intuitive for obtaining insights.
+
+To begin with, lets look at what statistics lead to 3-2-1 votes in all our historical games.
 
 ## Predictive models
 
@@ -48,15 +50,49 @@ For now, my likely overly ambitious goal is to create several different predicti
 
 ### Random Forest Classification
 
-The logical go-to first attempt for a Brownlow predictor
+The logical go-to first attempt for a Brownlow predictor. A random forest is simply a collection (ensemble) of decision trees. These decision trees, are a supervised learning algorithm for classification tasks which is exactly what we are dealing with (3-2-1-0 voting given a players statistics). Each of these decision tress is simply trained on our input historical data to construct a series of logical (true/false) decisions to convert our input statistics to an output vote. For example, did a player kick 10 goals in a game? Yes, then that's likely to be 3 votes. For a more run of the mill game, it would need to go through all the players statistics to see if they did anything significant warranting a Brownlow vote.
+
+Implementing a random forest classifier is fairly straightforward, with numerous available packages. For me, I implemented a random forest using the scikit-learn package in Python. To train, we simply pass in our normalised statistical match data and the corresponding votes awarded for each of these players. It then learns the criteria needed to distinguish between our Brownlow voting.
+
+In preparation for the 2024 Brownlow, we want to train and verify our methodology against known results. Therefore, building of the random classifier model we will use the 2007 - 2022 data to predict the 2023 Brownlow (won by Lachie Neale from Brisbane). For our model, we will use those statistical quantities that we determined earlier to be important for being awarded Brownlow votes. Specifically, we will use the number of disposals (handballs + kicks), goals, tackles, inside 50's, clearances, contested possesions, goal assists, AFL Fantasy, AFL Supercoach scores and whether the player was in a winning/losing team (more likely to receive votes when winning than losing).
+
+Importantly, AFL Fantasy and Supercoach scores include all the other statistical information (except the winning margin). Nevertheless, we include all of them as they help to improve the overall performance of the model predictions. The importance of each can simply be determined by calculating quantities such as the Akaike Information Criterion with/without a particular statistic. If it suitably improves the model predictions, it is worth using that particular model feature. More on this later.
+
+- Need to add more information here 
+
+Finally, we are in a position to evaluate the performance of our model on the 2023 season. In particular, we trialled a few different variations which all performed fairly similarly. Below, you can find the actual top 10 for the 2023 season, along with our predictions.
+
+| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Total votes
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
+| 1 | Lachie Neale | Brisbane | 31 |
+| 2 | Marcus Bontempelli | Bulldogs | 29 |
+| 3 | Nick Daicos | Collingwood | 28 |
+| 4 | Zak Butters | Port Adelaide | 27 |
+| 5 | Errol Gulden | Sydney | 27 |
+| 6 | Christian Petracca | Melbourne | 26 |
+| 7 | Jack Viney | Melbourne | 24 |
+| 8 | Caleb Serong | Fremantle | 24 |
+| 9 | Noah Anderson | Gold Coast | 22 |
+| 10 | Patrick Cripps | Carlton | 22 |
 
 ### Ordinal Logistic Regression
 
-Inspired entirely by Monte ChaRlo approach
+Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.
+
+Still a work in progress on this one. Stay tuned.
 
 ### Simulation Based Inference
 
-No idea if this will work, however, it is a familiar technique from my astrophysics research
+Absolutely no idea if this will work, however, this is a machine learning technique I am familiar with from my days as an astrophysicist. This technique will allow us to turn the voting prediction into a Bayesian inference problem. More on this below.
+
+Bayesian inference is predicting the probability of an outcome based on our model. In our case, the probability of receiving Brownlow votes based on the individual player statistics. This is referred to as a posterior. To evaluate this, we need to calculate it using Bayes' theorem;
+
+Here, we have the product of the likelihood function by our prior divided by our evidence. The likelihood is the probability of the player statistics occuring given our model (e.g. predicting the Brownlow votes). Effectively, a measure of our how well our model is at correlating the players individual statistics to actual Brownlow medal voting. The prior is a measure of our knowledge about the system (e.g. things we know to be true about obtaining Brownlow votes). The final term is the evidence, which estimates the probability of our model representing the real world. 
+
+Calculating both the likelihood and evidence can be extremely computationally expensive. Thankfully, there are numerous clever mathematical techniques to estimate these (or avoid them entirely). Importantly, the actual details of these methods are well beyond the point of this exploration.
+
+The method I'll employ here is Simulation Based Inference. However, more than this we are actually performing marginal neural ratio estimation (MNRE) to obtain the posterior (the probability that a particular player obtains a vote given their performance). Basically, we use machine learning to train a model to estimate the likelihood to evidence ratio given all the available historical statistical data. Then, once we have this, we simply pass in a players statistics, and we return the posterior, which is a posterior distribution describing how likely it is at obtaining zero, 1, 2 or 3 Brownlow votes.
+
 
 ## Predictions
 
