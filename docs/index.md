@@ -62,18 +62,22 @@ Importantly, AFL Fantasy and Supercoach scores include all the other statistical
 
 Finally, we are in a position to evaluate the performance of our model on the 2023 season. In particular, we trialled a few different variations which all performed fairly similarly. Below, you can find the actual top 10 for the 2023 season, along with our predictions.
 
+| | Actual Results | | Predictions |
 | Ranking | Player Name | Team | Total votes |  | Player Name | Team | Total votes
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| 1 | Lachie Neale | Brisbane | 31 |
-| 2 | Marcus Bontempelli | Bulldogs | 29 |
-| 3 | Nick Daicos | Collingwood | 28 |
-| 4 | Zak Butters | Port Adelaide | 27 |
-| 5 | Errol Gulden | Sydney | 27 |
-| 6 | Christian Petracca | Melbourne | 26 |
-| 7 | Jack Viney | Melbourne | 24 |
-| 8 | Caleb Serong | Fremantle | 24 |
-| 9 | Noah Anderson | Gold Coast | 22 |
-| 10 | Patrick Cripps | Carlton | 22 |
+| 1 | Lachie Neale | Brisbane | 31 | | Nick Daicos | Collingwood | 32 |
+| 2 | Marcus Bontempelli | Bulldogs | 29 | | Tim Taranto | Richmond | 30 |
+| 3 | Nick Daicos | Collingwood | 28 | | Lachie Neale | Brisbane | 29 |
+| 4 | Zak Butters | Port Adelaide | 27 | | Caleb Serong | Fremantle | 28 |
+| 5 | Errol Gulden | Sydney | 27 | | Jordan Dawson | Adelaide 26 |
+| 6 | Christian Petracca | Melbourne | 26 | | Christian Petracca | Melbourne | 23 |
+| 7 | Jack Viney | Melbourne | 24 | | Marcus Bontempelli | Bulldogs | 29 |
+| 8 | Caleb Serong | Fremantle | 24 | | Tom Green | GWS | 22 | 
+| 9 | Noah Anderson | Gold Coast | 22 | | Errol Gulden | Sydney | 22 |
+| 10 | Patrick Cripps | Carlton | 22 | | Zak Butters | Port Adelaide | 21 |
+
+- Need to provide some observations for these predictions
+- Ultimately, it all appears to be working well!
 
 ### Ordinal Logistic Regression
 
