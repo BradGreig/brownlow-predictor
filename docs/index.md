@@ -65,12 +65,11 @@ Finally, we are in a position to evaluate the performance of our model on the 20
 |  | Actual Results |  |  |  |  | Predictions |  | 
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
 | Ranking | Player Name | Team | Total votes |  | Player Name | Team | Total votes |
-| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
 | 1 | Lachie Neale | Brisbane | 31 |  | Nick Daicos | Collingwood | 32 |
 | 2 | Marcus Bontempelli | Bulldogs | 29 |  | Tim Taranto | Richmond | 30 |
 | 3 | Nick Daicos | Collingwood | 28 |  | Lachie Neale | Brisbane | 29 |
 | 4 | Zak Butters | Port Adelaide | 27 |  | Caleb Serong | Fremantle | 28 |
-| 5 | Errol Gulden | Sydney | 27 |  | Jordan Dawson | Adelaide 26 |
+| 5 | Errol Gulden | Sydney | 27 |  | Jordan Dawson | Adelaide | 26 |
 | 6 | Christian Petracca | Melbourne | 26 |  | Christian Petracca | Melbourne | 23 |
 | 7 | Jack Viney | Melbourne | 24 |  | Marcus Bontempelli | Bulldogs | 29 |
 | 8 | Caleb Serong | Fremantle | 24 |  | Tom Green | GWS | 22 | 
@@ -80,6 +79,40 @@ Finally, we are in a position to evaluate the performance of our model on the 20
 - Need to provide some observations for these predictions
 - Ultimately, it all appears to be working well! We did not get the winner correct, however, there was a little bit of controversy there. Lachie Neale was a bit of an unexpected winner.
 - Our top 10 includes 7 of the actual top 10, but in a slightly different order. Not a bad effort.
+
+|  | Actual Results |  |  |  |  | Predictions |  | 
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
+| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
+| 1 | Lachie Neale | Brisbane | 31 |  | Caleb Serong | Fremantle | 23.74 |
+| 2 | Marcus Bontempelli | Bulldogs | 29 |  | Nick Daicos | Collingwood | 23.60 |
+| 3 | Nick Daicos | Collingwood | 28 |  | Tim Taranto | Richmond | 21.04 |
+| 4 | Zak Butters | Port Adelaide | 27 |  | Errol Gulden | Sydney | 20.94 |
+| 5 | Errol Gulden | Sydney | 27 |  | Christian Petracca | Melbourne | 20.85 |
+| 6 | Christian Petracca | Melbourne | 26 |  | Marcus Bontempelli | Bulldogs | 20.02 |
+| 7 | Jack Viney | Melbourne | 24 |  | Rory Laird | Adelaide | 19.83 |
+| 8 | Caleb Serong | Fremantle | 24 |  | Jordan Dawson | Adelaide | 19.59 | 
+| 9 | Noah Anderson | Gold Coast | 22 |  | Zak Butters | Port Adelaide | 18.32 |
+| 10 | Patrick Cripps | Carlton | 22 |  | Zach Merrett | Essendon | 17.78 |
+
+- This is a slightly different approach. More information to come.
+
+
+|  | Predictions |  |  |  |  | Predictions |  | 
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
+| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
+| 1 | Tim Taranto | Richmond | 32 |  | Caleb Serong | Fremantle | 20.85 |
+| 2 | Nick Daicos | Collingwood | 32 |  | Christian Petracca | Melbourne | 20.51 |
+| 3 | Lachie Neale | Brisbane | 29 |  | Nick Daicos | Collingwood | 20.11 |
+| 4 | Caleb Serong | Fremantle | 29 |  | Marcus Bontempelli | Bulldogs | 19.98 |
+| 5 | Jordan Dawson | Adelaide | 25 |  | Tim Taranto | Richmond | 18.97 |
+| 6 | Rory Laird | Adelaide | 24 |  | Rory Laird | Adelaide | 18.33 |
+| 7 | Marcus Bontempelli | Bulldogs | 24 |  | Errol Gulden | Sydney | 17.60 |
+| 8 | Clayton Oliver | Melbourne | 23 |  | Zak Butters | Port Adelaide | 17.32 | 
+| 9 | Tom Green | GWS | 23 |  | Jordan Dawson | Adelaide | 17.06 |
+| 10 | Christian Petracca | Melbourne | 23 |  | Lachie Neale | Brisbane | 16.56 |
+
+- This is a slightly different version again.
+- More descriptions to come
 
 ### Ordinal Logistic Regression
 
