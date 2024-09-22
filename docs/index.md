@@ -62,8 +62,8 @@ Importantly, AFL Fantasy and Supercoach scores include all the other statistical
 
 Finally, we are in a position to evaluate the performance of our model on the 2023 season. In particular, we trialled a few different variations which all performed fairly similarly. Below, you can find the actual top 10 for the 2023 season, along with our predictions.
 
-| | Actual Results | | Predictions |
-| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Total votes
+| | Actual Results | | | | | Predictions | | 
+| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Total votes |
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
 | 1 | Lachie Neale | Brisbane | 31 | | Nick Daicos | Collingwood | 32 |
 | 2 | Marcus Bontempelli | Bulldogs | 29 | | Tim Taranto | Richmond | 30 |
