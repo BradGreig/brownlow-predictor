@@ -114,6 +114,10 @@ Finally, we are in a position to evaluate the performance of our model on the 20
 - This is a slightly different version again.
 - More descriptions to come
 
+
+- Some more discussions about possible improvements etc.
+- Can improve by modifying the winner/loser binary split. Maybe include a binned margin instead. This allows an increased likelihood that a player on a losing team can score votes if it was a close match. Should lower the advantage for some players on teams who didn't perform as well as above.
+
 ### Ordinal Logistic Regression
 
 Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.
@@ -137,7 +141,46 @@ The method I'll employ here is Simulation Based Inference. However, more than th
 
 In preparation for the upcoming 2024 Brownlow medal, below I provde the predictions for the various models I have considered.
 
-As a summary of the 
+### Random Forest Classification
+
+Firstly, our random forest classifiers for the 2024 Season.
+
+|  | Predictions |  |  |  |  | Predictions |  | 
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
+| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
+| 1 | Nick Daicos | Collingwood | 37 |  | Lachie Neale | Brisbane | 26.78 |
+| 2 | Caleb Serong | Fremantle | 32 |  | Nick Daicos | Collingwood | 26.37 |
+| 3 | Patrick Cripps | Carlton | 31 |  | Caleb Serong | Fremantle | 21.57 |
+| 4 | Lachie Neale | Brisbane | 31 |  | Marcus Bontempelli | Bulldogs | 21.46 |
+| 5 | Adam Treloar | Bulldogs | 29 |  | Zak Butters | Port Adelaide | 20.56 |
+| 6 | Zach Merrett | Essendon | 27 |  | Patrick Cripps | Carlton | 19.76 |
+| 7 | Marcus Bontempelli | Bulldogs | 26 |  | Adam Treloar | Bulldogs | 19.65 |
+| 8 | Rowan Marshall | St Kilda | 24 |  | Noah Anderson | Gold Coast | 18.94 | 
+| 9 | Harry Sheezel | North Melbourne | 23 |  | Harry Sheezel | North Melbourne | 18.57 |
+| 10 | Noah Anderson | Gold Coast | 23 |  | Errol Gulden | Sydney | 18.53 |
+
+- Depending on which variant you use, we have a few possible winners.
+
+
+|  | Predictions |  |  |  |  | Predictions |  | 
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
+| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
+| 1 | Nick Daicos | Collingwood | 37 |  | Nick Daicos | Collingwood | 24.62 |
+| 2 | Caleb Serong | Fremantle | 35 |  | Lachie Neale | Brisbane | 23.50 |
+| 3 | Lachie Neale | Brisbane | 32 |  | Caleb Serong | Fremantle | 20.33 |
+| 4 | Adam Treloar | Bulldogs | 28 |  | Marcus Bontempelli | Bulldogs | 19.97 |
+| 5 | Patrick Cripps | Carlton | 26 |  | Zak Butters | Port Adelaide | 19.50 |
+| 6 | Rowan Marshall | St Kilda | 26 |  | Patrick Cripps | Carlton | 18.62 |
+| 7 | Marcus Bontempelli | Bulldogs | 26 |  | Adam Treloar | Bulldogs | 17.82 |
+| 8 | Zach Merrett | Essendon | 25 |  | Noah Anderson | Gold Coast | 17.16 | 
+| 9 | Noah Anderson | Gold Coast | 23 |  | Harry Sheezel | North Melbourne | 17.08 |
+| 10 | Max Gawn | Melbourne | 23 |  | Errol Gulden | Sydney | 17.06 |
+
+- Fairly similar numbers here as those above. 
+
+- Across all of these results, it's looking like its going to be between Lachie Neale and Nick Daicos as winner of the 2024 Brownlow. 
+- A couple of interesting names appearing in the top 10. Adam Treloar and Rohan Marshall being those.
+
 
 ## Contact Information
 
