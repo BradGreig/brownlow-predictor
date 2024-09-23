@@ -136,6 +136,23 @@ Calculating both the likelihood and evidence can be extremely computationally ex
 
 The method I'll employ here is Simulation Based Inference. However, more than this we are actually performing marginal neural ratio estimation (MNRE) to obtain the posterior (the probability that a particular player obtains a vote given their performance). Basically, we use machine learning to train a model to estimate the likelihood to evidence ratio given all the available historical statistical data. Then, once we have this, we simply pass in a players statistics, and we return the posterior, which is a posterior distribution describing how likely it is at obtaining zero, 1, 2 or 3 Brownlow votes.
 
+Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. I'm not fully confident this is working properly, with a few additional things needing to be added. However, the predictions seem sensible, so I'll put them here for now. There is a chance that these will change though.
+
+|  | Predictions |  |  |
+| -------- | ------- | -------- | ------- |
+| Ranking | Player Name | Team | Total votes |
+| 1 | Christian Petracca | Melbourne | 35 |
+| 2 | Caleb Serong | Fremantle | 34 |
+| 3 | Nick Daicos | Collingwood | 28 |
+| 4 | Tim Taranto | Richmond | 27 |
+| 5 | Lachie Neale | Brisbane | 27 |
+| 6 | Marcus Bontempelli | Bulldogs | 27 |
+| 7 | Jordan Dawson | Adelaide | 26 |
+| 8 | Zak Butters | Port Adelaide | 25 |
+| 9 | Rory Laird | Adelaidet | 24 |
+| 10 | Errol Gulden | Sydney | 24 |
+
+- Again, this seems reasonable given that our predicted top 10 includes 7 of the final top 10. Although in a slightly different order.
 
 ## Predictions
 
@@ -181,6 +198,27 @@ Firstly, our random forest classifiers for the 2024 Season.
 - Across all of these results, it's looking like its going to be between Lachie Neale and Nick Daicos as winner of the 2024 Brownlow. 
 - A couple of interesting names appearing in the top 10. Adam Treloar and Rohan Marshall being those.
 
+
+### Simulation Based Inference
+
+Below you can find our 2024 predictions for the SBI approach. However, huge caution as this approach still needs a lot of work to fine tune and make sense. But, our 2023 predictions seemed reasonable, so I'll add the 2024 predictions too.
+
+|  | Predictions |  |  |
+| -------- | ------- | -------- | ------- |
+| Ranking | Player Name | Team | Total votes |
+| 1 | Nick Daicos | Collingwood | 38 |
+| 2 | Lachie Neale | Brisbane | 36 |
+| 3 | Caleb Serong | Fremantle | 32 |
+| 4 | Patrick Cripps | Carlton | 31 |
+| 5 | Marcus Bontempelli | Bulldogs | 30 |
+| 6 | Noah Anderson | Gold Coast | 28 |
+| 7 | Zak Butters | Port Adelaide | 27 |
+| 8 | Tom Green | GWS | 26 |
+| 9 | Isaac Heeney | Sydney | 25 |
+| 10 | Zach Merrett | Essendon | 25 |
+
+- These predictions are quite similar to our random forest ones. So once again, this method appears to be producing sensible results.
+- Quite a high count, which is similar to above. Will be interesting to see if this turns out to be the case.
 
 ## Contact Information
 
