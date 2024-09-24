@@ -8,7 +8,7 @@ On this page you can find the following:
 - [Available data](#data)
 - [Data Insights](#data-insights)
 - [Predictive models](#predictive-models)
-- [Predictions](#predictions)
+- [2024 Predictions](#predictions)
 
 ## What is the Brownlow and why predict it?
 
@@ -131,7 +131,7 @@ Absolutely no idea if this will work, however, this is a machine learning techni
 Bayesian inference is predicting the probability of an outcome based on our model. In our case, the probability of receiving Brownlow votes based on the individual player statistics. This is referred to as a posterior. To evaluate this, we need to calculate it using Bayes' theorem;
 
 $$
-P(x)
+P(x | \theta) = \frac{P(\theta | x)P(\theta)}{P(x)}
 $$
 
 Here, we have the product of the likelihood function by our prior divided by our evidence. The likelihood is the probability of the player statistics occuring given our model (e.g. predicting the Brownlow votes). Effectively, a measure of our how well our model is at correlating the players individual statistics to actual Brownlow medal voting. The prior is a measure of our knowledge about the system (e.g. things we know to be true about obtaining Brownlow votes). The final term is the evidence, which estimates the probability of our model representing the real world. 
@@ -158,7 +158,7 @@ Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. I'm 
 
 - Again, this seems reasonable given that our predicted top 10 includes 7 of the final top 10. Although in a slightly different order.
 
-## Predictions
+## 2024 Predictions
 
 In preparation for the upcoming 2024 Brownlow medal, below I provde the predictions for the various models I have considered.
 
@@ -223,6 +223,34 @@ Below you can find our 2024 predictions for the SBI approach. However, huge caut
 
 - These predictions are quite similar to our random forest ones. So once again, this method appears to be producing sensible results.
 - Quite a high count, which is similar to above. Will be interesting to see if this turns out to be the case.
+
+### Actual Outcome
+
+Below is the actual outcome of the 2024 Brownlow:
+
+|  | 2024 Brownlow Medal |  |  |
+| -------- | ------- | -------- | ------- |
+| Ranking | Player Name | Team | Total votes |
+| 1 | Patrick Cripps | Carlton | 45 |
+| 2 | Nick Daicos | Collingwood | 38 |
+| 3 | Zak Butters | Port Adelaide | 29 |
+| 4 | Caleb Serong | Fremantle | 28 |
+| 5 | Isaac Heeney* | Sydney | 28 |
+| 6 | Tom Green | GWS | 27 |
+| 7 | Adam Treloar | Bulldogs | 26 |
+| 8 | Errol Gulden | Sydney | 25 |
+| 9 | Matt Rowell | Gold Coast | 25 |
+| 10 | Jai Newcombe | Hawthorn | 24 |
+
+Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for these models Cripps barely scraped into the top 5 with the models underpredicting his tally by a significant 10 - 20 votes.
+
+So what went wrong? Well, most likely nothing actually! It seems the quirky, subjective nature of the Brownlow voting played a significant impact. I found an interesting analysis [here](https://www.foxsports.com.au/afl/brownlow-medal/weird-votes-that-let-cripps-smash-record-did-umps-pick-the-wrong-daicos-brownlow-talking-pts/news-story/de783aa761c2af1cc9e9b678c2f7b3b5?gaa_at=la&gaa_n=AWsEHT5-0cFMHnnroJrumDpxreZNUDY5DAUUxsl6ZbITxDo_Kn07laa9nubbGWF3Hu0%3D&gaa_ts=66f20026&utm_source=newsshowcase&utm_medium=discover&utm_campaign=CCwQlY-RlaeSpORTGP7-h4nqsYK5uQEqQwgwEJmd3dDEjtzDIhjPoZ6E9dOr5KABKioIACIQ34S7JIkL8vNsZnoS3qv1FSoUCAoiEN-EuySJC_LzbGZ6Et6r9RU&utm_content=related&gaa_sig=XrTO3sTkjE9JEh-BitgSf0XRn_62n-K1alPmNbm617STHLXIe9kgdlWwnarIF9nObdwZT2Og-EwX2tUwtwInFw%3D%3D). In short, Cripps polled votes (or more votes than expected) in a bunch of games (8 extra votes according to the [Wheelo](https://www.wheeloratings.com/afl_brownlow_live.html) model). While this is not anything new, typically this is balanced out by a player receiving fewer votes than expected in a similar number of games. However, for Cripps, this did not happen. Hence the astronomical number of votes. Poor Nick Daicos...
+
+Unlike the validation of our models for the 2023 season, where we typically correctly identified 7 of the top 10 (although rarely the correct order), this time around we only successfully identified 4-6 of the top 10. However, after analysing some of the main Brownlow predictors out there; [AFL](), [Champion Data](), [ESPN](), [Betfair](), and [Wheelo](), my results were pretty consistent with these other approaches. Therefore, it seems it was a bit of a peculiar year. Case in point, both Marcus Bontempelli and Lachie Neale (last years winner) did not even make the top 10 this year, despite all predictors (including my own) having them both polling very highly. 
+Interestingly, my models predicted a very strong performance from Adam Treloar, while no other model did! The fun of playing with data. Equally, my models predicted strong performances from Caleb Serong and Zak Butters who both duly delivered. It also predicted a strong performance from Rowan Marshall, however, given he is a ruckman, its not surprising he did not poll overly well (seemingly a traditional bias against ruckman).
+
+All in all, I would have to say I am quite happy with the performance of these predictive models. The next steps are to make some tweaks based on our earlier observations etc., to see if we can improve the overall performance. At least I have an entire year to play around with it.
+
 
 ## Contact Information
 
