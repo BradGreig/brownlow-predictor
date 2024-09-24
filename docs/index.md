@@ -130,6 +130,10 @@ Absolutely no idea if this will work, however, this is a machine learning techni
 
 Bayesian inference is predicting the probability of an outcome based on our model. In our case, the probability of receiving Brownlow votes based on the individual player statistics. This is referred to as a posterior. To evaluate this, we need to calculate it using Bayes' theorem;
 
+$$
+P(x)
+$$
+
 Here, we have the product of the likelihood function by our prior divided by our evidence. The likelihood is the probability of the player statistics occuring given our model (e.g. predicting the Brownlow votes). Effectively, a measure of our how well our model is at correlating the players individual statistics to actual Brownlow medal voting. The prior is a measure of our knowledge about the system (e.g. things we know to be true about obtaining Brownlow votes). The final term is the evidence, which estimates the probability of our model representing the real world. 
 
 Calculating both the likelihood and evidence can be extremely computationally expensive. Thankfully, there are numerous clever mathematical techniques to estimate these (or avoid them entirely). Importantly, the actual details of these methods are well beyond the point of this exploration.
