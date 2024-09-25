@@ -1,6 +1,6 @@
 # Overview
 
-This page contains a summary of an exploration into building models to predict the AFL Brownlow medal.
+This page contains a summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all into their own GitHub repo's for sharing.
 
 On this page you can find the following:
 
@@ -10,7 +10,7 @@ On this page you can find the following:
 - [Predictive models](#predictive-models)
 - [2024 Predictions](#predictions)
 
-## What is the Brownlow and why predict it?
+# What is the Brownlow and why predict it?
 
 The AFL [Brownlow](https://en.wikipedia.org/wiki/Brownlow_Medal) medal is awarded to the best and fairest player over the course of the AFL season. Voting is performed after each game by the three officiating match umpires in a 3-2-1 fashion (3 being the best). At the end of the season the votes are collated and the Brownlow medal (a.k.a Charlie after its namesake) is awarded. 
 
@@ -20,7 +20,7 @@ Despite the fact that the voting is subjective, the votes do typically correlate
 
 To investigate the ability to construct a predictive model for brownlow voting I'll explore a few different models. Some of these are based on peoples previous attempts, which I'll highlight later.
 
-## Available data
+# Available data
 
 In the modern era of sports statistics, we have a wealth of statistical data at our disposal deeply analysing each match. Of course, while we have Brownlow voting results dating back to its inception in 1924, the accompanying individual player stats will be severly lacking.
 
@@ -32,7 +32,7 @@ However, I found it only contained AFL fantasy scores dating back to 2010. Which
 
 In total, I have individual player statistical data (including Brownlow and fantasy scores) spanning 2007 - 2023 to explore. This corresponds to a total of 3023 games. The goal is to create a predictive model for the 2024 season, so we have those 198 games as well. Obviously without the Brownlow information.
 
-## Data Insights
+# Data Insights
 
 There is a considerable amount of individual player statistical data available, not all of which correlate with a players chances of getting Brownlow votes. Let's take a look into the data and see what interesting insights we can obtain about what statistics may be useful to predict a players chances of receiving Brownlow votes. This will help us decide what information to focus on for predicting our models.
 
@@ -40,7 +40,7 @@ For the purposes of creating predictive models, raw numbers are not going to be 
 
 To begin with, lets look at what statistics lead to 3-2-1 votes in all our historical games.
 
-## Predictive models
+# Predictive models
 
 Briefly searching the web, I stumbled upon a few existing models to predict the AFL Brownlow: (i) Ordinal Logistic Regression combined with Monte Carlo simulations [Monte ChaRlo](https://chewthestat.com/monte-charlo-using-data-to-predict-the-brownlow-medal/) (ii) [automated machine learning](https://github.com/betfair-datascientists/predictive-models/blob/master/brownlow/Betfair%20Data%20Scientists'%20Brownlow%20Model.ipynb) (iii) [simple ranking based approach](https://justindatascience.com/predicting-brownlow-votes/) and (iv) a [random forest approach](https://towardsdatascience.com/brownlow-medal-predictor-36586d535226)
 
@@ -48,7 +48,7 @@ Each slightly differs in their predictive model methodology or the volume of dat
 
 For now, my likely overly ambitious goal is to create several different predictive models based on a variety of different methodologies.
 
-### Random Forest Classification
+## Random Forest Classification
 
 The logical go-to first attempt for a Brownlow predictor. A random forest is simply a collection (ensemble) of decision trees. These decision trees, are a supervised learning algorithm for classification tasks which is exactly what we are dealing with (3-2-1-0 voting given a players statistics). Each of these decision tress is simply trained on our input historical data to construct a series of logical (true/false) decisions to convert our input statistics to an output vote. For example, did a player kick 10 goals in a game? Yes, then that's likely to be 3 votes. For a more run of the mill game, it would need to go through all the players statistics to see if they did anything significant warranting a Brownlow vote.
 
@@ -118,13 +118,13 @@ Finally, we are in a position to evaluate the performance of our model on the 20
 - Some more discussions about possible improvements etc.
 - Can improve by modifying the winner/loser binary split. Maybe include a binned margin instead. This allows an increased likelihood that a player on a losing team can score votes if it was a close match. Should lower the advantage for some players on teams who didn't perform as well as above.
 
-### Ordinal Logistic Regression
+## Ordinal Logistic Regression
 
 Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.
 
 Still a work in progress on this one. Stay tuned.
 
-### Simulation Based Inference
+## Simulation Based Inference
 
 Absolutely no idea if this will work, however, this is a machine learning technique I am familiar with from my days as an astrophysicist. This technique will allow us to turn the voting prediction into a Bayesian inference problem. More on this below.
 
@@ -158,11 +158,11 @@ Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. I'm 
 
 - Again, this seems reasonable given that our predicted top 10 includes 7 of the final top 10. Although in a slightly different order.
 
-## 2024 Predictions
+# 2024 Predictions
 
 In preparation for the upcoming 2024 Brownlow medal, below I provde the predictions for the various models I have considered.
 
-### Random Forest Classification
+## Random Forest Classification
 
 Firstly, our random forest classifiers for the 2024 Season.
 
@@ -203,7 +203,7 @@ Firstly, our random forest classifiers for the 2024 Season.
 - A couple of interesting names appearing in the top 10. Adam Treloar and Rohan Marshall being those.
 
 
-### Simulation Based Inference
+## Simulation Based Inference
 
 Below you can find our 2024 predictions for the SBI approach. However, huge caution as this approach still needs a lot of work to fine tune and make sense. But, our 2023 predictions seemed reasonable, so I'll add the 2024 predictions too.
 
@@ -224,7 +224,7 @@ Below you can find our 2024 predictions for the SBI approach. However, huge caut
 - These predictions are quite similar to our random forest ones. So once again, this method appears to be producing sensible results.
 - Quite a high count, which is similar to above. Will be interesting to see if this turns out to be the case.
 
-### Actual Outcome
+## Performance Against Actual Result
 
 Below is the actual outcome of the 2024 Brownlow:
 
