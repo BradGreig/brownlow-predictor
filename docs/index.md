@@ -40,7 +40,7 @@ For the purposes of creating predictive models, raw numbers are not going to be 
 
 To begin with, lets look at what statistics lead to 3-2-1 votes in all our historical games.
 
-![Brownlow vote game statistics](https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png)
+![Brownlow vote game statistics](https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png?raw=true)
 
 ![Brownlow votes by ranking](https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png)
 
