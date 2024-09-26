@@ -42,9 +42,25 @@ To begin with, lets look at what statistics lead to 3-2-1 votes in all our histo
 
 ![Brownlow vote game statistics](https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png?raw=true)
 
-![Brownlow votes by ranking](https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png)
+Here, for a variety of available statistics, we are looking at the fraction of times a player with a given statistic polls 1 (purple), 2 (blue) or 3 (red) votes compared to the total number of times a player has acheived that equivalent statistic. The black curve is simply the sum of all possible voting outcomes (i.e. any vote achieved). For example, in the first panel (for total disposals), a player who achieves 40 disposals has gotten a Brownlow vote roughly 80 per cent of the time (black curve is at roughly 0.8). More specifically, it is 3 votes 50 per cent of the time, 2 votes 25 per cent of the time and 1 vote about 5 per cent of the time. 
 
-![Brownlow votes by ranking](./data/margininfo.png)
+In representing the information in this way, we are able to get a good grasp on which particular statistics are most important for determining who receives Brownlow votes. However, this information does not take into account the rarity of achieving these statistical feats. For example, achieving 50 disposals in a game, or kicking over 10 goals does not happen very often. In fact, both have only happened a handful of times in over 15 years of data shown in these graphs. In a data sense these are referred to as rare events, and we want to limit the number of these as they are going to be problematic for our models. This is exactly why normalising the information in some manner is important. For example, ranking by disposals. This ensures the player with the most disposals is always ranked first. More on that later.
+
+In any case, we can draw some useful insights from these graphs. For example;
+- **Disposals:** The chance of receiving a Brownlow vote rapidly increases after about 25 disposals.
+- **Marks:** Obtaining more marks increases your chance of a brownlow vote, however, at more than 15 in a game (rare) it is still only a 50 per cent chance of a vote. Therefore, the number of marks are not overly relevant to a change of receiving votes.
+- **Kicks and handballs:** Correlate similarly, the more you have the higher the chance of voting. The total of these is your disposals, so this is not too surprising.
+- **Goals:** A player kicking 5 goals in a game has a 50 per cent chance of getting a Brownlow vote. This becomes almost 90 per cent if they kick 6. Kicking 8 or more is at least an 80 per cent chance of obtaining 3 votes. Doing so is increasingly rare though.
+- **Hitouts:** The primary statistic for a ruckman (typically the tallest player on the ground). They aim to hit the ball to the advantage of their team at all stoppages. Traditionally, the ruckman polls incredibly poorly, and this panel shows why. Until they are achieving 60 (which is extremely rare), the number of hitouts seemingly does not matter for achieving a Brownlow vote. Even at 60 hitouts, its a barely 50 per cent chance of receiving a vote (only 25 per cent chance of getting 3 votes). Therefore, for a ruckman to actually poll well in a game, they will equally have to have an impact on the game through a high number of disposals and/or goals. A tough job!
+- **Tackles:** The total number of tackles does not particularly matter. The more helps, but it barely increases the chance of getting votes.
+- **Inside 50s:** Track fairly similarly to the total of marks. Achieving a large number increases you chances as either you are getting a lot of disposals or contributing to your team scoring.
+- **Clearances and contested possessions:** Correlate fairly strongly with voting performance. Here, a player is almost certainly in the eyeline of the umpire increasing the chances of standing out.
+- **Contested marks:** Typically the forte of forwards or defenders. But typically there are not too many in a game. A large number is likely going to correlate with a large number of shots at goal if you are a forward. For a defender, you are not going to stand out. Hence, key defenders rarely poll at all. The rarity of games with notable numbers means this statistic does not contribute significantly.
+- **Goal assists:** Are getting the ball to a teammate who subsequently kicks a goal. Unless you achieve a high number of these (over 5), it has little bearing on performance.
+- **AFL Fantasy and Supercoach:** Unsurprisingly, a high score in these strongly correlates to Brownlow performance. These provide a single score summarising a players match performance based on the earlier statistics. Therefore, these will be important for our predictive model. Interestingly, achieving a Supercoach score of over 200 does not guarantee a vote! In Round 10 2007, Josh Drummond achieved 227 and did not poll a vote. In Round 13 2008, Joel Bowden scored 223 and equally did not poll!
+
+![Brownlow votes by ranking](https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png?raw=true)
+
 
 ## Predictive models
 
