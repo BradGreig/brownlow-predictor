@@ -38,6 +38,8 @@ There is a considerable amount of individual player statistical data available, 
 
 For the purposes of creating predictive models, raw numbers are not going to be overly helpful for most statistics. This is for multiple reasons: (i) game conditions; wet/dry games lead to different distributions of statistics, (ii) game styles; rule changes over the years lead to different team strategies and game style and (iii) allows us to deal with the shortened matches in 2020 due to Covid-19. There are a few different ways we could choose to do this and we will look into a few of those here. For example, we can normalise each individual statistic according to the match statistics (which emphasises players who got the most disposals/goals etc.). This could either be as a zero to one (one being highest total of that statistic). Alternatively, this could be as a fraction (e.g. 10 per cent of all goals kicked in the game). We could equally just rank all players 1-40 odd, for the most/least of each statistic. All these should work out to behave similarly, but some are more intuitive for obtaining insights.
 
+### Raw player statistics that led to Brownlow votes
+
 To begin with, lets look at what statistics lead to 3-2-1 votes in all our historical games.
 
 ![Brownlow vote game statistics](https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png?raw=true)
@@ -47,6 +49,7 @@ Here, for a variety of available statistics, we are looking at the fraction of t
 In representing the information in this way, we are able to get a good grasp on which particular statistics are most important for determining who receives Brownlow votes. However, this information does not take into account the rarity of achieving these statistical feats. For example, achieving 50 disposals in a game, or kicking over 10 goals does not happen very often. In fact, both have only happened a handful of times in over 15 years of data shown in these graphs. In a data sense these are referred to as rare events, and we want to limit the number of these as they are going to be problematic for our models. This is exactly why normalising the information in some manner is important. For example, ranking by disposals. This ensures the player with the most disposals is always ranked first. More on that later.
 
 In any case, we can draw some useful insights from these graphs. For example;
+
 - **Disposals:** The chance of receiving a Brownlow vote rapidly increases after about 25 disposals.
 - **Marks:** Obtaining more marks increases your chance of a brownlow vote, however, at more than 15 in a game (rare) it is still only a 50 per cent chance of a vote. Therefore, the number of marks are not overly relevant to a change of receiving votes.
 - **Kicks and handballs:** Correlate similarly, the more you have the higher the chance of voting. The total of these is your disposals, so this is not too surprising.
@@ -58,6 +61,10 @@ In any case, we can draw some useful insights from these graphs. For example;
 - **Contested marks:** Typically the forte of forwards or defenders. But typically there are not too many in a game. A large number is likely going to correlate with a large number of shots at goal if you are a forward. For a defender, you are not going to stand out. Hence, key defenders rarely poll at all. The rarity of games with notable numbers means this statistic does not contribute significantly.
 - **Goal assists:** Are getting the ball to a teammate who subsequently kicks a goal. Unless you achieve a high number of these (over 5), it has little bearing on performance.
 - **AFL Fantasy and Supercoach:** Unsurprisingly, a high score in these strongly correlates to Brownlow performance. These provide a single score summarising a players match performance based on the earlier statistics. Therefore, these will be important for our predictive model. Interestingly, achieving a Supercoach score of over 200 does not guarantee a vote! In Round 10 2007, Josh Drummond achieved 227 and did not poll a vote. In Round 13 2008, Joel Bowden scored 223 and equally did not poll!
+
+### Ranked match performance by Brownlow votes
+
+As highlighted earlier, the actual raw statistics are less relevant as there is theoretically no upper limit to how many of any one statistic that can be achieved. Therefore, to improve the data quality in preparation for our predictive models, lets now look at some normalised data. Here, we ranked each achieved statistic (1-44). The most disposals achieves 1, second most 2 etc.
 
 ![Brownlow votes by ranking](https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png?raw=true)
 
