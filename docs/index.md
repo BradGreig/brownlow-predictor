@@ -40,7 +40,7 @@ For the purposes of creating predictive models, raw numbers are not going to be 
 
 To begin with, lets look at what statistics lead to 3-2-1 votes in all our historical games.
 
-![Drag Racing](../data/raw_info.pdf)
+![](../data/raw_info.png)
 
 ## Predictive models
 
