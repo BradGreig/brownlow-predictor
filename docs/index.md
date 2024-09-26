@@ -64,10 +64,47 @@ In any case, we can draw some useful insights from these graphs. For example;
 
 ### Ranked match performance by Brownlow votes
 
-As highlighted earlier, the actual raw statistics are less relevant as there is theoretically no upper limit to how many of any one statistic that can be achieved. Therefore, to improve the data quality in preparation for our predictive models, lets now look at some normalised data. Here, we ranked each achieved statistic (1-44). The most disposals achieves 1, second most 2 etc.
+As highlighted earlier, the actual raw statistics are less relevant as there is theoretically no upper limit to how many of any one statistic that can be achieved. Therefore, to improve the data quality in preparation for our predictive models, lets now look at some normalised data. Here, we ranked each achieved statistic (1-44). The most disposals achieves 1, second most 2 etc. 
+
+Below, we show the cumulative probabilies of achieving 1, 2 or 3 votes as a function of the ranking of that statistic. The cumulative probability is simply the total probability within a range, with it equal to one when we reach our final data point. The advantage of using cumulative probilities is that it allows us to quickly observe how important the ranking is to achieving Brownlow votes. If important, the cumulative probability quickly approaches one for only the highest ranked statistics. For those that are less relevant, the cumulative probability approaches one much more slowly.
 
 ![Brownlow votes by ranking](https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png?raw=true)
 
+Again, these are extremely useful for understanding the importance of an individual statistic on receiving Brownlow votes. In fact, these are more informative than what we observed previously.
+
+- **Disposals:** 75 per cent of the time, 3 votes are awarded to the player who achieves the top 5 most disposals in a game. It decreases for lower votes, highlighting that 1 or 2 votes are more frequently awarded to players with fewer disposals (i.e. they did something else to stand out to the umpires). The cumulative probability then grows more slowly with decreasing rank highlighting that votes can still be awarded to players who do not achieve a high number of disposals (although it is less common)
+- **Marks:** This is almost a straight line, highlighting how little bearing the total number of marks a player has on the ability to achieve Brownlow votes.
+- **Kicks and handballs:** Unsurprisingly these reflect the behaviour of total disposals (the sum). Kicks are valued more highly, as indicated by the higher cumulative probability than handballs for similar rank. Just emphasises kicks are more important in the game.
+- **Goals:** In viewing it as a cumulative probability, it seems this is not as relevant. However, that has more to do with the fact that it is extremely rare to kick 5 or more goals in a game. It is rare for more than one player to do it. Arguably, this indicates it could be preferable to use total goals rather than most goals in a game as a feature for our model.
+- **Hitouts:** The ruckamn will appear in the first few ranks as only a couple of people in a match achieve hitouts. The fact the cumulative probability is flat until rank 5, highlights how few votes are awarded to a ruckman who achieves a high number of hitouts.
+- **Tackles:** Similar to the number of marks, it has little bearing.
+- **Inside 50s:** Achieving a high number of inside 50s has an impact, however, it is less significant than other statistics. But it could be useful as an extra feature or discriminator.
+- **Clearances and contested possessions:** Again, these are important. Being top 5 in these acheives 3 votes over 50 per cent of the time. Not as important as total disposals or the fantasy scores, but still extremely important.
+- **Contested marks and goal assists:** Achieving the highest ranking in these statistics does not guarantee a high chance of polling brownlow votes. Again, only exceedingly rare, high totals appear to improve the chances.
+- **AFL Fantasy and Supercoach:** The top 5 ranked players in either fantasy score achieve Brownlow votes over 80 per cent of the time. The top 10 is close to 95 per cent. Therefore, both of these will be the most important.
+
+As noted above, for most of our statistics, ranking from highest to lowest appears to provide a strong discriminator. However, for some statistics, where rarity is more important (e.g. total number of goals), a ranking may not suit. Therefore, likely a combination is probably required to achieve the best performance for our predictive models. However, we shall not look into that yet, with a focus on just getting a model working in the first place.
+
+### Which statistics to focus on for the predictive models
+
+Following on from the insights above, I now outline which statistics I choose to keep for creating the predictive models. Additionally, although it may not be suitable for all statistics (e.g. goals), for now I will choose to normalise each statistic by the maximum achieved number in the game. That is, if 40 was the most disposals and 35 was the second most, these would result in values of 1 and 0.875. This is similar to the ranking scheme above, although should be slightly better as it more significantly distinguishes rarer events (second value will differ by larger amounts).
+
+- **Disposals:** An obvious choice, given its importance. Note, I do not use the kicks and handballs independently as these are embedded in the total disposals.
+- **Goals:** Although by normalising it, I may be diminishing its value. Will explore later.
+- **Tackles:** Not overly important, but moreso than marks which I have excluded. Might be a nice discrimator
+- **Inside 50s:** Was significant enough to include.
+- **Clearances:** Found to be relatively significant.
+- **Contested possesions:** Also found to be relatively significant.
+- **Goal assists:** Not overly significant, but enough to discrimate between players.
+- **AFL Dreamteam:** Extremely significant.
+- **AFL Supercoach:** Extremely significant.
+- **Winning team:** A binary choice, with one indicating a player from the winning team and zero for a losing team (in a draw, everyone is assigned a one). This is to crudely account for the fact that you are considerably more likely to poll Brownlow votes when your team wins the match.
+
+Note, I have only excluded total marks, contested marks and hitouts from the graphs from earlier.
+
+Finally, it is important to note I have included both fantasy scores (Supercoach and Dreamteam). And these equally are representative of other statistics. In generally, one does not want to include too many dependent variables into the models. However, they are different enough to each bring unique value to the model.
+
+At this point it would be worth highlighting that I could (probably should) do an elaborate sensitivity analysis, trialling different combinations of various statistics to be used in our predictive models to see how significant each statistic is to the overall model performance. This way I can determine which statistics are of most importance (or even different normalisations) and reduce the complexity of the models. I might do this in future, but definitely not yet.
 
 ## Predictive models
 
