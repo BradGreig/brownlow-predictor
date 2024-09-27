@@ -1,6 +1,6 @@
 # Overview
 
-This page contains a summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all models into their own GitHub repo's for sharing.
+This page contains a detailed summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all models into their own GitHub repo's for sharing. There is a fair bit of information below providing a lot of context. If you are only interested in the final predictions, feel free to jump straight to the 2024 predictions (or equally the comparisons against 2023).
 
 On this page you can find the following:
 
@@ -129,80 +129,18 @@ Importantly, when applying our random forest, we cannot directly enforce that 6 
 We then need to use these probabilities to determine our actual 3-2-1 voting. To do so, we calculate an expected number of votes. This is calculated as;
 
 $$
-P({\rm expected}) = P({\rm 1 vote}) + 2*P({\rm 2 votes}) + 3*P({\rm 3 votes}).
+P({\rm expected}) = P({\rm 1\,vote}) + 2*P({\rm 2\,votes}) + 3*P({\rm 3\,votes}).
 $$
 
 Which is simply the sum of the probability of each outcome multiplied by its corresponding vote amount and we compute this for each player. Importantly, the sum of this quantity for a match can be more or less than the maximum 6 votes that can be awarded within any given match. Therefore, we have to renormalise the expected probabilities to ensure they correspond to 6.
 
-With this information, we can do one of two things. We can take the list of expected votes, and simply award 3-2-1 to the players with the highest expected votes within a single game. This enables us to preserve the 3-2-1 voting. Repeating over the full season, we obtain a voting count reflective of the actual Brownlow. Alternatively, we can just sum the expected votes for each player over the course of the season. The player with the highest expected votes at the end of the season is then the predicted winner. However, the total votes are fractional, and the total and difference is less intuitive. The former is likely better for predicting the actual vote count, however, the latter includes more variability, better handling the more apparent randomness of awarding 1 and 2 votes. Throughout we will always provide both for the same predictive model.
+With this information, we can do one of two things. We can take the list of expected votes, and simply award 3-2-1 to the players with the highest expected votes within a single game. This enables us to preserve the 3-2-1 voting. Repeating over the full season, we obtain a single observation of a voting count reflective of the actual Brownlow. Alternatively, we can just sum the expected votes for each player over the course of the season. The player with the highest expected votes at the end of the season is then the predicted winner. However, the total votes are fractional, and the total and difference is less intuitive (but the season total still adds up to the correct number of votes due to our earlier normalisation step). The former is likely better for predicting the actual vote count, however, the latter includes more variability, better handling the more apparent randomness of awarding 1 and 2 votes. Therefore, it is likely stronger at predicting the actual winner and other place getters. Throughout we will always provide both for the same predictive model.
 
 For our first random forest model, we train a random forest containing a 100 decision trees.
 
-For the second model, we instead train a larger number of random forests (100 with 100 decision trees each). Primarily the reason for doing so is to explore the statistics of an individal players expected votes. By constructing 100 random forests, I can obtain a distribution of 100 expected votes per player per match. This enables me estimate an uncertainty (i.e. how accurate I think the model has estimated the expected votes). For example, in our first model, we obtain a single expected vote value based on one model (set of initial conditions). Now, by having a distribution, we can quantify if this is narrow or broadly distributed. If broadly distributed, this means there is high uncertainty in our particular players statistics. If narrowly distributed, we have high certainty we are correctly estimating their expected votes. Importantly, it should not really change the overall predictions, however, it allows an additional uncertainty to be assigned to our end of seasons predictions. That is, rather than simply providing a vote tally, we can equally provide an estimate for how likely the player is at actually winning.
+For the second model, we instead train a larger number of random forests (100 with 100 decision trees each). Primarily the reason for doing so is to explore the statistics of an individal players expected votes. By constructing 100 random forests, I can obtain a distribution of 100 expected votes per player per match. This enables me to estimate an uncertainty (i.e. how accurate I think the model has estimated the expected votes). For example, in our first model, we obtain a single expected vote value based on one model (set of initial conditions). Now, by having a distribution, we can quantify if this is narrow or broadly distributed. If broadly distributed, this means there is high uncertainty in our particular players statistics. If narrowly distributed, we have high certainty we are correctly estimating their expected votes. Importantly, it should not really change the overall predictions, however, it allows an additional uncertainty to be assigned to our end of seasons predictions. That is, rather than simply providing a vote tally, we can equally provide an estimate for how likely the player is at actually winning. Players with a low uncertainty, we will be fairly confident about their final performance. Players with a high uncertainty could poll very well, or equally very poorly. This could be useful for explaining a better/worse than expected performance of an individual player.
 
-#### Validation against 2023
-
-#### Validation of model 1 against 2023
-
-Finally, we are in a position to evaluate the performance of our model on the 2023 season. In particular, we trialled a few different variations which all performed fairly similarly. Below, you can find the actual top 10 for the 2023 season, along with our predictions.
-
-|  | Actual Results |  |  |  |  | Predictions |  | 
-| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Total votes |
-| 1 | Lachie Neale | Brisbane | 31 |  | Nick Daicos | Collingwood | 32 |
-| 2 | Marcus Bontempelli | Bulldogs | 29 |  | Tim Taranto | Richmond | 30 |
-| 3 | Nick Daicos | Collingwood | 28 |  | Lachie Neale | Brisbane | 29 |
-| 4 | Zak Butters | Port Adelaide | 27 |  | Caleb Serong | Fremantle | 28 |
-| 5 | Errol Gulden | Sydney | 27 |  | Jordan Dawson | Adelaide | 26 |
-| 6 | Christian Petracca | Melbourne | 26 |  | Christian Petracca | Melbourne | 23 |
-| 7 | Jack Viney | Melbourne | 24 |  | Marcus Bontempelli | Bulldogs | 29 |
-| 8 | Caleb Serong | Fremantle | 24 |  | Tom Green | GWS | 22 | 
-| 9 | Noah Anderson | Gold Coast | 22 |  | Errol Gulden | Sydney | 22 |
-| 10 | Patrick Cripps | Carlton | 22 |  | Zak Butters | Port Adelaide | 21 |
-
-- Need to provide some observations for these predictions
-- Ultimately, it all appears to be working well! We did not get the winner correct, however, there was a little bit of controversy there. Lachie Neale was a bit of an unexpected winner.
-- Our top 10 includes 7 of the actual top 10, but in a slightly different order. Not a bad effort.
-
-|  | Actual Results |  |  |  |  | Predictions |  | 
-| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
-| 1 | Lachie Neale | Brisbane | 31 |  | Caleb Serong | Fremantle | 23.74 |
-| 2 | Marcus Bontempelli | Bulldogs | 29 |  | Nick Daicos | Collingwood | 23.60 |
-| 3 | Nick Daicos | Collingwood | 28 |  | Tim Taranto | Richmond | 21.04 |
-| 4 | Zak Butters | Port Adelaide | 27 |  | Errol Gulden | Sydney | 20.94 |
-| 5 | Errol Gulden | Sydney | 27 |  | Christian Petracca | Melbourne | 20.85 |
-| 6 | Christian Petracca | Melbourne | 26 |  | Marcus Bontempelli | Bulldogs | 20.02 |
-| 7 | Jack Viney | Melbourne | 24 |  | Rory Laird | Adelaide | 19.83 |
-| 8 | Caleb Serong | Fremantle | 24 |  | Jordan Dawson | Adelaide | 19.59 | 
-| 9 | Noah Anderson | Gold Coast | 22 |  | Zak Butters | Port Adelaide | 18.32 |
-| 10 | Patrick Cripps | Carlton | 22 |  | Zach Merrett | Essendon | 17.78 |
-
-- This is a slightly different approach. More information to come.
-
-#### Validation of model 2 against 2023
-
-
-|  | Predictions |  |  |  |  | Predictions |  | 
-| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
-| 1 | Tim Taranto | Richmond | 32 |  | Caleb Serong | Fremantle | 20.85 |
-| 2 | Nick Daicos | Collingwood | 32 |  | Christian Petracca | Melbourne | 20.51 |
-| 3 | Lachie Neale | Brisbane | 29 |  | Nick Daicos | Collingwood | 20.11 |
-| 4 | Caleb Serong | Fremantle | 29 |  | Marcus Bontempelli | Bulldogs | 19.98 |
-| 5 | Jordan Dawson | Adelaide | 25 |  | Tim Taranto | Richmond | 18.97 |
-| 6 | Rory Laird | Adelaide | 24 |  | Rory Laird | Adelaide | 18.33 |
-| 7 | Marcus Bontempelli | Bulldogs | 24 |  | Errol Gulden | Sydney | 17.60 |
-| 8 | Clayton Oliver | Melbourne | 23 |  | Zak Butters | Port Adelaide | 17.32 | 
-| 9 | Tom Green | GWS | 23 |  | Jordan Dawson | Adelaide | 17.06 |
-| 10 | Christian Petracca | Melbourne | 23 |  | Lachie Neale | Brisbane | 16.56 |
-
-- This is a slightly different version again.
-- More descriptions to come
-
-
-- Some more discussions about possible improvements etc.
-- Can improve by modifying the winner/loser binary split. Maybe include a binned margin instead. This allows an increased likelihood that a player on a losing team can score votes if it was a close match. Should lower the advantage for some players on teams who didn't perform as well as above.
+Finally, one last important point to make is that when training these predictive models, we do not use all of the available player statistics. The reasoning for this is that in a single match, only 3 players can be awarded votes. The remaining 41 players are awarded zero votes. For this classification task, this leads to a large amount of noise in the predictive models. Therefore, we limit the number of zero voted players to be included in our training sample to be 12 (4 times the number of players awarded votes). These 12 players are selected at random.
 
 ### Ordinal Logistic Regression
 
@@ -212,45 +150,163 @@ Still a work in progress on this one. Stay tuned.
 
 ### Simulation Based Inference
 
-Absolutely no idea if this will work, however, this is a machine learning technique I am familiar with from my days as an astrophysicist. This technique will allow us to turn the voting prediction into a Bayesian inference problem. More on this below.
+Absolutely no idea if this will work, however, this is a machine learning technique I am familiar with from my days as an astrophysicist. This technique will allow us to turn the voting prediction into a Bayesian inference problem. This is almost certainly way over the top for this problem, however, I just wanted to give it a shot to see how it would work. Below you can find more technical details on this approach, however, equally feel free to skip this entirely!
 
-Bayesian inference is predicting the probability of an outcome based on our model. In our case, the probability of receiving Brownlow votes based on the individual player statistics. This is referred to as a posterior. To evaluate this, we need to calculate it using Bayes' theorem;
+Bayesian inference is predicting the probability of an outcome based on our model. In our case, the probability of receiving Brownlow votes based on the individual player statistics. This is referred to as a posterior (effectively our random forest classifier has been returning the mean of this posterior). To evaluate this, we need to calculate it using Bayes' theorem;
 
 $$
-P(x | \theta) = \frac{P(\theta | x)P(\theta)}{P(x)}
+P(\theta | x) = \frac{P(x | \theta)P(\theta)}{P(x)}
 $$
 
-Here, we have the product of the likelihood function by our prior divided by our evidence. The likelihood is the probability of the player statistics occuring given our model (e.g. predicting the Brownlow votes). Effectively, a measure of our how well our model is at correlating the players individual statistics to actual Brownlow medal voting. The prior is a measure of our knowledge about the system (e.g. things we know to be true about obtaining Brownlow votes). The final term is the evidence, which estimates the probability of our model representing the real world. 
+Here, $$ P(\theta | x) $$ is the posterior, which is the probability distribution of obtaining our Brownlow vote, $$ \theta $$, given our observation, $$ x $$ (the set of players individual match statistics). To obtain this posterior, we multiply the likelihood function, $$ P(\theta | x) $$, by our prior, $$ P(\theta) $$, divided by our evidence, $$ P(x) $$. The most important term here is the likelihood, which describes the probability of obtaining our observation $$ x $$ (i.e. player statisics) given our Brownlow vote (e.g. the probability that those statistics occur when achieving 3 votes). The prior simply quantifies our knowledge about Brownlow voting and the model evidence is probability of our observation $$ x $$ being represented by our model. 
 
 Calculating both the likelihood and evidence can be extremely computationally expensive. Thankfully, there are numerous clever mathematical techniques to estimate these (or avoid them entirely). Importantly, the actual details of these methods are well beyond the point of this exploration.
 
-The method I'll employ here is Simulation Based Inference. However, more than this we are actually performing marginal neural ratio estimation (MNRE) to obtain the posterior (the probability that a particular player obtains a vote given their performance). Basically, we use machine learning to train a model to estimate the likelihood to evidence ratio given all the available historical statistical data. Then, once we have this, we simply pass in a players statistics, and we return the posterior, which is a posterior distribution describing how likely it is at obtaining zero, 1, 2 or 3 Brownlow votes.
+The method I will employ here is Simulation Based Inference (SBI). More specifically, marginal neural ratio estimation (MNRE) to obtain the posterior (the probability that a particular player obtains a vote given their performance). Basically, we use machine learning to train a model to estimate the likelihood to evidence ratio given all the available historical statistical data (our training data). Then, once we have this, we simply pass in a players statistics, and we return the posterior, which is a posterior distribution describing how likely it is at obtaining zero, 1, 2 or 3 Brownlow votes. This posterior will be a continuous distribution (not discrete like our 3-2-1 voting), however, we can easily convert the associated probabilities into such a voting scheme.
 
-Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. I'm not fully confident this is working properly, with a few additional things needing to be added. However, the predictions seem sensible, so I'll put them here for now. There is a chance that these will change though.
+To train the SBI model I use the exact same training set as that used for the random classifer (again, limiting the total number of players in each game who received zero votes).
 
-|  | Predictions |  |  |
+Once the model is complete, we are able to obtain our posterior for the Brownlow voting for each individual player in a match based on their match statistics. This allows us to know how likely a certain vote is expected to occur.
+
+## Validation against 2023
+
+As mentioned earlier, prior to using our models to predict the Brownlow, we must validate our models against known results. Previously, we constructed our training sets based on the 2007 - 2022 data, with the intention of validating against the 2023 results.
+
+In preparation for this validation step, we provide the 2023 Brownlow top 10.
+
+| Ranking | Player Name | Team | Total votes |
+| -------- | ------- | -------- | ------- |
+| 1 | Lachie Neale | Brisbane | 31 |
+| 2 | Marcus Bontempelli | Bulldogs | 29 |
+| 3 | Nick Daicos | Collingwood | 28 |
+| 4 | Zak Butters | Port Adelaide | 27 |
+| 5 | Errol Gulden | Sydney | 27 |
+| 6 | Christian Petracca | Melbourne | 26 |
+| 7 | Jack Viney | Melbourne | 24 |
+| 8 | Caleb Serong | Fremantle | 24 |
+| 9 | Noah Anderson | Gold Coast | 22 |
+| 10 | Patrick Cripps | Carlton | 22 |
+
+Lachie Neale was the eventual winner. However, what is important to know is that this was somewhat of a surprise. Most people (and predictive models) did not anticipate him winning. Therefore, in our validation, it is important to remember this as predicting the winner might be difficult.
+
+### Random Forest Classification.
+
+#### Model 1
+
+Below, we provide our predictions for the 2023 Brownlow medal based on our first random forest model. That is, one single realisation of a random forest. Remember, for each model, we provide a predicted total preserving the 3-2-1 voting and also an expected vote total, providing a fractional total of the 6 votes that are possible in a single game.
+
+|  | Prediction (Total) |  |  |  |   | Prediction (Expected Votes) |  |  |  | 
+| -------- | ------- | -------- | ------- | -------- |
+| Ranking | Player Name | Team | Total votes | Actual votes (position) | | Player Name | Team | Total votes | Actual votes (position)
+| 1 | Nick Daicos | Collingwood | 32 | 28 (3rd) | | Caleb Serong | Fremantle | 23.74 | 28 (=7th) |
+| 2 | Tim Taranto | Richmond | 30 | 19 (16th) | | Nick Daicos | Collingwood | 23.60 | 32 (3rd) |
+| 3 | Lachie Neale | Brisbane | 29 | 31 (1st) | | Tim Taranto | Richmond | 21.04 | 19 (16th) |
+| 4 | Caleb Serong | Fremantle | 28 | 24 (=7th) | | Errol Gulden | Sydney | 20.94 | 27 (5th) |
+| 5 | Jordan Dawson | Adelaide | 26 | 20 (=13th) | | Christian Petracca | Melbourne | 20.85 | 26 (6th) |
+| 6 | Christian Petracca | Melbourne | 23 | 26 (6th) | | Marcus Bontempelli | Bulldogs | 20.02 | 29 (2nd) |
+| 7 | Marcus Bontempelli | Bulldogs | 23 | 29 (2nd) | | Rory Laird | Adelaide | 19.83 | (=13th) |
+| 8 | Tom Green | GWS | 22 | 16 (=22nd) | | Jordan Dawson | Adelaide | 19.59 |  20 (=13th) |
+| 9 | Errol Gulden | Sydney | 22 | 27 (=4th) | | Zak Butters | Port Adelaide | 18.32 | 27 (=4th) |
+| 10 | Zak Butters | Port Adelaide | 21 | 27 (=4th) | | Zach Merrett | Essendon | 17.78 | (=19th) |
+
+Unfortunately, we did not predict the winner. He was predicted to be 3rd when applying 3-2-1 based on the ranked three highest probabilities in the match. However, in our expected votes model did not even have Lachie Neale in the top 10. While he was a surprise winner, this is potentially indicative that more work is required.
+
+In total, our model based on 3-2-1 voting predicted 7 of the top 10 (but not in the correct order). Our expected votes model predicted 6 of the top 10 (not correct order), with the winner completely absent. Overall, this actually is not too bad, indicating that our models are performing reasonably for a first attempt. Certaintly there is plenty of room for improvement.
+
+To assess our model performance a bit more quantitatively, we can look at the overall accuracy of the model. Essentially, how often did it predict the correct 3-2-1-0 voting per match over the course of the season. For our first model, we obtain an accuracy of 82 per cent. Which does not seem too bad. However, this is going to be significantly dominated by the number of zero vote games (if the model predicted zero votes for every single player it would have an accuracy of 80 per cent!). It is then more instructive to look at how well it predicted the players obtaining the correct 3-2-1 votes. For this, we determine an accuracy of 63, 39 and 32 per cent for 3-2-1 votes, respectively. It is not surprising to be considerably lower, given the subject nature of voting. Further, awarding 3 votes is considerably easier than awarding 2 or 1 votes. A much broader range of players typically perform well enough to be awarded at least one vote, therefore it is somewhat random who actually receives that vote. Further, estimating the accuracy in this way does not take into account whether or not we got the correct ordering of the voting. For example, giving a player 2 instead of the actual 1 or 3 they received. However, it provides a useful illustrative example of how the model is performing.
+
+Importantly, this accuracy breakdown is only valid to our model that applies the 3-2-1 voting based on the three highest probabilities in the match. Using the expected votes total does not actually care about who actually received votes as all players are awarded some fractional total of what is available. Therefore, this approach is considerably better at handling the increased uncertainty around who actually could receive votes and in what order they could possibly have received them.
+
+A more accurate quantitative measure to determine performance would be to consider something like the mean square error (MSE);
+
+$$
+{\rm MSE} = \frac{1}{N}\Sigma^{n}_{i=1}(V_{i} - V^{^}_{i})^{2},
+$$
+
+which is simply the sum of the square of the difference between the true vote amount ($$ V_{i} $$) and the predicted vote amount ($$ V^{^}_{i} $$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
+
+- At this point, I still need to calculate this quantity! However, for both approaches it still has its problems, which is why I have not prioritised it yet. While it can be applied to both approaches (3-2-1 or expected votes) which is advantageous, it still can be biased by the number of zeros when considering 3-2-1 voting. For expected voting, since it can be fractional, the differences can be larger.
+
+#### Model 2
+
+Below, we provide the total and expected votes predictions for our second random forest model (results determined over an ensemble of 100 random forests).
+
+|  | Prediction (Total) |  |  |  |  | Predictions (Expected Votes) |  | 
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
+| Ranking | Player Name | Team | Total votes | Actual votes (position) | | Player Name | Team | Expected votes | Actual votes (position) |
+| 1 | Tim Taranto | Richmond | 32 | 19 (16th) | | Caleb Serong | Fremantle | 20.85 | 24 (=7th) |
+| 2 | Nick Daicos | Collingwood | 32 | 28 (3rd) | | Christian Petracca | Melbourne | 20.51 | 26 (6th) |
+| 3 | Lachie Neale | Brisbane | 29 | 31 (1st) | | Nick Daicos | Collingwood | 20.11 | 28 (3rd) |
+| 4 | Caleb Serong | Fremantle | 29 | 24 (=7th) | | Marcus Bontempelli | Bulldogs | 19.98 | 29 (2nd) |
+| 5 | Jordan Dawson | Adelaide | 25 | 20 (=13th) |  | Tim Taranto | Richmond | 18.97 | 19 (16th) |
+| 6 | Rory Laird | Adelaide | 24 | 20 (=13th) | | Rory Laird | Adelaide | 18.33 | 20 (=13th) |
+| 7 | Marcus Bontempelli | Bulldogs | 24 | 29 (2nd) | | Errol Gulden | Sydney | 17.60 | 27 (=4th) |
+| 8 | Clayton Oliver | Melbourne | 23 | 6 (=59th) | Zak Butters | Port Adelaide | 17.32 | 27 (=4th) | 
+| 9 | Tom Green | GWS | 23 | 16 (=22nd) | | Jordan Dawson | Adelaide | 17.06 | 20 (=13th) |
+| 10 | Christian Petracca | Melbourne | 23 | 26 (6th) |  | Lachie Neale | Brisbane | 16.56 | 31 (1st) |
+
+At first glance, these predictions look fairly similar to that of the first random forest model. Again, we do not predict the winner of Lachie Neale. Interestingly, awarding only 3-2-1 voting to the three highest probabilities of receiving votes (after averaging over the 100 random forest) has performed the worst of the lot. It only predicts 6 of the top 10, and weirdly has Clayton Oliver in the top 10 despite an actual equal 59th finish. Something probably has gone awry there requiring further investigation. 
+
+With respect to expected votes, this performs equally well as the earlier models, recovering 7 of the top 10 (out of order of course). Unfortunately, at this point I have not found the time to add in the uncertainties (errors) associated with the voting which was the point of this model. However, I added the predictions to be able to use it for the 2024 results.
+
+For this model, I recovered an overall accuracy of 82 per cent, similar to that of model 1 (again, this is dominated by the zero vote predictions). Breaking it down further, I recovered an accuracy of 65, 40 and 29 per cent for correctly predicting the 3, 2 and 1 vote winners. This is slightly higher than the 63, 39 and 32 per cent of model 1. But this should not be too surprising as we are using a much larger number of decision trees in our random forest.
+
+- I still need to compute the mean square error (MSE) for this model as well.
+
+### Ordinal Logistic Regression
+
+Have not found the time to start working on this yet, but will soon.
+
+### Simulation Based Inference
+
+Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. At this point, I am not 100 per cent confident it is working perfectly. I have not had the time to investigate it to the level of rigour it needs. There are likely many improvements that can be made to improve its overall performance. For example, the resultant posteriors are rather broad, much broader than expected. This could be caused by a larger number of reasons: (i) insufficient training data (ii) too many unimportant parameters and/or (iii) sub-optimal machine learning architecture. These will need a more detailed exploration behind the scenes!
+
+Nevertheless, putting that all aside, I will still provide its current predictions. However, note that things are likely change (hopefully improve!).
+
+|  | Predictions (Total) |  |  |   |
 | -------- | ------- | -------- | ------- |
 | Ranking | Player Name | Team | Total votes |
-| 1 | Christian Petracca | Melbourne | 35 |
-| 2 | Caleb Serong | Fremantle | 34 |
-| 3 | Nick Daicos | Collingwood | 28 |
-| 4 | Tim Taranto | Richmond | 27 |
-| 5 | Lachie Neale | Brisbane | 27 |
-| 6 | Marcus Bontempelli | Bulldogs | 27 |
-| 7 | Jordan Dawson | Adelaide | 26 |
-| 8 | Zak Butters | Port Adelaide | 25 |
-| 9 | Rory Laird | Adelaidet | 24 |
-| 10 | Errol Gulden | Sydney | 24 |
+| 1 | Christian Petracca | Melbourne | 35 | 26 (6th) |
+| 2 | Caleb Serong | Fremantle | 34 | 24 (=7th) |
+| 3 | Nick Daicos | Collingwood | 28 | 28 (3rd) |
+| 4 | Tim Taranto | Richmond | 27 | 19 (16th) |
+| 5 | Lachie Neale | Brisbane | 27 | 31 (1st) |
+| 6 | Marcus Bontempelli | Bulldogs | 27 | 29 (2nd) |
+| 7 | Jordan Dawson | Adelaide | 26 | 20 (=13th) |
+| 8 | Zak Butters | Port Adelaide | 25 | 27 (=4th) |
+| 9 | Rory Laird | Adelaidet | 24 | 20 (=13th) |
+| 10 | Errol Gulden | Sydney | 24 | 27 (=4th) |
 
-- Again, this seems reasonable given that our predicted top 10 includes 7 of the final top 10. Although in a slightly different order.
+Note, for now I have only been able to provide a tally by awarding 3-2-1 votes to the three players with the highest probabilities of obtaining votes (highest means from the posterior). Due to the unexpectedly broad posteriors, computing an expected vote has not been very illuminating. Therefore, I refrain from providing that until I can find the time to work on fixing up this model.
+
+Despite the potential issues, this first attempt at an SBI approach has provided reasonable looking predictions. Again, while not obtaining the correct order, it still correctly identified 7 of the top 10, which is comparable to our previous attempts using a random forest. Therefore, it seems to be ok! Although, that is not overly rigorous.
+
+- As this method is still a work in progress, I do not yet have an estimate of its accuracy. This will be added once I am confident I have make progress in the model performance.
+
+
+### Possible improvements to the models
+
+For now, the training data I have selected is a set of player statistics that appeared important for determing the chance of receiving a Brownlow vote. Further, this data has been normalised by the total number of a given statistic on a match by match basis. 
+
+However, as highlighted earlier, this normalisation scheme may not be optimal for all statistics (e.g. goals). Additionally, not all of the chosen statistics may be actually be helping the model predictions. Therefore, there is plenty of room available to potentially improve these predictive models (they were only a first attempt). When I find the time, I will investigate improving the normalisation scheme and more rigorously exploring which statistics are most important.
+
+Additionally, I have only implemented a simple binary variable to denote whether a player was on a winning or loosing team. The idea here was to try and avoid too many votes being awarded to players with excellent individual statistics. While it is not impossible to receive votes on a losing team, it is considerably less likely. However, the problem with this simple binary variable is that it equally disadvantages a player irrespective if their team lost by 1 point or 100 points. However, a player in a 1 point loss is considerably more likely to recieve votes than in a 100 point loss (unless you are Gary Ablett Jr.).
+
+For example, below I provide the cumulative probability of receiving Brownlow votes as a function of the winning margin.
+
+![Brownlow votes by winning margin](https://github.com/BradGreig/brownlow-predictor/blob/main/data/margininfo.png?raw=true)
+
+While 3 votes have only been awarded to a player on a loosing team 10 per cent of the time, this jumps to 25 and 30 per cent for receiving 2 and 1 votes respectively. This potentially highlights that by only including a binary variable I might be unfairly restricting the potential of players receiving votes in a loosing team. Therefore, there is potentially room for improvement here.
+
+One of the biggest issue with predicting the Brownlow medal is the subjective nature of the voting rendering the raw player statistics less effective. However, during the season we have other more subjective measures of a players performance. For example, after each game each of the two opposition coaches award 5-4-3-2-1 votes (for a maximum match total of 10). While they almost certainly will have a different opinion than the officiating umpires, this data should improve the predictive nature of our models. Media outlets can also have their own internal award system, awarded by journalists or other members. Therefore, there is potentially a wealth of additional subjective data available to add to our predictive models. I will investigate this in the future.
 
 ## 2024 Predictions
 
-In preparation for the upcoming 2024 Brownlow medal, below I provde the predictions for the various models I have considered.
+In preparation for the upcoming 2024 Brownlow medal, below I provde the predictions for the various models I have considered (or gotten working) thus far.
 
 ### Random Forest Classification
 
-Firstly, our random forest classifiers for the 2024 Season.
+First up, our first random forest model.
 
 |  | Predictions |  |  |  |  | Predictions |  | 
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
@@ -266,8 +322,9 @@ Firstly, our random forest classifiers for the 2024 Season.
 | 9 | Harry Sheezel | North Melbourne | 23 |  | Harry Sheezel | North Melbourne | 18.57 |
 | 10 | Noah Anderson | Gold Coast | 23 |  | Errol Gulden | Sydney | 18.53 |
 
-- Depending on which variant you use, we have a few possible winners.
+Depending on if you prefer the 3-2-1 scheme or the expected votes, we have a couple of likely winners. Under the expected votes scheme it is clear it is expected to be close between Lachie Neale and Nick Daicos. 3-2-1 voting has Nick Daicos as a runaway winner.
 
+Below, I prove the predictions for our second random forest model (i.e. averaging over 100 random forests). Unfortunately, by the time of the award I had not found the time to get the uncertainties working which should better demonstrate how each player might perform (e.g. high change of a broad range of votes).
 
 |  | Predictions |  |  |  |  | Predictions |  | 
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
@@ -283,15 +340,13 @@ Firstly, our random forest classifiers for the 2024 Season.
 | 9 | Noah Anderson | Gold Coast | 23 |  | Harry Sheezel | North Melbourne | 17.08 |
 | 10 | Max Gawn | Melbourne | 23 |  | Errol Gulden | Sydney | 17.06 |
 
-- Fairly similar numbers here as those above. 
+Unsurprisingly these are fairly similar to our other model. However, I have a higher degree of trust in these owing to the larger number of random forests averaged over (less randomness). This randomness only really impacts awarding the 3-2-1 based on ranked probabilities, with more differences observed on the left hand side of the table. Under the expected votes scheme, the results are very similar, however, we have Nick Daicos being a clear winner (randomness had previously made it appear closer).
 
-- Across all of these results, it's looking like its going to be between Lachie Neale and Nick Daicos as winner of the 2024 Brownlow. 
-- A couple of interesting names appearing in the top 10. Adam Treloar and Rohan Marshall being those.
-
+Most of these names will be familiar, based on our validation against 2023. A couple of notable exceptions are Adam Treloar, Rowan Marshall and Harry Sheezel. It will be interesting to see how they perform on the night. Unfortuntely, Rowan Marshall is a ruckman, so presumably he will not poll as well!
 
 ### Simulation Based Inference
 
-Below you can find our 2024 predictions for the SBI approach. However, huge caution as this approach still needs a lot of work to fine tune and make sense. But, our 2023 predictions seemed reasonable, so I'll add the 2024 predictions too.
+Below you can find our 2024 predictions for the SBI approach. However, huge caution here as this approach still needs a lot of work to fine tune and make sense of (as outlined earlier). However, give that the 2023 predictions seemed reasonable, I've decided to add the 2024 predictions too. I will continue to work away on this model when I find the time.
 
 |  | Predictions |  |  |
 | -------- | ------- | -------- | ------- |
@@ -307,8 +362,7 @@ Below you can find our 2024 predictions for the SBI approach. However, huge caut
 | 9 | Isaac Heeney | Sydney | 25 |
 | 10 | Zach Merrett | Essendon | 25 |
 
-- These predictions are quite similar to our random forest ones. So once again, this method appears to be producing sensible results.
-- Quite a high count, which is similar to above. Will be interesting to see if this turns out to be the case.
+For the most part, this top 10 is fairly similar to those provided by our random forest approaches above. The top 3-4 remain the same, however, there are few changes in the bottom half of the table. Tom Green, Zak Butters and Isaac Heeney in place of Adam Treloar, Rowan Marshall and Harry Sheezel. SBI at least removed the ruckman!
 
 ### Performance Against Actual Result
 
@@ -328,15 +382,14 @@ Below is the actual outcome of the 2024 Brownlow:
 | 9 | Matt Rowell | Gold Coast | 25 |
 | 10 | Jai Newcombe | Hawthorn | 24 |
 
-Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for these models Cripps barely scraped into the top 5 with the models underpredicting his tally by a significant 10 - 20 votes.
+Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for all of my models Cripps barely scraped into the top 5 with the models underpredicting his tally by a significant 10 - 20 votes. 
 
 So what went wrong? Well, most likely nothing actually! It seems the quirky, subjective nature of the Brownlow voting played a significant impact. I found an interesting analysis [here](https://www.foxsports.com.au/afl/brownlow-medal/weird-votes-that-let-cripps-smash-record-did-umps-pick-the-wrong-daicos-brownlow-talking-pts/news-story/de783aa761c2af1cc9e9b678c2f7b3b5?gaa_at=la&gaa_n=AWsEHT5-0cFMHnnroJrumDpxreZNUDY5DAUUxsl6ZbITxDo_Kn07laa9nubbGWF3Hu0%3D&gaa_ts=66f20026&utm_source=newsshowcase&utm_medium=discover&utm_campaign=CCwQlY-RlaeSpORTGP7-h4nqsYK5uQEqQwgwEJmd3dDEjtzDIhjPoZ6E9dOr5KABKioIACIQ34S7JIkL8vNsZnoS3qv1FSoUCAoiEN-EuySJC_LzbGZ6Et6r9RU&utm_content=related&gaa_sig=XrTO3sTkjE9JEh-BitgSf0XRn_62n-K1alPmNbm617STHLXIe9kgdlWwnarIF9nObdwZT2Og-EwX2tUwtwInFw%3D%3D). In short, Cripps polled votes (or more votes than expected) in a bunch of games (8 extra votes according to the [Wheelo](https://www.wheeloratings.com/afl_brownlow_live.html) model). While this is not anything new, typically this is balanced out by a player receiving fewer votes than expected in a similar number of games. However, for Cripps, this did not happen. Hence the astronomical number of votes. Poor Nick Daicos...
 
-Unlike the validation of our models for the 2023 season, where we typically correctly identified 7 of the top 10 (although rarely the correct order), this time around we only successfully identified 4-6 of the top 10. However, after analysing some of the main Brownlow predictors out there; [AFL](https://www.afl.com.au/brownlow-medal/predictor), [Champion Data](https://www.foxsports.com.au/afl/brownlow-medal/brownlow-medal-2024-analysis-and-predictions-stats-preview-who-brownlow-predicting-models-are-tipping-to-win-champion-data-prediction/news-story/088cbaf44510dfa4f4fbf2783e7e77e4), [ESPN](https://www.espn.com.au/afl/story/_/page/POINTSBET20242/afl-2024-ultimate-brownlow-medal-predictor-tracker-leaderboard-odds-every-vote), [Betfair](https://www.betfair.com.au/hub/sports/afl/brownlow-medal-predictor/), [Stats Insider](https://www.statsinsider.com.au/sport-hub/afl/brownlow) and [Wheelo](https://www.wheeloratings.com/afl_brownlow.html), my results were pretty consistent with these other approaches. Therefore, it seems it was a bit of a peculiar year. Case in point, both Marcus Bontempelli and Lachie Neale (last years winner) did not even make the top 10 this year, despite all predictors (including my own) having them both polling very highly. 
+Unlike the validation of our models for the 2023 season, where we typically correctly identified 7 of the top 10 (although never the correct order), this time around we only successfully identified 4-6 of the top 10. However, after analysing some of the main Brownlow predictors out there; [AFL](https://www.afl.com.au/brownlow-medal/predictor), [Champion Data](https://www.foxsports.com.au/afl/brownlow-medal/brownlow-medal-2024-analysis-and-predictions-stats-preview-who-brownlow-predicting-models-are-tipping-to-win-champion-data-prediction/news-story/088cbaf44510dfa4f4fbf2783e7e77e4), [ESPN](https://www.espn.com.au/afl/story/_/page/POINTSBET20242/afl-2024-ultimate-brownlow-medal-predictor-tracker-leaderboard-odds-every-vote), [Betfair](https://www.betfair.com.au/hub/sports/afl/brownlow-medal-predictor/), [Stats Insider](https://www.statsinsider.com.au/sport-hub/afl/brownlow) and [Wheelo](https://www.wheeloratings.com/afl_brownlow.html), my results were pretty consistent with these other approaches. Therefore, it seems it was a bit of a peculiar year. Case in point, both Marcus Bontempelli and Lachie Neale (last years winner) did not even make the top 10 this year, despite all predictors (including my own) having them both polling very highly. 
 Interestingly, my models predicted a very strong performance from Adam Treloar, while no other model did! The fun of playing with data. Equally, my models predicted strong performances from Caleb Serong and Zak Butters who both duly delivered. It also predicted a strong performance from Rowan Marshall, however, given he is a ruckman, its not surprising he did not poll overly well (seemingly a traditional bias against ruckman).
 
-All in all, I would have to say I am quite happy with the performance of these predictive models. The next steps are to make some tweaks based on our earlier observations etc., to see if we can improve the overall performance. At least I have an entire year to play around with it.
-
+All in all, I would have to say I am quite happy with the performance of these predictive models. Especially given it as a basic first attempt. The next steps are to make some tweaks based on our earlier observations etc., to see if we can improve the overall performance. At least I have an entire year to play around with it. I just need to find the time to make the modifications.
 
 ## Contact Information
 
