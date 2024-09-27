@@ -158,7 +158,7 @@ $$
 P(\theta | x) = \frac{P(x | \theta)P(\theta)}{P(x)}
 $$
 
-Here, $$ P(\theta | x) $$ is the posterior, which is the probability distribution of obtaining our Brownlow vote, $$ \theta $$, given our observation, $$ x $$ (the set of players individual match statistics). To obtain this posterior, we multiply the likelihood function, $$ P(\theta | x) $$, by our prior, $$ P(\theta) $$, divided by our evidence, $$ P(x) $$. The most important term here is the likelihood, which describes the probability of obtaining our observation $$ x $$ (i.e. player statisics) given our Brownlow vote (e.g. the probability that those statistics occur when achieving 3 votes). The prior simply quantifies our knowledge about Brownlow voting and the model evidence is probability of our observation $$ x $$ being represented by our model. 
+Here, $P(\theta | x)$ is the posterior, which is the probability distribution of obtaining our Brownlow vote, $\theta$, given our observation, $x$ (the set of players individual match statistics). To obtain this posterior, we multiply the likelihood function, $P(\theta | x)$, by our prior, $P(\theta)$, divided by our evidence, $P(x)$. The most important term here is the likelihood, which describes the probability of obtaining our observation $x$ (i.e. player statisics) given our Brownlow vote (e.g. the probability that those statistics occur when achieving 3 votes). The prior simply quantifies our knowledge about Brownlow voting and the model evidence is probability of our observation $x$ being represented by our model. 
 
 Calculating both the likelihood and evidence can be extremely computationally expensive. Thankfully, there are numerous clever mathematical techniques to estimate these (or avoid them entirely). Importantly, the actual details of these methods are well beyond the point of this exploration.
 
@@ -196,7 +196,7 @@ Lachie Neale was the eventual winner. However, what is important to know is that
 Below, we provide our predictions for the 2023 Brownlow medal based on our first random forest model. That is, one single realisation of a random forest. Remember, for each model, we provide a predicted total preserving the 3-2-1 voting and also an expected vote total, providing a fractional total of the 6 votes that are possible in a single game.
 
 |  | Prediction (Total) |  |  |  |   | Prediction (Expected Votes) |  |  |  | 
-| -------- | ------- | -------- | ------- | -------- |
+| -------- | ------- | -------- | ------- | -------- |-------- | ------- | -------- | ------- | -------- |
 | Ranking | Player Name | Team | Total votes | Actual votes (position) | | Player Name | Team | Total votes | Actual votes (position)
 | 1 | Nick Daicos | Collingwood | 32 | 28 (3rd) | | Caleb Serong | Fremantle | 23.74 | 28 (=7th) |
 | 2 | Tim Taranto | Richmond | 30 | 19 (16th) | | Nick Daicos | Collingwood | 23.60 | 32 (3rd) |
@@ -223,7 +223,7 @@ $$
 {\rm MSE} = \frac{1}{N}\Sigma^{n}_{i=1}(V_{i} - V^{^}_{i})^{2},
 $$
 
-which is simply the sum of the square of the difference between the true vote amount ($$ V_{i} $$) and the predicted vote amount ($$ V^{^}_{i} $$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
+which is simply the sum of the square of the difference between the true vote amount ($V_{i}$) and the predicted vote amount ($V^{^}_{i}$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
 
 - At this point, I still need to calculate this quantity! However, for both approaches it still has its problems, which is why I have not prioritised it yet. While it can be applied to both approaches (3-2-1 or expected votes) which is advantageous, it still can be biased by the number of zeros when considering 3-2-1 voting. For expected voting, since it can be fractional, the differences can be larger.
 
@@ -231,7 +231,7 @@ which is simply the sum of the square of the difference between the true vote am
 
 Below, we provide the total and expected votes predictions for our second random forest model (results determined over an ensemble of 100 random forests).
 
-|  | Prediction (Total) |  |  |  |  | Predictions (Expected Votes) |  | 
+|  | Prediction (Total) |  |  |  |  |  | Predictions (Expected Votes) |  |  |
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
 | Ranking | Player Name | Team | Total votes | Actual votes (position) | | Player Name | Team | Expected votes | Actual votes (position) |
 | 1 | Tim Taranto | Richmond | 32 | 19 (16th) | | Caleb Serong | Fremantle | 20.85 | 24 (=7th) |
@@ -241,7 +241,7 @@ Below, we provide the total and expected votes predictions for our second random
 | 5 | Jordan Dawson | Adelaide | 25 | 20 (=13th) |  | Tim Taranto | Richmond | 18.97 | 19 (16th) |
 | 6 | Rory Laird | Adelaide | 24 | 20 (=13th) | | Rory Laird | Adelaide | 18.33 | 20 (=13th) |
 | 7 | Marcus Bontempelli | Bulldogs | 24 | 29 (2nd) | | Errol Gulden | Sydney | 17.60 | 27 (=4th) |
-| 8 | Clayton Oliver | Melbourne | 23 | 6 (=59th) | Zak Butters | Port Adelaide | 17.32 | 27 (=4th) | 
+| 8 | Clayton Oliver | Melbourne | 23 | 6 (=59th) | | Zak Butters | Port Adelaide | 17.32 | 27 (=4th) | 
 | 9 | Tom Green | GWS | 23 | 16 (=22nd) | | Jordan Dawson | Adelaide | 17.06 | 20 (=13th) |
 | 10 | Christian Petracca | Melbourne | 23 | 26 (6th) |  | Lachie Neale | Brisbane | 16.56 | 31 (1st) |
 
