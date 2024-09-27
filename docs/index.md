@@ -223,7 +223,7 @@ $$
 {\rm MSE} = \frac{1}{N}\Sigma^{n}_{i=1}(V_{i} - \hat{V}_{i})^{2},
 $$
 
-which is simply the sum of the square of the difference between the true vote amount ($V_{i}$) and the predicted vote amount ($V^{^}_{i}$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
+which is simply the sum of the square of the difference between the true vote amount ($V_{i}$) and the predicted vote amount ($\hat{V}_{i}$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
 
 - At this point, I still need to calculate this quantity! However, for both approaches it still has its problems, which is why I have not prioritised it yet. While it can be applied to both approaches (3-2-1 or expected votes) which is advantageous, it still can be biased by the number of zeros when considering 3-2-1 voting. For expected voting, since it can be fractional, the differences can be larger.
 
