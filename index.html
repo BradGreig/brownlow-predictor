@@ -1,0 +1,1555 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+    
+    
+      
+        <title>AFL Brownlow Predictor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="AFL Brownlow Predictor" class="md-header__button md-logo" aria-label="AFL Brownlow Predictor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AFL Brownlow Predictor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://bradgreig.github.io/brownlow-predictor/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Bradgreig
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="AFL Brownlow Predictor" class="md-nav__button md-logo" aria-label="AFL Brownlow Predictor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AFL Brownlow Predictor
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://bradgreig.github.io/brownlow-predictor/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Bradgreig
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-brownlow-and-why-predict-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the Brownlow and why predict it?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Insights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-player-statistics-that-led-to-brownlow-votes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw player statistics that led to Brownlow votes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ranked-match-performance-by-brownlow-votes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ranked match performance by Brownlow votes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-statistics-to-focus-on-for-the-predictive-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which statistics to focus on for the predictive models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predictive models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Predictive models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-forest-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random Forest Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordinal-logistic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordinal Logistic Regression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-based-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Based Inference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-against-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation against 2023
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation against 2023">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-forest-classification_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random Forest Classification.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordinal-logistic-regression_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordinal Logistic Regression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-based-inference_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Based Inference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possible-improvements-to-the-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possible improvements to the models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2024-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024 Predictions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2024 Predictions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-forest-classification_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random Forest Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-based-inference_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Based Inference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-against-actual-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Against Actual Result
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contact Information
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+<p>This page contains a detailed summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all models into their own GitHub repos for sharing. There is a fair bit of information below providing a lot of context. If you are only interested in the final predictions, feel free to jump straight to the 2024 predictions (or equally the comparisons against 2023).</p>
+<p>On this page you can find the following:</p>
+<ul>
+<li><a href="#Why">What is the Brownlow and why predict it?</a></li>
+<li><a href="#data">Available data</a></li>
+<li><a href="#data-insights">Data Insights</a></li>
+<li><a href="#predictive-models">Predictive models</a></li>
+<li><a href="#predictions">2024 Predictions</a></li>
+</ul>
+<h2 id="what-is-the-brownlow-and-why-predict-it">What is the Brownlow and why predict it?<a class="headerlink" href="#what-is-the-brownlow-and-why-predict-it" title="Permanent link">&para;</a></h2>
+<p>The AFL <a href="https://en.wikipedia.org/wiki/Brownlow_Medal">Brownlow</a> medal is awarded to the best and fairest player over the course of the AFL season (players suspended for a match are deemed ineligible). Voting is performed after each game by the three officiating match umpires in a 3-2-1 fashion (3 being the best). At the end of the season the votes are collated and the Brownlow medal (a.k.a Charlie after its namesake) is awarded. </p>
+<p>The voting is completely blind, with results unknown until the night of the medal ceremony (held at the start of the week before the AFL Grand Final). Since the voting is performed by the match umpires, the voting is completely subjective rather than being objectively based on some pre-determined criteria. This makes the Brownlow more difficult to predict and adds to the mystery and intrigue on the night of the ceremony. Equally, this makes it much more difficult to create a predictive model, however, that just adds interest to exploring the performance of predictive models. For this reason, the goal is not to create a perfect predictive model, instead it is just to see how well such models work.</p>
+<p>Despite the fact that the voting is subjective, the votes do typically correlate with a player's statistical performance as we shall explore further below. Although there are some fun historical outliers of players receiving votes for not a very statistically significant performance. Therein lies the difficulty.</p>
+<p>To investigate the ability to construct a predictive model for Brownlow voting I'll explore a few different models. Some of these are based on people's previous attempts, which I'll highlight later.</p>
+<h2 id="available-data">Available data<a class="headerlink" href="#available-data" title="Permanent link">&para;</a></h2>
+<p>In the modern era of sports statistics, we have a wealth of statistical data at our disposal deeply analysing each match. Of course, while we have Brownlow voting results dating back to its inception in 1924, the accompanying individual player stats will be severely lacking.</p>
+<p>However, as mentioned earlier, Brownlow voting is subjective, therefore raw player statistics may not be the best data to be using in any case. In the 2000's, fantasy sports arrived in the AFL with AFL <a href="https://en.wikipedia.org/wiki/AFL_Dream_Team#:~:text=AFL%20Dream%20Team%20is%20an,League%20(AFL)%20and%20Toyota.">Dreamteam</a> in 2001 and its competitor AFL <a href="https://en.wikipedia.org/wiki/AFL_SuperCoach">Supercoach</a>. What is of relevance here is that these fantasy games award a score to a player's performance in each game. This score is calculated on a pre-determined criteria according to the individual players statistics. Therefore, it accurately summarises a total performance rather than needing a bunch of individual stats. Further, it has been <a href="https://justindatascience.com/predicting-brownlow-votes/">shown</a> that these fantasy scores correlate well with Brownlow performance.</p>
+<p>A great source for AFL statistics is the <a href="https://cran.r-project.org/web/packages/fitzRoy/vignettes/fitzRoy.html">fitzRoy</a> R package. This conveniently provides an API for obtaining all manner of AFL statistics sourced from multiple databases. This obviously will be of great use for this project.</p>
+<p>However, I found it only contained AFL fantasy scores dating back to 2010. Which to be fair, is almost certainly more than enough. But, for the fun of it (glutton for punishment), I decided to see if I could find any additional data to create a larger database than previous models. After a little bit of time hacking together some scripts to scrape data off <a href="https://www.footywire.com/">Footywire</a> (one of the main repositories of statistical information) I was able to obtain additional fantasy data for the 2007 - 2009 seasons. </p>
+<p>In total, I have individual player statistical data (including Brownlow and fantasy scores) spanning 2007 - 2023 to explore. This corresponds to a total of 3023 games. The goal is to create a predictive model for the 2024 season, so we have those 198 games as well. Obviously without the Brownlow information.</p>
+<h2 id="data-insights">Data Insights<a class="headerlink" href="#data-insights" title="Permanent link">&para;</a></h2>
+<p>There is a considerable amount of individual player statistical data available, not all of which correlate with a player's chances of getting Brownlow votes. Let's take a look into the data and see what interesting insights we can obtain about what statistics may be useful to predict a player's chances of receiving Brownlow votes. This will help us decide what information to focus on for predicting our models.</p>
+<p>For the purposes of creating predictive models, raw numbers are not going to be overly helpful for most statistics. This is for multiple reasons: (i) game conditions; wet/dry games lead to different distributions of statistics, (ii) game styles; rule changes over the years lead to different team strategies and game style and (iii) it allows us to deal with the shortened matches in 2020 due to Covid-19. There are a few different ways we could choose to do this, and we will look into a few of those here. For example, we can normalise each individual statistic according to the match statistics (which emphasises players who got the most disposals/goals etc.). This could either be as a zero to one (one being highest total of that statistic). Alternatively, this could be as a fraction (e.g. 10 per cent of all goals kicked in the game). We could equally just rank all players 1-40 odd, for the most/least of each statistic. All these should work out to behave similarly, but some are more intuitive for obtaining insights.</p>
+<h3 id="raw-player-statistics-that-led-to-brownlow-votes">Raw player statistics that led to Brownlow votes<a class="headerlink" href="#raw-player-statistics-that-led-to-brownlow-votes" title="Permanent link">&para;</a></h3>
+<p>To begin with, let's look at what statistics lead to 3-2-1 votes in all our historical games.</p>
+<p><img alt="Brownlow vote game statistics" src="https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png?raw=true" /></p>
+<p>Here, for a variety of available statistics, we are looking at the fraction of times a player with a given statistic polls 1 (purple), 2 (blue) or 3 (red) votes compared to the total number of times a player has achieved that equivalent statistic. The black curve is simply the sum of all possible voting outcomes (i.e. any vote achieved). For example, in the first panel (for total disposals), a player who achieves 40 disposals has gotten a Brownlow vote roughly 80 per cent of the time (black curve is at roughly 0.8). More specifically, it is 3 votes 50 per cent of the time, 2 votes 25 per cent of the time and 1 vote about 5 per cent of the time. </p>
+<p>In representing the information in this way, we are able to get a good grasp on which particular statistics are most important for determining who receives Brownlow votes. However, this information does not take into account the rarity of achieving these statistical feats. For example, achieving 50 disposals in a game, or kicking over 10 goals does not happen very often. In fact, both have only happened a handful of times in over 15 years of data shown in these graphs. In a data sense these are referred to as rare events (or outliers), and we want to limit the number of these as they are going to be problematic for our models. This is exactly why normalising the information in some manner is important. For example, ranking by disposals. This ensures the player with the most disposals is always ranked first. More on that later.</p>
+<p>In any case, we can draw some useful insights from these graphs. For example;</p>
+<ul>
+<li><strong>Disposals:</strong> The chance of receiving a Brownlow vote rapidly increases after about 25 disposals.</li>
+<li><strong>Marks:</strong> Obtaining more marks increases your chance of a Brownlow vote, however, at more than 15 in a game (rare) it is still only a 50 per cent chance of a vote. Therefore, the number of marks is not overly relevant to a chance of receiving votes.</li>
+<li><strong>Kicks and handballs:</strong> Correlate similarly, the more you have the higher the chance of voting. The total of these is your disposals, so this is not too surprising.</li>
+<li><strong>Goals:</strong> A player kicking 5 goals in a game has a 50 per cent chance of getting a Brownlow vote. This becomes almost 90 per cent if they kick 6. Kicking 8 or more is at least an 80 per cent chance of obtaining 3 votes. Doing so is increasingly rare though.</li>
+<li><strong>Hitouts:</strong> The primary statistic for a ruckman (typically the tallest player on the ground). They aim to hit the ball to the advantage of their team at all stoppages. Traditionally, the ruckman polls incredibly poorly, and this panel shows why. Until they are achieving 60 (which is extremely rare), the number of hitouts seemingly does not matter for achieving a Brownlow vote. Even at 60 hitouts, it's a barely 50 per cent chance of receiving a vote (only 25 per cent chance of getting 3 votes). Therefore, for a ruckman to actually poll well in a game, they will equally have to have an impact on the game through a high number of disposals and/or goals. A tough job!</li>
+<li><strong>Tackles:</strong> The total number of tackles does not particularly matter. The more helps, but it barely increases the chance of getting votes.</li>
+<li><strong>Inside 50s:</strong> Tracks fairly similarly to the total of marks. Achieving a large number increases you chances as either you are getting a lot of disposals or contributing to your team scoring.</li>
+<li><strong>Clearances and contested possessions:</strong> Correlate fairly strongly with voting performance. Here, a player is almost certainly in the eyeline of the umpire increasing the chances of standing out.</li>
+<li><strong>Contested marks:</strong> Typically the forte of forwards or defenders. But typically, there are not too many in a game. A large number is likely going to correlate with a large number of shots at goal if you are a forward. For a defender, you are not going to stand out. Hence, key defenders rarely poll at all. The rarity of games with notable numbers means this statistic does not contribute significantly.</li>
+<li><strong>Goal assists:</strong> Are getting the ball to a teammate who subsequently kicks a goal. Unless you achieve a high number of these (over 5), it has little bearing on performance.</li>
+<li><strong>AFL Fantasy and Supercoach:</strong> Unsurprisingly, a high score in these strongly correlates to Brownlow performance. These provide a single score summarising a players match performance based on the earlier statistics. Therefore, these will be important for our predictive model. Interestingly, achieving a Supercoach score of over 200 does not guarantee a vote! In Round 10 2007, Josh Drummond achieved 227 and did not poll a vote. In Round 13 2008, Joel Bowden scored 223 and equally did not poll!</li>
+</ul>
+<h3 id="ranked-match-performance-by-brownlow-votes">Ranked match performance by Brownlow votes<a class="headerlink" href="#ranked-match-performance-by-brownlow-votes" title="Permanent link">&para;</a></h3>
+<p>As highlighted earlier, the actual raw statistics are less relevant as there is theoretically no upper limit to how many of any one statistic that can be achieved. Therefore, to improve the data quality in preparation for our predictive models, lets now look at some normalised data. Here, we ranked each achieved statistic (1-44). The most disposals achieves 1, second most 2 etc. </p>
+<p>Below, we show the cumulative probabilities of achieving 1, 2 or 3 votes as a function of the ranking of that statistic. The cumulative probability is simply the total probability within a range (i.e. up to a particular ranking in our case), with it can achieve a maximum of one. The advantage of using cumulative probabilities is that it allows us to quickly observe how important the ranking is to achieving Brownlow votes. If important, the cumulative probability will rapidly approach one for only the highest rankings. For those that are less relevant, the cumulative probability approaches one much more slowly, requiring us to go further down our list of rankings until we achieve all possible cases of achieving a Brownlow vote.</p>
+<p><img alt="Brownlow votes by ranking" src="https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png?raw=true" /></p>
+<p>Again, these are extremely useful for understanding the importance of an individual statistic on receiving Brownlow votes. In fact, these are more informative than what we observed previously.</p>
+<ul>
+<li><strong>Disposals:</strong> 75 per cent of the time, 3 votes are awarded to the player who achieves the top 5 most disposals in a game. It decreases for lower votes, highlighting that 1 or 2 votes are more frequently awarded to players with fewer disposals (i.e. they did something else to stand out to the umpires). The cumulative probability then grows more slowly with decreasing rank highlighting that votes can still be awarded to players who do not achieve a high number of disposals (although it is less common)</li>
+<li><strong>Marks:</strong> This is almost a straight line, highlighting how little bearing the total number of marks a player has on the ability to achieve Brownlow votes.</li>
+<li><strong>Kicks and handballs:</strong> Unsurprisingly these reflect the behaviour of total disposals (the sum). Kicks are valued more highly, as indicated by the higher cumulative probability than handballs for a similar rank. This just emphasises that kicks are more important in the game (i.e. move the ball further).</li>
+<li><strong>Goals:</strong> In viewing it as a cumulative probability, it seems this is not as relevant. However, that has more to do with the fact that it is extremely rare to kick 5 or more goals in a game and it even more rate for more than one player to do it in a game. Arguably, this indicates it could be preferable to use total goals rather than most goals in a game as a feature for our model. More on that later.</li>
+<li><strong>Hitouts:</strong> The ruckman will appear in the first few ranks as only the player in that position is going to be achieving large numbers of hitouts. The fact the cumulative probability is flat until rank 5, highlights how few votes are awarded to an actual ruckman.</li>
+<li><strong>Tackles:</strong> Similar to the number of marks, it has very little bearing, but it does have a slightly larger separation in the breakdown of 3-2-1 votes.</li>
+<li><strong>Inside 50s:</strong> Achieving a high number of inside 50s has an impact, however, it is less significant than other statistics. But it could be useful as an extra feature or discriminator.</li>
+<li><strong>Clearances and contested possessions:</strong> Again, these are important. Being top 5 in these achieves 3 votes over 50 per cent of the time. Not as important as total disposals or the fantasy scores, but still extremely important.</li>
+<li><strong>Contested marks and goal assists:</strong> Achieving the highest ranking in these statistics does not guarantee a high chance of polling Brownlow votes. Again, only exceedingly rare, high totals appear to improve the chances.</li>
+<li><strong>AFL Fantasy and Supercoach:</strong> The top 5 ranked players in either fantasy score achieve Brownlow votes over 80 per cent of the time. The top 10 is close to 95 per cent. Therefore, both of these will be the most important.</li>
+</ul>
+<p>As noted above, for most of our statistics, ranking from highest to lowest appears to provide a strong discriminator. However, for some statistics, where rarity is more important (e.g. total number of goals), a ranking may not suit. Therefore, likely a combination is probably required to achieve the best performance for our predictive models. However, we shall not look into that yet, with a focus on just getting a model working in the first place.</p>
+<p>Finally, it is worth pointing out here that the Brownlow is colloquially known as the midfielder's medal. That is, it is almost exclusively won by a player in these positions. Midfielders achieve the highest disposals, clearances and contested possessions. And cumulatively, these lead to the highest fantasy scores. We can see clearly that this tracks with what we see in the data.</p>
+<h3 id="which-statistics-to-focus-on-for-the-predictive-models">Which statistics to focus on for the predictive models<a class="headerlink" href="#which-statistics-to-focus-on-for-the-predictive-models" title="Permanent link">&para;</a></h3>
+<p>Following on from the insights above, I now outline which statistics I choose to keep for creating the predictive models. Additionally, although it may not be suitable for all statistics (e.g. goals), for now I will choose to normalise each statistic by the maximum achieved number in the game. That is, if 40 was the most disposals and 35 was the second most, these would result in values of 1 and 0.875, respectively. This is similar to the ranking scheme above, although should be slightly better as it more significantly distinguishes rarer events (second value will differ by larger amounts).</p>
+<ul>
+<li><strong>Disposals:</strong> An obvious choice, given its importance. Note, I do not use the kicks and handballs independently as these are embedded in the total disposals.</li>
+<li><strong>Goals:</strong> Although by normalising it, I may be diminishing its value. I will explore this later.</li>
+<li><strong>Tackles:</strong> Not overly important, but it is more important than marks which I have excluded. Might be a nice discriminator.</li>
+<li><strong>Inside 50s:</strong> Was significant enough to include.</li>
+<li><strong>Clearances:</strong> Found to be relatively significant.</li>
+<li><strong>Contested possessions:</strong> Also found to be relatively significant.</li>
+<li><strong>Goal assists:</strong> Not overly significant, but enough to discriminate between players.</li>
+<li><strong>AFL Dreamteam:</strong> Extremely significant.</li>
+<li><strong>AFL Supercoach:</strong> Extremely significant.</li>
+<li><strong>Winning team:</strong> A binary choice, with one indicating a player from the winning team and zero for a losing team (in a draw, everyone is assigned one). This is to crudely account for the fact that you are considerably more likely to poll Brownlow votes when your team wins the match.</li>
+</ul>
+<p>Note, I have only excluded total marks, contested marks and hitouts from the graphs from earlier.</p>
+<p>Finally, it is important to note I have included both fantasy scores (Supercoach and Dreamteam). And these equally are dependent on other statistics. In general, one does not want to include too many dependent variables (if any) into the models. However, they are different enough to each bring unique value to the model and contain additional information (e.g. disposal efficiency, number of player mistakes).</p>
+<p>At this point it would be worth highlighting that I could (probably should) do an elaborate sensitivity analysis, trialling different combinations of various statistics to be used in our predictive models to see how significant each statistic is to the overall model performance. This way I can determine which statistics are of most importance (or even different normalisations) and reduce the complexity of the models. The importance of each statistic can be explored by calculating quantities such as the Akaike Information Criterion when including/excluding a particular statistic. If it suitably improves the model predictions, it is worth using that particular model feature. I might do this in future, but definitely not yet. </p>
+<h2 id="predictive-models">Predictive models<a class="headerlink" href="#predictive-models" title="Permanent link">&para;</a></h2>
+<p>Briefly searching the web, I stumbled upon a few existing models to predict the AFL Brownlow: (i) Ordinal Logistic Regression combined with Monte Carlo simulations <a href="https://chewthestat.com/monte-charlo-using-data-to-predict-the-brownlow-medal/">Monte ChaRlo</a> (ii) <a href="https://github.com/betfair-datascientists/predictive-models/blob/master/brownlow/Betfair%20Data%20Scientists'%20Brownlow%20Model.ipynb">automated machine learning</a> (iii) <a href="https://justindatascience.com/predicting-brownlow-votes/">simple ranking based approach</a> and (iv) a <a href="https://towardsdatascience.com/brownlow-medal-predictor-36586d535226">random forest approach</a></p>
+<p>Each slightly differs in their predictive model methodology or the volume of data (and features used) and were extremely helpful resources when constructing my own models or for providing me with ideas.</p>
+<p>For now, my likely overly ambitious goal is to create several different predictive models based on a variety of these and other different methodologies.</p>
+<h3 id="random-forest-classification">Random Forest Classification<a class="headerlink" href="#random-forest-classification" title="Permanent link">&para;</a></h3>
+<p>The logical go-to first attempt for a Brownlow predictor. A random forest is simply a collection (ensemble) of decision trees. These decision trees are a supervised learning algorithm for classification tasks which is exactly what we are dealing with (3-2-1-0 voting given a player's statistics). Each of these decision trees is simply trained on our input historical data to construct a series of logical (true/false) decisions to convert our input statistics to an output vote. For example, did a player kick 10 goals in a game? Yes, then that's likely to be 3 votes. For a more run of the mill game, it would need to go through all the players statistics to see if they did anything significant warranting a Brownlow vote.</p>
+<p>Implementing a random forest classifier is fairly straightforward, with numerous available packages. For me, I implemented a random forest using the scikit-learn package in Python. To train, we simply pass in our normalised statistical match data and the corresponding votes awarded for each of these players. It then learns the criteria needed to distinguish between our Brownlow voting.</p>
+<p>In preparation for the 2024 Brownlow, we want to train and verify our methodology against known results. Therefore, to build the random classifier model we will use the 2007 - 2022 data to predict the 2023 Brownlow (won by Lachie Neale from Brisbane). For our model, we will use those statistical quantities that we determined earlier to be important for being awarded Brownlow votes. </p>
+<p>Importantly, when applying our random forest, we cannot directly enforce that 6 Brownlow votes are awarded in each match. Instead, we pass an individual players normalised match statistics to our trained random forest, and we obtain a probability for each of the possible outcomes (classes; that is 0, 1, 2 or 3 votes). Since a random forest is a collection of decision trees, this probability is simply the number of decision trees that predicted a particular vote relative to the total number of decision trees.</p>
+<p>We then need to use these probabilities to determine our actual 3-2-1 voting. To do so, we calculate an expected number of votes. This is calculated as;</p>
+<div class="arithmatex">\[
+P({\rm expected}) = P({\rm 1\,vote}) + 2*P({\rm 2\,votes}) + 3*P({\rm 3\,votes}).
+\]</div>
+<p>Which is simply the sum of the probability of each outcome multiplied by its corresponding vote amount, and we compute this for each player. Importantly, the sum of this quantity for a match can be more or less than the maximum 6 votes that can be awarded within any given match. Therefore, we have to renormalise the expected probabilities to ensure they correspond to 6.</p>
+<p>With this information, we can do one of two things. We can take the list of expected votes, and simply award 3-2-1 to the players with the highest expected votes within a single game. This enables us to preserve the 3-2-1 voting. Repeating over the full season, we obtain a single observation of a voting count reflective of the actual Brownlow. Alternatively, we can just sum the expected votes for each player over the course of the season. The player with the highest expected votes at the end of the season is then the predicted winner. However, the total votes are fractional, and the total and difference is less intuitive (but the season total still adds up to the correct number of votes due to our earlier normalisation step). The former is likely better for predicting the actual vote count; however, the latter includes more variability, better handling the more apparent randomness of awarding 1 and 2 votes. Therefore, it is likely stronger at predicting the actual winner and other place getters. Throughout we will always provide both for the same predictive model.</p>
+<p>For our first random forest model, we train a random forest containing a 100 decision trees.</p>
+<p>For the second model, we instead train a larger number of random forests (100 with 100 decision trees each). Primarily the reason for doing so is to explore the statistics of an individual players expected votes. By constructing 100 random forests, I can obtain a distribution of 100 expected votes per player per match. This enables me to estimate an uncertainty (i.e. how accurate I think the model has estimated the expected votes). For example, in our first model, we obtain a single expected vote value based on one model (set of initial conditions). Now, by having a distribution, we can quantify if this is narrow or broadly distributed. If broadly distributed, this means there is high uncertainty in our particular players statistics. If narrowly distributed, we have high certainty we are correctly estimating their expected votes. Importantly, it should not really change the overall predictions, however, it allows an additional uncertainty to be assigned to our end of seasons predictions. That is, rather than simply providing a vote tally, we can equally provide an estimate for how likely the player is at actually winning. Players with a low uncertainty, we will be fairly confident about their final performance. Players with a high uncertainty could poll very well, or equally very poorly. This could be useful for explaining a better/worse than expected performance of an individual player.</p>
+<p>Finally, one last important point to make is that when training these predictive models, we do not use all of the available player statistics. The reasoning for this is that in a single match, only 3 players can be awarded votes. The remaining 41 players are awarded zero votes. For this classification task, this leads to a large amount of noise in the predictive models. Therefore, we limit the number of zero voted players to be included in our training sample to be 12 (4 times the number of players awarded votes). These 12 players are selected at random.</p>
+<h3 id="ordinal-logistic-regression">Ordinal Logistic Regression<a class="headerlink" href="#ordinal-logistic-regression" title="Permanent link">&para;</a></h3>
+<p>Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.</p>
+<p>Still a work in progress on this one. Stay tuned.</p>
+<h3 id="simulation-based-inference">Simulation Based Inference<a class="headerlink" href="#simulation-based-inference" title="Permanent link">&para;</a></h3>
+<p>Absolutely no idea if this will work, however, this is a machine learning technique I am familiar with from my days as an astrophysicist. This technique will allow us to turn the voting prediction into a Bayesian inference problem. This is almost certainly way over the top for this problem, however, I just wanted to give it a shot to see how it would work. Below you can find more technical details on this approach, however, equally feel free to skip this entirely!</p>
+<p>Bayesian inference is predicting the probability of an outcome based on our model. In our case, the probability of receiving Brownlow votes based on the individual player statistics. This is referred to as a posterior (effectively our random forest classifier has been returning the mean of this posterior). To evaluate this, we need to calculate it using Bayes' theorem;</p>
+<div class="arithmatex">\[
+P(\theta | x) = \frac{P(x | \theta)P(\theta)}{P(x)}
+\]</div>
+<p>Here, <span class="arithmatex">\(P(\theta | x)\)</span> is the posterior, which is the probability distribution of obtaining our Brownlow vote, <span class="arithmatex">\(\theta\)</span>, given our observation, <span class="arithmatex">\(x\)</span> (the set of players individual match statistics). To obtain this posterior, we multiply the likelihood function, <span class="arithmatex">\(P(\theta | x)\)</span>, by our prior, <span class="arithmatex">\(P(\theta)\)</span>, divided by our evidence, <span class="arithmatex">\(P(x)\)</span>. The most important term here is the likelihood, which describes the probability of obtaining our observation <span class="arithmatex">\(x\)</span> (i.e. player statistics) given our Brownlow vote (e.g. the probability that those statistics occur when achieving 3 votes). The prior simply quantifies our knowledge about Brownlow voting and the model evidence is probability of our observation <span class="arithmatex">\(x\)</span> being represented by our model. </p>
+<p>Calculating both the likelihood and evidence can be extremely computationally expensive. Thankfully, there are numerous clever mathematical techniques to estimate these (or avoid them entirely). Importantly, the actual details of these methods are well beyond the point of this exploration.</p>
+<p>The method I will employ here is Simulation Based Inference (SBI). More specifically, marginal neural ratio estimation (MNRE) to obtain the posterior (the probability that a particular player obtains a vote given their performance). Basically, we use machine learning to train a model to estimate the likelihood to evidence ratio given all the available historical statistical data (our training data). Then, once we have this, we simply pass in a player's statistics, and we return the posterior, which is a posterior distribution describing how likely it is at obtaining zero, 1, 2 or 3 Brownlow votes. This posterior will be a continuous distribution (not discrete like our 3-2-1 voting); however, we can easily convert the associated probabilities into such a voting scheme.</p>
+<p>To train the SBI model I use the exact same training set as that used for the random classifier (again, limiting the total number of players in each game who received zero votes).</p>
+<p>Once the model is complete, we are able to obtain our posterior for the Brownlow voting for each individual player in a match based on their match statistics. This allows us to know how likely a certain vote is expected to occur.</p>
+<h2 id="validation-against-2023">Validation against 2023<a class="headerlink" href="#validation-against-2023" title="Permanent link">&para;</a></h2>
+<p>As mentioned earlier, prior to using our models to predict the Brownlow, we must validate our models against known results. Previously, we constructed our training sets based on the 2007 - 2022 data, with the intention of validating against the 2023 results.</p>
+<p>In preparation for this validation step, we provide the 2023 Brownlow top 10.</p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Player Name</th>
+<th>Team</th>
+<th>Total votes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>31</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>29</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>28</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>27</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>27</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Christian Petracca</td>
+<td>Melbourne</td>
+<td>26</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Jack Viney</td>
+<td>Melbourne</td>
+<td>24</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>24</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Noah Anderson</td>
+<td>Gold Coast</td>
+<td>22</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<p>Lachie Neale was the eventual winner. However, what is important to know is that this was somewhat of a surprise. Most people (and predictive models) did not anticipate him winning. Therefore, in our validation, it is important to remember this as predicting the winner might be difficult.</p>
+<h3 id="random-forest-classification_1">Random Forest Classification.<a class="headerlink" href="#random-forest-classification_1" title="Permanent link">&para;</a></h3>
+<h4 id="model-1">Model 1<a class="headerlink" href="#model-1" title="Permanent link">&para;</a></h4>
+<p>Below, we provide our predictions for the 2023 Brownlow medal based on our first random forest model. That is, one single realisation of a random forest. Remember, for each model, we provide a predicted total preserving the 3-2-1 voting and also an expected vote total, providing a fractional total of the 6 votes that are possible in a single game.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Prediction (Total)</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Prediction (Expected Votes)</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rank</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Predicted votes</td>
+<td>Actual votes (position)</td>
+<td></td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Expected votes</td>
+<td>Actual votes (position)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>32</td>
+<td>28 (3rd)</td>
+<td></td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>23.74</td>
+<td>28 (=7th)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tim Taranto</td>
+<td>Richmond</td>
+<td>30</td>
+<td>19 (16th)</td>
+<td></td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>23.60</td>
+<td>32 (3rd)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>29</td>
+<td>31 (1st)</td>
+<td></td>
+<td>Tim Taranto</td>
+<td>Richmond</td>
+<td>21.04</td>
+<td>19 (16th)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>28</td>
+<td>24 (=7th)</td>
+<td></td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>20.94</td>
+<td>27 (5th)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Jordan Dawson</td>
+<td>Adelaide</td>
+<td>26</td>
+<td>20 (=13th)</td>
+<td></td>
+<td>Christian Petracca</td>
+<td>Melbourne</td>
+<td>20.85</td>
+<td>26 (6th)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Christian Petracca</td>
+<td>Melbourne</td>
+<td>23</td>
+<td>26 (6th)</td>
+<td></td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>20.02</td>
+<td>29 (2nd)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>23</td>
+<td>29 (2nd)</td>
+<td></td>
+<td>Rory Laird</td>
+<td>Adelaide</td>
+<td>19.83</td>
+<td>(=13th)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tom Green</td>
+<td>GWS</td>
+<td>22</td>
+<td>16 (=22nd)</td>
+<td></td>
+<td>Jordan Dawson</td>
+<td>Adelaide</td>
+<td>19.59</td>
+<td>20 (=13th)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>22</td>
+<td>27 (=4th)</td>
+<td></td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>18.32</td>
+<td>27 (=4th)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>21</td>
+<td>27 (=4th)</td>
+<td></td>
+<td>Zach Merrett</td>
+<td>Essendon</td>
+<td>17.78</td>
+<td>(=19th)</td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, we did not predict the winner. He was predicted to be 3rd when applying 3-2-1 based on the ranked three highest probabilities in the match. However, in our expected votes model did not even have Lachie Neale in the top 10. While he was a surprise winner, this is potentially indicative that more work is required.</p>
+<p>In total, our model based on 3-2-1 voting predicted 7 of the top 10 (but not in the correct order). Our expected votes model predicted 6 of the top 10 (not correct order), with the winner completely absent. Overall, this actually is not too bad, indicating that our models are performing reasonably for a first attempt. Certainly, there is plenty of room for improvement.</p>
+<p>To assess our model performance a bit more quantitatively, we can look at the overall accuracy of the model. Essentially, how often did it predict the correct 3-2-1-0 voting per match over the course of the season. For our first model, we obtain an accuracy of 82 per cent. Which does not seem too bad. However, this is going to be significantly dominated by the number of zero vote games (if the model predicted zero votes for every single player it would have an accuracy of 80 per cent!). It is then more instructive to look at how well it predicted the players obtaining the correct 3-2-1 votes. For this, we determine an accuracy of 63, 39 and 32 per cent for 3-2-1 votes, respectively. It is not surprising to be considerably lower, given the subject nature of voting. Further, awarding 3 votes is considerably easier than awarding 2 or 1 votes. A much broader range of players typically perform well enough to be awarded at least one vote, therefore it is somewhat random who actually receives that vote. Further, estimating the accuracy in this way does not take into account whether or not we got the correct ordering of the voting. For example, giving a player 2 instead of the actual 1 or 3 they received. However, it provides a useful illustrative example of how the model is performing.</p>
+<p>Importantly, this accuracy breakdown is only valid to our model that applies the 3-2-1 voting based on the three highest probabilities in the match. Using the expected votes total does not actually care about who actually received votes as all players are awarded some fractional total of what is available. Therefore, this approach is considerably better at handling the increased uncertainty around who actually could receive votes and in what order they could possibly have received them.</p>
+<p>A more accurate quantitative measure to determine performance would be to consider something like the mean square error (MSE);</p>
+<div class="arithmatex">\[
+{\rm MSE} = \frac{1}{N}\Sigma^{n}_{i=1}(V_{i} - \hat{V}_{i})^{2},
+\]</div>
+<p>which is simply the sum of the square of the difference between the true vote amount (<span class="arithmatex">\(V_{i}\)</span>) and the predicted vote amount (<span class="arithmatex">\(\hat{V}_{i}\)</span>). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).</p>
+<ul>
+<li>At this point, I still need to calculate this quantity! However, for both approaches it still has its problems, which is why I have not prioritised it yet. While it can be applied to both approaches (3-2-1 or expected votes) which is advantageous, it still can be biased by the number of zeros when considering 3-2-1 voting. For expected voting, since it can be fractional, the differences can be larger.</li>
+</ul>
+<h4 id="model-2">Model 2<a class="headerlink" href="#model-2" title="Permanent link">&para;</a></h4>
+<p>Below, we provide the total and expected votes predictions for our second random forest model (results determined over an ensemble of 100 random forests).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Prediction (Total)</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Predictions (Expected Votes)</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rank</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Predicted votes</td>
+<td>Actual votes (position)</td>
+<td></td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Expected votes</td>
+<td>Actual votes (position)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Tim Taranto</td>
+<td>Richmond</td>
+<td>32</td>
+<td>19 (16th)</td>
+<td></td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>20.85</td>
+<td>24 (=7th)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>32</td>
+<td>28 (3rd)</td>
+<td></td>
+<td>Christian Petracca</td>
+<td>Melbourne</td>
+<td>20.51</td>
+<td>26 (6th)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>29</td>
+<td>31 (1st)</td>
+<td></td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>20.11</td>
+<td>28 (3rd)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>29</td>
+<td>24 (=7th)</td>
+<td></td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>19.98</td>
+<td>29 (2nd)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Jordan Dawson</td>
+<td>Adelaide</td>
+<td>25</td>
+<td>20 (=13th)</td>
+<td></td>
+<td>Tim Taranto</td>
+<td>Richmond</td>
+<td>18.97</td>
+<td>19 (16th)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Rory Laird</td>
+<td>Adelaide</td>
+<td>24</td>
+<td>20 (=13th)</td>
+<td></td>
+<td>Rory Laird</td>
+<td>Adelaide</td>
+<td>18.33</td>
+<td>20 (=13th)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>24</td>
+<td>29 (2nd)</td>
+<td></td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>17.60</td>
+<td>27 (=4th)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Clayton Oliver</td>
+<td>Melbourne</td>
+<td>23</td>
+<td>6 (=59th)</td>
+<td></td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>17.32</td>
+<td>27 (=4th)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Tom Green</td>
+<td>GWS</td>
+<td>23</td>
+<td>16 (=22nd)</td>
+<td></td>
+<td>Jordan Dawson</td>
+<td>Adelaide</td>
+<td>17.06</td>
+<td>20 (=13th)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Christian Petracca</td>
+<td>Melbourne</td>
+<td>23</td>
+<td>26 (6th)</td>
+<td></td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>16.56</td>
+<td>31 (1st)</td>
+</tr>
+</tbody>
+</table>
+<p>At first glance, these predictions look fairly similar to that of the first random forest model. Again, we do not predict the winner of Lachie Neale. Interestingly, awarding only 3-2-1 voting to the three highest probabilities of receiving votes (after averaging over the 100 random forest) has performed the worst of the lot. It only predicts 6 of the top 10, and weirdly has Clayton Oliver in the top 10 despite an actual equal 59th finish. Something probably has gone awry there requiring further investigation. </p>
+<p>With respect to expected votes, this performs equally well as the earlier models, recovering 7 of the top 10 (out of order of course). Unfortunately, at this point I have not found the time to add in the uncertainties (errors) associated with the voting which was the point of this model. However, I added the predictions to be able to use it for the 2024 results.</p>
+<p>For this model, I recovered an overall accuracy of 82 per cent, similar to that of model 1 (again, this is dominated by the zero vote predictions). Breaking it down further, I recovered an accuracy of 65, 40 and 29 per cent for correctly predicting the 3, 2 and 1 vote winners. This is slightly higher than the 63, 39 and 32 per cent of model 1. But this should not be too surprising as we are using a much larger number of decision trees in our random forest.</p>
+<ul>
+<li>I still need to compute the mean square error (MSE) for this model as well.</li>
+</ul>
+<h3 id="ordinal-logistic-regression_1">Ordinal Logistic Regression<a class="headerlink" href="#ordinal-logistic-regression_1" title="Permanent link">&para;</a></h3>
+<p>Have not found the time to start working on this yet but will soon.</p>
+<h3 id="simulation-based-inference_1">Simulation Based Inference<a class="headerlink" href="#simulation-based-inference_1" title="Permanent link">&para;</a></h3>
+<p>Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. At this point, I am not 100 per cent confident it is working perfectly. I have not had the time to investigate it to the level of rigour it needs. There are likely many improvements that can be made to improve its overall performance. For example, the resultant posteriors are rather broad, much broader than expected. This could be caused by a larger number of reasons: (i) insufficient training data (ii) too many unimportant parameters and/or (iii) sub-optimal machine learning architecture. These will need a more detailed exploration behind the scenes!</p>
+<p>Nevertheless, putting that all aside, I will still provide its current predictions. However, note that things are likely change (hopefully improve!).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Predictions (Total)</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rank</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Predicted votes</td>
+<td>Actual votes (position)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Christian Petracca</td>
+<td>Melbourne</td>
+<td>35</td>
+<td>26 (6th)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>34</td>
+<td>24 (=7th)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>28</td>
+<td>28 (3rd)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tim Taranto</td>
+<td>Richmond</td>
+<td>27</td>
+<td>19 (16th)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>27</td>
+<td>31 (1st)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>27</td>
+<td>29 (2nd)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Jordan Dawson</td>
+<td>Adelaide</td>
+<td>26</td>
+<td>20 (=13th)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>25</td>
+<td>27 (=4th)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Rory Laird</td>
+<td>Adelaide</td>
+<td>24</td>
+<td>20 (=13th)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>24</td>
+<td>27 (=4th)</td>
+</tr>
+</tbody>
+</table>
+<p>Note, for now I have only been able to provide a tally by awarding 3-2-1 votes to the three players with the highest probabilities of obtaining votes (highest means from the posterior). Due to the unexpectedly broad posteriors, computing an expected vote has not been very illuminating. Therefore, I refrain from providing that until I can find the time to work on fixing up this model.</p>
+<p>Despite the potential issues, this first attempt at an SBI approach has provided reasonable looking predictions. Again, while not obtaining the correct order, it still correctly identified 7 of the top 10, which is comparable to our previous attempts using a random forest. Therefore, it seems to be ok! Although, that is not overly rigorous.</p>
+<ul>
+<li>As this method is still a work in progress, I do not yet have an estimate of its accuracy. This will be added once I am confident I have made progress in the model performance.</li>
+</ul>
+<h3 id="possible-improvements-to-the-models">Possible improvements to the models<a class="headerlink" href="#possible-improvements-to-the-models" title="Permanent link">&para;</a></h3>
+<p>For now, the training data I have selected is a set of player statistics that appeared important for determining the chance of receiving a Brownlow vote. Further, this data has been normalised by the total number of a given statistic on a match-by-match basis. </p>
+<p>However, as highlighted earlier, this normalisation scheme may not be optimal for all statistics (e.g. goals). Additionally, not all of the chosen statistics may actually be helping the model predictions. Therefore, there is plenty of room available to potentially improve these predictive models (they were only a first attempt). When I find the time, I will investigate improving the normalisation scheme and more rigorously exploring which statistics are most important.</p>
+<p>Additionally, I have only implemented a simple binary variable to denote whether a player was on a winning or losing team. The idea here was to try and avoid too many votes being awarded to players with excellent individual statistics. While it is not impossible to receive votes on a losing team, it is considerably less likely. However, the problem with this simple binary variable is that it equally disadvantages a player irrespective if their team lost by 1 point or 100 points. However, a player in a 1-point loss is considerably more likely to receive votes than in a 100-point loss (unless you are Gary Ablett Jr.).</p>
+<p>For example, below I provide the cumulative probability of receiving Brownlow votes as a function of the winning margin.</p>
+<p><img alt="Brownlow votes by winning margin" src="https://github.com/BradGreig/brownlow-predictor/blob/main/data/margininfo.png?raw=true" /></p>
+<p>While 3 votes have only been awarded to a player on a losing team 10 per cent of the time, this jumps to 25 and 30 per cent for receiving 2 and 1 votes respectively. This potentially highlights that by only including a binary variable I might be unfairly restricting the potential of players receiving votes in a losing team. Therefore, there is potentially room for improvement here.</p>
+<p>One of the biggest issues with predicting the Brownlow medal is the subjective nature of the voting rendering the raw player statistics less effective. However, during the season we have other more subjective measures of a player's performance. For example, after each game each of the two opposition coaches award 5-4-3-2-1 votes (for a maximum match total of 10). While they almost certainly will have a different opinion than the officiating umpires, this data should improve the predictive nature of our models. Media outlets can also have their own internal award system, awarded by journalists or other members. Therefore, there is potentially a wealth of additional subjective data available to add to our predictive models. I will investigate this in the future.</p>
+<h2 id="2024-predictions">2024 Predictions<a class="headerlink" href="#2024-predictions" title="Permanent link">&para;</a></h2>
+<p>In preparation for the upcoming 2024 Brownlow medal, below I provide the predictions for the various models I have considered (or gotten working) thus far.</p>
+<h3 id="random-forest-classification_2">Random Forest Classification<a class="headerlink" href="#random-forest-classification_2" title="Permanent link">&para;</a></h3>
+<h4 id="model-1_1">Model 1<a class="headerlink" href="#model-1_1" title="Permanent link">&para;</a></h4>
+<p>First up, our first random forest model.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Predictions</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Predictions</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rank</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Predicted votes</td>
+<td></td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Expected votes</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>37</td>
+<td></td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>26.78</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>32</td>
+<td></td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>26.37</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>31</td>
+<td></td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>21.57</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>31</td>
+<td></td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>21.46</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Adam Treloar</td>
+<td>Bulldogs</td>
+<td>29</td>
+<td></td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>20.56</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Zach Merrett</td>
+<td>Essendon</td>
+<td>27</td>
+<td></td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>19.76</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>26</td>
+<td></td>
+<td>Adam Treloar</td>
+<td>Bulldogs</td>
+<td>19.65</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Rowan Marshall</td>
+<td>St Kilda</td>
+<td>24</td>
+<td></td>
+<td>Noah Anderson</td>
+<td>Gold Coast</td>
+<td>18.94</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Harry Sheezel</td>
+<td>North Melbourne</td>
+<td>23</td>
+<td></td>
+<td>Harry Sheezel</td>
+<td>North Melbourne</td>
+<td>18.57</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Noah Anderson</td>
+<td>Gold Coast</td>
+<td>23</td>
+<td></td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>18.53</td>
+</tr>
+</tbody>
+</table>
+<p>Depending on if you prefer the 3-2-1 scheme or the expected votes, we have a couple of likely winners. Under the expected votes scheme, it is clear it is expected to be close between Lachie Neale and Nick Daicos. 3-2-1 voting has Nick Daicos as a runaway winner.</p>
+<h4 id="model-2_1">Model 2<a class="headerlink" href="#model-2_1" title="Permanent link">&para;</a></h4>
+<p>Below, I prove the predictions for our second random forest model (i.e. averaging over 100 random forests). Unfortunately, by the time of the award I had not found the time to get the uncertainties working which should better demonstrate how each player might perform (e.g. high change of a broad range of votes).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Predictions</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Predictions</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rank</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Predicted votes</td>
+<td></td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Expected votes</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>37</td>
+<td></td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>24.62</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>35</td>
+<td></td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>23.50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>32</td>
+<td></td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>20.33</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Adam Treloar</td>
+<td>Bulldogs</td>
+<td>28</td>
+<td></td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>19.97</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>26</td>
+<td></td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>19.50</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Rowan Marshall</td>
+<td>St Kilda</td>
+<td>26</td>
+<td></td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>18.62</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>26</td>
+<td></td>
+<td>Adam Treloar</td>
+<td>Bulldogs</td>
+<td>17.82</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zach Merrett</td>
+<td>Essendon</td>
+<td>25</td>
+<td></td>
+<td>Noah Anderson</td>
+<td>Gold Coast</td>
+<td>17.16</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Noah Anderson</td>
+<td>Gold Coast</td>
+<td>23</td>
+<td></td>
+<td>Harry Sheezel</td>
+<td>North Melbourne</td>
+<td>17.08</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Max Gawn</td>
+<td>Melbourne</td>
+<td>23</td>
+<td></td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>17.06</td>
+</tr>
+</tbody>
+</table>
+<p>Unsurprisingly these are fairly similar to our other model. However, I have a higher degree of trust in these owing to the larger number of random forests averaged over (less randomness). This randomness only really impacts awarding the 3-2-1 based on ranked probabilities, with more differences observed on the left-hand side of the table. Under the expected votes scheme, the results are very similar, however, we have Nick Daicos being a clear winner (randomness had previously made it appear closer).</p>
+<p>Most of these names will be familiar, based on our validation against 2023. A couple of notable exceptions are Adam Treloar, Rowan Marshall and Harry Sheezel. It will be interesting to see how they perform on the night. Unfortunately, Rowan Marshall is a ruckman, so presumably he will not poll as well!</p>
+<h3 id="simulation-based-inference_2">Simulation Based Inference<a class="headerlink" href="#simulation-based-inference_2" title="Permanent link">&para;</a></h3>
+<p>Below you can find our 2024 predictions for the SBI approach. However, huge caution here as this approach still needs a lot of work to fine tune and make sense of (as outlined earlier). But, given that the 2023 predictions seemed reasonable, I've decided to add the 2024 predictions too. I will continue to work away on this model when I find the time.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Predictions</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rank</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Predicted votes</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>38</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Lachie Neale</td>
+<td>Brisbane</td>
+<td>36</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>32</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>31</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Marcus Bontempelli</td>
+<td>Bulldogs</td>
+<td>30</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Noah Anderson</td>
+<td>Gold Coast</td>
+<td>28</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>27</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tom Green</td>
+<td>GWS</td>
+<td>26</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Isaac Heeney</td>
+<td>Sydney</td>
+<td>25</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Zach Merrett</td>
+<td>Essendon</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<p>For the most part, this top 10 is fairly similar to those provided by our random forest approaches above. The top 3-4 remain the same, however, there are few changes in the bottom half of the table. Tom Green, Zak Butters and Isaac Heeney in place of Adam Treloar, Rowan Marshall and Harry Sheezel. SBI at least removed the ruckman!</p>
+<h3 id="performance-against-actual-result">Performance Against Actual Result<a class="headerlink" href="#performance-against-actual-result" title="Permanent link">&para;</a></h3>
+<p>Below is the actual outcome of the 2024 Brownlow:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>2024 Brownlow Medal</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ranking</td>
+<td>Player Name</td>
+<td>Team</td>
+<td>Total votes</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Patrick Cripps</td>
+<td>Carlton</td>
+<td>45</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Nick Daicos</td>
+<td>Collingwood</td>
+<td>38</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Zak Butters</td>
+<td>Port Adelaide</td>
+<td>29</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Caleb Serong</td>
+<td>Fremantle</td>
+<td>28</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Isaac Heeney*</td>
+<td>Sydney</td>
+<td>28</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Tom Green</td>
+<td>GWS</td>
+<td>27</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Adam Treloar</td>
+<td>Bulldogs</td>
+<td>26</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Errol Gulden</td>
+<td>Sydney</td>
+<td>25</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Matt Rowell</td>
+<td>Gold Coast</td>
+<td>25</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Jai Newcombe</td>
+<td>Hawthorn</td>
+<td>24</td>
+</tr>
+</tbody>
+</table>
+<p>Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for all of my models Cripps barely scraped into the top 5 with the models underpredicting his tally by a significant 10 - 20 votes. </p>
+<p>So, what went wrong? Well, most likely nothing actually! It seems the quirky, subjective nature of the Brownlow voting played a significant impact. I found an interesting analysis <a href="https://www.foxsports.com.au/afl/brownlow-medal/weird-votes-that-let-cripps-smash-record-did-umps-pick-the-wrong-daicos-brownlow-talking-pts/news-story/de783aa761c2af1cc9e9b678c2f7b3b5?gaa_at=la&amp;gaa_n=AWsEHT5-0cFMHnnroJrumDpxreZNUDY5DAUUxsl6ZbITxDo_Kn07laa9nubbGWF3Hu0%3D&amp;gaa_ts=66f20026&amp;utm_source=newsshowcase&amp;utm_medium=discover&amp;utm_campaign=CCwQlY-RlaeSpORTGP7-h4nqsYK5uQEqQwgwEJmd3dDEjtzDIhjPoZ6E9dOr5KABKioIACIQ34S7JIkL8vNsZnoS3qv1FSoUCAoiEN-EuySJC_LzbGZ6Et6r9RU&amp;utm_content=related&amp;gaa_sig=XrTO3sTkjE9JEh-BitgSf0XRn_62n-K1alPmNbm617STHLXIe9kgdlWwnarIF9nObdwZT2Og-EwX2tUwtwInFw%3D%3D">here</a>. In short, Cripps polled votes (or more votes than expected) in a bunch of games (8 extra votes according to the <a href="https://www.wheeloratings.com/afl_brownlow_live.html">Wheelo</a> model). While this is not anything new, typically this is balanced out by a player receiving fewer votes than expected in a similar number of games. However, for Cripps, this did not happen. Hence the astronomical number of votes. Poor Nick Daicos...</p>
+<p>Unlike the validation of our models for the 2023 season, where we typically correctly identified 7 of the top 10 (although never the correct order), this time around we only successfully identified 4-6 of the top 10. However, after analysing some of the main Brownlow predictors out there; <a href="https://www.afl.com.au/brownlow-medal/predictor">AFL</a>, <a href="https://www.foxsports.com.au/afl/brownlow-medal/brownlow-medal-2024-analysis-and-predictions-stats-preview-who-brownlow-predicting-models-are-tipping-to-win-champion-data-prediction/news-story/088cbaf44510dfa4f4fbf2783e7e77e4">Champion Data</a>, <a href="https://www.espn.com.au/afl/story/_/page/POINTSBET20242/afl-2024-ultimate-brownlow-medal-predictor-tracker-leaderboard-odds-every-vote">ESPN</a>, <a href="https://www.betfair.com.au/hub/sports/afl/brownlow-medal-predictor/">Betfair</a>, <a href="https://www.statsinsider.com.au/sport-hub/afl/brownlow">Stats Insider</a> and <a href="https://www.wheeloratings.com/afl_brownlow.html">Wheelo</a>, my results were pretty consistent with these other approaches. Therefore, it seems it was a bit of a peculiar year. Case in point, both Marcus Bontempelli and Lachie Neale (last year's winner) did not even make the top 10 this year, despite all predictors (including my own) having them both polling very highly. Interestingly, my models predicted a very strong performance from Adam Treloar, while no other model did! The fun of playing with data. Equally, my models predicted strong performances from Caleb Serong and Zak Butters who both duly delivered. It also predicted a strong performance from Rowan Marshall, however, given he is a ruckman, it's not surprising he did not poll overly well (seemingly a traditional bias against ruckman).</p>
+<p>All in all, I would have to say I am quite happy with the performance of these predictive models. Especially given it as a basic first attempt. The next steps are to make some tweaks based on our earlier observations etc., to see if we can improve the overall performance. At least I have an entire year to play around with it. I just need to find the time to make the modifications.</p>
+<h2 id="contact-information">Contact Information<a class="headerlink" href="#contact-information" title="Permanent link">&para;</a></h2>
+<p>For any questions please contact <a href="mailto:brad.s.greig@gmail.com">Brad Greig</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
