@@ -174,7 +174,7 @@ As mentioned earlier, prior to using our models to predict the Brownlow, we must
 
 In preparation for this validation step, we provide the 2023 Brownlow top 10.
 
-| Ranking | Player Name | Team | Total votes |
+| Rank | Player Name | Team | Total votes |
 | -------- | ------- | -------- | ------- |
 | 1 | Lachie Neale | Brisbane | 31 |
 | 2 | Marcus Bontempelli | Bulldogs | 29 |
@@ -197,7 +197,7 @@ Below, we provide our predictions for the 2023 Brownlow medal based on our first
 
 |  | Prediction (Total) |  |  |  |   | Prediction (Expected Votes) |  |  |  | 
 | -------- | ------- | -------- | ------- | -------- |-------- | ------- | -------- | ------- | -------- |
-| Ranking | Player Name | Team | Total votes | Actual votes (position) | | Player Name | Team | Total votes | Actual votes (position)
+| Rank | Player Name | Team | Predicted votes | Actual votes (position) | | Player Name | Team | Expected votes | Actual votes (position)
 | 1 | Nick Daicos | Collingwood | 32 | 28 (3rd) | | Caleb Serong | Fremantle | 23.74 | 28 (=7th) |
 | 2 | Tim Taranto | Richmond | 30 | 19 (16th) | | Nick Daicos | Collingwood | 23.60 | 32 (3rd) |
 | 3 | Lachie Neale | Brisbane | 29 | 31 (1st) | | Tim Taranto | Richmond | 21.04 | 19 (16th) |
@@ -220,10 +220,10 @@ Importantly, this accuracy breakdown is only valid to our model that applies the
 A more accurate quantitative measure to determine performance would be to consider something like the mean square error (MSE);
 
 $$
-{\rm MSE} = \frac{1}{N}\Sigma^{n}_{i=1}(V_{i} - V^{\^}_{i})^{2},
+{\rm MSE} = \frac{1}{N}\Sigma^{n}_{i=1}(V_{i} - \hat{V}_{i})^{2},
 $$
 
-which is simply the sum of the square of the difference between the true vote amount ($V_{i}$) and the predicted vote amount ($V^{\^}_{i}$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
+which is simply the sum of the square of the difference between the true vote amount ($V_{i}$) and the predicted vote amount ($V^{^}_{i}$). The goal is to have this quantity get as close to zero as possible (all votes predicted correctly).
 
 - At this point, I still need to calculate this quantity! However, for both approaches it still has its problems, which is why I have not prioritised it yet. While it can be applied to both approaches (3-2-1 or expected votes) which is advantageous, it still can be biased by the number of zeros when considering 3-2-1 voting. For expected voting, since it can be fractional, the differences can be larger.
 
@@ -232,17 +232,17 @@ which is simply the sum of the square of the difference between the true vote am
 Below, we provide the total and expected votes predictions for our second random forest model (results determined over an ensemble of 100 random forests).
 
 |  | Prediction (Total) |  |  |  |  |  | Predictions (Expected Votes) |  |  |
-| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| Ranking | Player Name | Team | Total votes | Actual votes (position) | | Player Name | Team | Expected votes | Actual votes (position) |
-| 1 | Tim Taranto | Richmond | 32 | 19 (16th) | | Caleb Serong | Fremantle | 20.85 | 24 (=7th) |
-| 2 | Nick Daicos | Collingwood | 32 | 28 (3rd) | | Christian Petracca | Melbourne | 20.51 | 26 (6th) |
-| 3 | Lachie Neale | Brisbane | 29 | 31 (1st) | | Nick Daicos | Collingwood | 20.11 | 28 (3rd) |
-| 4 | Caleb Serong | Fremantle | 29 | 24 (=7th) | | Marcus Bontempelli | Bulldogs | 19.98 | 29 (2nd) |
+| -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- | ------- | ------- |
+| Rank | Player Name | Team | Predicted votes | Actual votes (position) |  | Player Name | Team | Expected votes | Actual votes (position) |
+| 1 | Tim Taranto | Richmond | 32 | 19 (16th) |  | Caleb Serong | Fremantle | 20.85 | 24 (=7th) |
+| 2 | Nick Daicos | Collingwood | 32 | 28 (3rd) |  | Christian Petracca | Melbourne | 20.51 | 26 (6th) |
+| 3 | Lachie Neale | Brisbane | 29 | 31 (1st) |  | Nick Daicos | Collingwood | 20.11 | 28 (3rd) |
+| 4 | Caleb Serong | Fremantle | 29 | 24 (=7th) |  | Marcus Bontempelli | Bulldogs | 19.98 | 29 (2nd) |
 | 5 | Jordan Dawson | Adelaide | 25 | 20 (=13th) |  | Tim Taranto | Richmond | 18.97 | 19 (16th) |
-| 6 | Rory Laird | Adelaide | 24 | 20 (=13th) | | Rory Laird | Adelaide | 18.33 | 20 (=13th) |
-| 7 | Marcus Bontempelli | Bulldogs | 24 | 29 (2nd) | | Errol Gulden | Sydney | 17.60 | 27 (=4th) |
-| 8 | Clayton Oliver | Melbourne | 23 | 6 (=59th) | | Zak Butters | Port Adelaide | 17.32 | 27 (=4th) | 
-| 9 | Tom Green | GWS | 23 | 16 (=22nd) | | Jordan Dawson | Adelaide | 17.06 | 20 (=13th) |
+| 6 | Rory Laird | Adelaide | 24 | 20 (=13th) |  | Rory Laird | Adelaide | 18.33 | 20 (=13th) |
+| 7 | Marcus Bontempelli | Bulldogs | 24 | 29 (2nd) |  | Errol Gulden | Sydney | 17.60 | 27 (=4th) |
+| 8 | Clayton Oliver | Melbourne | 23 | 6 (=59th) |  | Zak Butters | Port Adelaide | 17.32 | 27 (=4th) | 
+| 9 | Tom Green | GWS | 23 | 16 (=22nd) |  | Jordan Dawson | Adelaide | 17.06 | 20 (=13th) |
 | 10 | Christian Petracca | Melbourne | 23 | 26 (6th) |  | Lachie Neale | Brisbane | 16.56 | 31 (1st) |
 
 At first glance, these predictions look fairly similar to that of the first random forest model. Again, we do not predict the winner of Lachie Neale. Interestingly, awarding only 3-2-1 voting to the three highest probabilities of receiving votes (after averaging over the 100 random forest) has performed the worst of the lot. It only predicts 6 of the top 10, and weirdly has Clayton Oliver in the top 10 despite an actual equal 59th finish. Something probably has gone awry there requiring further investigation. 
@@ -264,8 +264,8 @@ Below is a first attempt at getting SBI to predict the 2023 Brownlow medal. At t
 Nevertheless, putting that all aside, I will still provide its current predictions. However, note that things are likely change (hopefully improve!).
 
 |  | Predictions (Total) |  |  |   |
-| -------- | ------- | -------- | ------- |
-| Ranking | Player Name | Team | Total votes |
+| -------- | ------- | -------- | ------- | ------- |
+| Rank | Player Name | Team | Predicted votes | Actual votes (position)
 | 1 | Christian Petracca | Melbourne | 35 | 26 (6th) |
 | 2 | Caleb Serong | Fremantle | 34 | 24 (=7th) |
 | 3 | Nick Daicos | Collingwood | 28 | 28 (3rd) |
@@ -274,7 +274,7 @@ Nevertheless, putting that all aside, I will still provide its current predictio
 | 6 | Marcus Bontempelli | Bulldogs | 27 | 29 (2nd) |
 | 7 | Jordan Dawson | Adelaide | 26 | 20 (=13th) |
 | 8 | Zak Butters | Port Adelaide | 25 | 27 (=4th) |
-| 9 | Rory Laird | Adelaidet | 24 | 20 (=13th) |
+| 9 | Rory Laird | Adelaide | 24 | 20 (=13th) |
 | 10 | Errol Gulden | Sydney | 24 | 27 (=4th) |
 
 Note, for now I have only been able to provide a tally by awarding 3-2-1 votes to the three players with the highest probabilities of obtaining votes (highest means from the posterior). Due to the unexpectedly broad posteriors, computing an expected vote has not been very illuminating. Therefore, I refrain from providing that until I can find the time to work on fixing up this model.
@@ -306,11 +306,13 @@ In preparation for the upcoming 2024 Brownlow medal, below I provide the predict
 
 ### Random Forest Classification
 
+#### Model 1
+
 First up, our first random forest model.
 
 |  | Predictions |  |  |  |  | Predictions |  | 
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
+| Rank | Player Name | Team | Predicted votes |  | Player Name | Team | Expected votes |
 | 1 | Nick Daicos | Collingwood | 37 |  | Lachie Neale | Brisbane | 26.78 |
 | 2 | Caleb Serong | Fremantle | 32 |  | Nick Daicos | Collingwood | 26.37 |
 | 3 | Patrick Cripps | Carlton | 31 |  | Caleb Serong | Fremantle | 21.57 |
@@ -324,11 +326,13 @@ First up, our first random forest model.
 
 Depending on if you prefer the 3-2-1 scheme or the expected votes, we have a couple of likely winners. Under the expected votes scheme, it is clear it is expected to be close between Lachie Neale and Nick Daicos. 3-2-1 voting has Nick Daicos as a runaway winner.
 
+#### Model 2
+
 Below, I prove the predictions for our second random forest model (i.e. averaging over 100 random forests). Unfortunately, by the time of the award I had not found the time to get the uncertainties working which should better demonstrate how each player might perform (e.g. high change of a broad range of votes).
 
 |  | Predictions |  |  |  |  | Predictions |  | 
 | -------- | ------- | -------- | ------- | -------- | ------- | ------- | ------- |
-| Ranking | Player Name | Team | Total votes |  | Player Name | Team | Expected votes |
+| Rank | Player Name | Team | Predicted votes |  | Player Name | Team | Expected votes |
 | 1 | Nick Daicos | Collingwood | 37 |  | Nick Daicos | Collingwood | 24.62 |
 | 2 | Caleb Serong | Fremantle | 35 |  | Lachie Neale | Brisbane | 23.50 |
 | 3 | Lachie Neale | Brisbane | 32 |  | Caleb Serong | Fremantle | 20.33 |
@@ -350,7 +354,7 @@ Below you can find our 2024 predictions for the SBI approach. However, huge caut
 
 |  | Predictions |  |  |
 | -------- | ------- | -------- | ------- |
-| Ranking | Player Name | Team | Total votes |
+| Rank | Player Name | Team | Predicted votes |
 | 1 | Nick Daicos | Collingwood | 38 |
 | 2 | Lachie Neale | Brisbane | 36 |
 | 3 | Caleb Serong | Fremantle | 32 |
