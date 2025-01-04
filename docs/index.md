@@ -1,14 +1,13 @@
-# Overview
 
 This page contains a detailed summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all models into their own GitHub repos for sharing. There is a fair bit of information below providing a lot of context. If you are only interested in the final predictions, feel free to jump straight to the 2024 predictions (or equally the comparisons against 2023).
 
 On this page you can find the following:
 
-- [What is the Brownlow and why predict it?](#Why)
-- [Available data](#data)
+- [What is the Brownlow and why predict it?](#what-is-the-brownlow-and-why-predict-it)
+- [Available data](#available-data)
 - [Data Insights](#data-insights)
 - [Predictive models](#predictive-models)
-- [2024 Predictions](#predictions)
+- [2024 Predictions](#2024-predictions)
 
 ## What is the Brownlow and why predict it?
 
