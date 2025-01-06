@@ -3,10 +3,12 @@ theme:
   name: material
   features:
     - toc.integrate
+  custom_dir: overrides
 repo_url: https://bradgreig.github.io/brownlow-predictor/
 plugins: []
 
 markdown_extensions:
+  - meta
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
