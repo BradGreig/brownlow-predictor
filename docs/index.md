@@ -382,7 +382,7 @@ Unlike the validation of our models for the 2023 season, where we typically corr
 
 All in all, I would have to say I am quite happy with the performance of these predictive models. Especially given it as a basic first attempt. The next steps are to make some tweaks based on our earlier observations etc., to see if we can improve the overall performance. At least I have an entire year to play around with it. I just need to find the time to make the modifications.
 
-## Model Improvements post 2024 Brownlow
+## Improvements to the model since the 2024 Brownlow
 
 Since the completion of the 2024 Brownlow medal, I have found some time to play around with a few of the suggested model improvements mentioned above. Further, I have also implemented a few additional models to quantify their performance.
 
@@ -392,11 +392,21 @@ Below I will outline the main updates.
 
 As outlined earlier, originally I had a simple binary win/loss feature for predicting the Brownlow voting. However, as I showed above, 10 per cent of all 3 vote games came from a losing team. Further, over 20 per cent of 2 vote games and 30 per cent of 1 vote games come from the losing team. Adding a feature for the actual match result (margin) then seems like it might have some marginal improvement.
 
+To compare the performance of this new feature, I retrained the random forest model to predict a single season based on training data for all other seasons. I then repeated this for each season of data (for example, to predict the model for 2022, I trained it on data from 2007-2021 and 2023-2024). This was done for both the original model and replacing the winner binary feature with the new margin feature. All results are obtained after averaging over 30 random iterations (to remove fluctuations in the model).
+
+In the below figure I provide the prediction accuracy for each season for obtaining 3 votes (solid curves), 2 votes (dashed curves) and 1 vote (dotted curves). The black curve corresponds to the original model (used earlier) and the red curve is the model considering the new margin feature (in place of the winner feature).
+
 ![Considering a feature for the game margin](https://github.com/BradGreig/brownlow-predictor/blob/main/data/MarginFeature.png?raw=true)
 
+In short, using the margin instead of the simple binary win/loss results in very little difference in the prediction accuracy. Overall, this margin feature does improve the performance, but only very marginally. Notably, it does do a little better for the 1 and 2 votes than it does for the 3 votes.
 
 ### Adding in coaches votes as a feature
 
+Another statistic that was discussed to improve the model was the addition of existing coaches vote information. As discussed above, after each match the two opposing coaches cast 5-4-3-2-1 votes to the players in the game (maximum 10 available to a player). Given the coaches have first-hand experience in how players in the match influenced the game, then this information should improve the overall performance of our predictive models.
+
+Again, like above, to explore this coaches vote feature, I compare the prediction accuracy for the 3-2-1 votes in the season, for all available seasons of information compared to the original model used in our earlier analysis.
+
+![Adding a feature for Coaches Votes](https://github.com/BradGreig/brownlow-predictor/blob/main/data/CoachVoteFeature.png?raw=true)
 
 
 ### Ordinal Logistic Regression
