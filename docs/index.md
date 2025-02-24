@@ -140,12 +140,6 @@ For the second model, we instead train a larger number of random forests (100 wi
 
 Finally, one last important point to make is that when training these predictive models, we do not use all of the available player statistics. The reasoning for this is that in a single match, only 3 players can be awarded votes. The remaining 41 players are awarded zero votes. For this classification task, this leads to a large amount of noise in the predictive models. Therefore, we limit the number of zero voted players to be included in our training sample to be 12 (4 times the number of players awarded votes). These 12 players are selected at random.
 
-### Ordinal Logistic Regression
-
-Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.
-
-Still a work in progress on this one. Stay tuned.
-
 ### Simulation Based Inference
 
 Absolutely no idea if this will work, however, this is a machine learning technique I am familiar with from my days as an astrophysicist. This technique will allow us to turn the voting prediction into a Bayesian inference problem. This is almost certainly way over the top for this problem, however, I just wanted to give it a shot to see how it would work. Below you can find more technical details on this approach, however, equally feel free to skip this entirely!
@@ -250,10 +244,6 @@ With respect to expected votes, this performs equally well as the earlier models
 For this model, I recovered an overall accuracy of 82 per cent, similar to that of model 1 (again, this is dominated by the zero vote predictions). Breaking it down further, I recovered an accuracy of 65, 40 and 29 per cent for correctly predicting the 3, 2 and 1 vote winners. This is slightly higher than the 63, 39 and 32 per cent of model 1. But this should not be too surprising as we are using a much larger number of decision trees in our random forest.
 
 - I still need to compute the mean square error (MSE) for this model as well.
-
-### Ordinal Logistic Regression
-
-Have not found the time to start working on this yet but will soon.
 
 ### Simulation Based Inference
 
@@ -391,6 +381,33 @@ So, what went wrong? Well, most likely nothing actually! It seems the quirky, su
 Unlike the validation of our models for the 2023 season, where we typically correctly identified 7 of the top 10 (although never the correct order), this time around we only successfully identified 4-6 of the top 10. However, after analysing some of the main Brownlow predictors out there; [AFL](https://www.afl.com.au/brownlow-medal/predictor), [Champion Data](https://www.foxsports.com.au/afl/brownlow-medal/brownlow-medal-2024-analysis-and-predictions-stats-preview-who-brownlow-predicting-models-are-tipping-to-win-champion-data-prediction/news-story/088cbaf44510dfa4f4fbf2783e7e77e4), [ESPN](https://www.espn.com.au/afl/story/_/page/POINTSBET20242/afl-2024-ultimate-brownlow-medal-predictor-tracker-leaderboard-odds-every-vote), [Betfair](https://www.betfair.com.au/hub/sports/afl/brownlow-medal-predictor/), [Stats Insider](https://www.statsinsider.com.au/sport-hub/afl/brownlow) and [Wheelo](https://www.wheeloratings.com/afl_brownlow.html), my results were pretty consistent with these other approaches. Therefore, it seems it was a bit of a peculiar year. Case in point, both Marcus Bontempelli and Lachie Neale (last year's winner) did not even make the top 10 this year, despite all predictors (including my own) having them both polling very highly. Interestingly, my models predicted a very strong performance from Adam Treloar, while no other model did! The fun of playing with data. Equally, my models predicted strong performances from Caleb Serong and Zak Butters who both duly delivered. It also predicted a strong performance from Rowan Marshall, however, given he is a ruckman, it's not surprising he did not poll overly well (seemingly a traditional bias against ruckman).
 
 All in all, I would have to say I am quite happy with the performance of these predictive models. Especially given it as a basic first attempt. The next steps are to make some tweaks based on our earlier observations etc., to see if we can improve the overall performance. At least I have an entire year to play around with it. I just need to find the time to make the modifications.
+
+## Model Improvements post 2024 Brownlow
+
+Since the completion of the 2024 Brownlow medal, I have found some time to play around with a few of the suggested model improvements mentioned above. Further, I have also implemented a few additional models to quantify their performance.
+
+Below I will outline the main updates.
+
+### Adding in a feature for the margin
+
+As outlined earlier, originally I had a simple binary win/loss feature for predicting the Brownlow voting. However, as I showed above, 10 per cent of all 3 vote games came from a losing team. Further, over 20 per cent of 2 vote games and 30 per cent of 1 vote games come from the losing team. Adding a feature for the actual match result (margin) then seems like it might have some marginal improvement.
+
+![Considering a feature for the game margin](https://github.com/BradGreig/brownlow-predictor/blob/main/data/MarginFeature.png?raw=true)
+
+
+### Adding in coaches votes as a feature
+
+
+
+### Ordinal Logistic Regression
+
+Have not found the time to start working on this yet but will soon.
+
+Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.
+
+Still a work in progress on this one. Stay tuned.
+
+
 
 ## Contact Information
 
