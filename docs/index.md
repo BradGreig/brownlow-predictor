@@ -422,16 +422,35 @@ While I was here, I also decided to add back in some further available statistic
 
 In the above figure, you can see the resultant improvement of this expanded model compared to the model used in our original analysis. Although the results for the updated model look very similar to those of just adding the Coaches Votes above, there are some further improvements. For example, in 2014, there is a notable improvement. A few other years show improvement as well. Overall, this expanded model improves over the addition of the Coaches Votes feature by 2-3 per cent (single seasons can be higher).
 
+### New predictive models
 
-### Ordinal Logistic Regression
+By the annoucement of the 2024 Brownlow Medal winner, I only had 1.5 models working. The random forest approach was working and simulation based inference was kind of working. I intended to also have Ordinal Logistic Regression working, but did not find the time.
 
-Have not found the time to start working on this yet but will soon.
+Since then, I have found some time to tweak the existing models and get a few new ones also working. For example, I now have Ordinal Logistic Regression working, plus have two other models working; an popular, alternative Random Forest library (XGBoost) and Automated Machine Learning (AutoML). Further, I performed some more exploration into the simulation based inference model.
 
-Inspired entirely by the Monte ChaRlo approach, this is a mathematical technique for dealing with ordered voting.
+Below, I provide a brief description of the motivations for including these models, and the main components of relevance to understand the models. Later, I will compare the performance of all models at the same time rather than investigating a single model at a time like I did above.
 
-Still a work in progress on this one. Stay tuned.
+#### Ordinal Logistic Regression
 
+My interest in this approach was inspired entirely by the Monte ChaRlo approach. Ordinal Logistic Regression is a mathematical technique for predicting the outcome of ordered results (3-2-1 voting in our case).
 
+#### Automated Machine Learning (AutoML)
+
+Again, I was inspired to look into this approach based off a [model developed by BetFair data scientists](https://github.com/betfair-datascientists/predictive-models/blob/master/brownlow/Betfair%20Data%20Scientists'%20Brownlow%20Model.ipynb). The basic idea of AutoML is to abstract the machine learning component of the model training away from the user. Simply, the user provides the training data and behind the scenes a series of common machine learning models are trained and validated on the provided data. Then, the user simply picks the best performing model based on a simple metric (e.g. mean square error).
+
+#### Different Random Forest approach (XGBoost)
+
+This is not a new approach, but instead a different library for building up a random forest. It uses gradient descent to train the branches of the random forest and is popular owing to both its computational efficiency and accuracy. Therefore, I chose to add this to the list of models.
+
+#### Simulated Based Inference
+
+As noted above, I encountered some issues with training the simulation based inference approach. Essentially, the recovered posterior distributions were too broad, leading to rather low expected votes. My suspicion at the time was that I needed to perform some more rigorous hyperparameter tuning to get the model working or limit the number of statistics used as there might be an issue with not enough data to train the likelihood.
+
+I performed a thorough investigation of these aspects without much improvement. Limiting the number of statistics to only the 2-3 most important statistics did not seem to improve the posteriors (still unexpectedly broad). Exploring a broad range of hyperparameters to better tune the model equally produced little improvement. Most likely the issue is that this approach is not well suited to this problem, which I knew from the outset. But, I was just curious about whether or not it would work.
+
+Ultimately, despite the broad posteriors, which are an issue for providing expected votes, assigning 3-2-1 based on the per match expected votes still performs well. Therefore, in future for simulation-based inference I will only provide results after assigning 3-2-1 based on expected votes. I will not provide actual expected votes, as these are messy.
+
+### Comparing all predictive models
 
 ## Contact Information
 
