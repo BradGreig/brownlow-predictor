@@ -408,6 +408,20 @@ Again, like above, to explore this coaches vote feature, I compare the predictio
 
 ![Adding a feature for Coaches Votes](https://github.com/BradGreig/brownlow-predictor/blob/main/data/CoachVoteFeature.png?raw=true)
 
+In this case, we see a notable improvement in the prediction accuracy for 3 votes in each season. By adding the Coaches Votes information we go from an accuracy of 45-60 per cent to 50 - 65 per cent per season (roughly a 10 per cent improvement in the season). Typically we see similar improvement for the 2 vote games, now 30 - 35 per cent compared to 25 - 30 per cent seen previously. For 1 vote, Coaches votes still improve the results, but it is less significant. Consistent with the fact that a performance warranting 1 vote is considerably harder to predict (as discussed previously).
+
+In summary, adding in a feature for the Coaches Votes definitely improves the performance of our model. Which was to be expected, but nice to see it quantitatively.
+
+### Updated model
+
+Adding in a feature to use information about Coaches Votes notably improved the model. Whereas, using the match margin instead of a binary win/loss had little difference, although did improve things marginally. Therefore, for our updated model, I have decided to add both. 
+
+While I was here, I also decided to add back in some further available statistical information. These being Marks, Contested Marks and Hitouts. Although these do not make a notable difference (similar or less than that for the margin feature), I chose to add them anyway.
+
+![New updated model](https://github.com/BradGreig/brownlow-predictor/blob/main/data/ImprovedModel.png?raw=true)
+
+In the above figure, you can see the resultant improvement of this expanded model compared to the model used in our original analysis. Although the results for the updated model look very similar to those of just adding the Coaches Votes above, there are some further improvements. For example, in 2014, there is a notable improvement. A few other years show improvement as well. Overall, this expanded model improves over the addition of the Coaches Votes feature by 2-3 per cent (single seasons can be higher).
+
 
 ### Ordinal Logistic Regression
 
