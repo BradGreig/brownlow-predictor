@@ -452,6 +452,8 @@ Ultimately, despite the broad posteriors, which are an issue for providing expec
 
 ### Comparing all predictive models
 
+![Comparison of all models](https://github.com/BradGreig/brownlow-predictor/blob/main/data/AllModels.png?raw=true)
+
 ## Contact Information
 
 For any questions please contact [Brad Greig](mailto:brad.s.greig@gmail.com).
