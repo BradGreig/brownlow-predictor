@@ -180,6 +180,7 @@ In preparation for this validation step, we provide the 2023 Brownlow top 10.
 | 8 | Caleb Serong | Fremantle | 24 |
 | 9 | Noah Anderson | Gold Coast | 22 |
 | 10 | Patrick Cripps | Carlton | 22 |
+
 *<small>The actual results for the 2023 AFL Brownlow voting. </small>*
 
 Lachie Neale was the eventual winner. However, what is important to know is that this was somewhat of a surprise. Most people (and predictive models) did not anticipate him winning. Therefore, in our validation, it is important to remember this as predicting the winner might be difficult.
