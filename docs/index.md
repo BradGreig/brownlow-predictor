@@ -205,6 +205,8 @@ Below, we provide our predictions for the 2023 Brownlow medal based on our first
 | 9 | Errol Gulden | Sydney | 22 | 27 (=4th) | | Zak Butters | Port Adelaide | 18.32 | 27 (=4th) |
 | 10 | Zak Butters | Port Adelaide | 21 | 27 (=4th) | | Zach Merrett | Essendon | 17.78 | (=19th) |
 
+*<small>The predicted AFL Brownlow votes for the random forest classifier model. Left hand side corresponds to awarding 3-2-1 voting. The right hand side corresponds to the total expected votes. </small>*
+
 Unfortunately, we did not predict the winner. He was predicted to be 3rd when applying 3-2-1 based on the ranked three highest probabilities in the match. However, in our expected votes model did not even have Lachie Neale in the top 10. While he was a surprise winner, this is potentially indicative that more work is required.
 
 In total, our model based on 3-2-1 voting predicted 7 of the top 10 (but not in the correct order). Our expected votes model predicted 6 of the top 10 (not correct order), with the winner completely absent. Overall, this actually is not too bad, indicating that our models are performing reasonably for a first attempt. Certainly, there is plenty of room for improvement.
@@ -241,6 +243,8 @@ Below, we provide the total and expected votes predictions for our second random
 | 9 | Tom Green | GWS | 23 | 16 (=22nd) |  | Jordan Dawson | Adelaide | 17.06 | 20 (=13th) |
 | 10 | Christian Petracca | Melbourne | 23 | 26 (6th) |  | Lachie Neale | Brisbane | 16.56 | 31 (1st) |
 
+*<small>The predicted AFL Brownlow votes averaged over 100 different trained random forest classifier models. Left hand side corresponds to awarding 3-2-1 voting. The right hand side corresponds to the total expected votes. </small>*
+
 At first glance, these predictions look fairly similar to that of the first random forest model. Again, we do not predict the winner of Lachie Neale. Interestingly, awarding only 3-2-1 voting to the three highest probabilities of receiving votes (after averaging over the 100 random forest) has performed the worst of the lot. It only predicts 6 of the top 10, and weirdly has Clayton Oliver in the top 10 despite an actual equal 59th finish. Something probably has gone awry there requiring further investigation. 
 
 With respect to expected votes, this performs equally well as the earlier models, recovering 7 of the top 10 (out of order of course). Unfortunately, at this point I have not found the time to add in the uncertainties (errors) associated with the voting which was the point of this model. However, I added the predictions to be able to use it for the 2024 results.
@@ -269,6 +273,8 @@ Nevertheless, putting that all aside, I will still provide its current predictio
 | 9 | Rory Laird | Adelaide | 24 | 20 (=13th) |
 | 10 | Errol Gulden | Sydney | 24 | 27 (=4th) |
 
+*<small>The predicted AFL Brownlow votes (awarding 3-2-1) for the Simulation Based Inference model. </small>*
+
 Note, for now I have only been able to provide a tally by awarding 3-2-1 votes to the three players with the highest probabilities of obtaining votes (highest means from the posterior). Due to the unexpectedly broad posteriors, computing an expected vote has not been very illuminating. Therefore, I refrain from providing that until I can find the time to work on fixing up this model.
 
 Despite the potential issues, this first attempt at an SBI approach has provided reasonable looking predictions. Again, while not obtaining the correct order, it still correctly identified 7 of the top 10, which is comparable to our previous attempts using a random forest. Therefore, it seems to be ok! Although, that is not overly rigorous.
@@ -287,6 +293,7 @@ Additionally, I have only implemented a simple binary variable to denote whether
 For example, below I provide the cumulative probability of receiving Brownlow votes as a function of the winning margin.
 
 ![Brownlow votes by winning margin](https://github.com/BradGreig/brownlow-predictor/blob/main/data/margininfo.png?raw=true)
+*<small>The cumulative probability to be awarded 3 votes (red), 2 votes (blue) and 1 vote based on the final match margin for all available AFL matches. </small>*
 
 While 3 votes have only been awarded to a player on a losing team 10 per cent of the time, this jumps to 25 and 30 per cent for receiving 2 and 1 votes respectively. This potentially highlights that by only including a binary variable I might be unfairly restricting the potential of players receiving votes in a losing team. Therefore, there is potentially room for improvement here.
 
@@ -316,6 +323,8 @@ First up, our first random forest model.
 | 9 | Harry Sheezel | North Melbourne | 23 |  | Harry Sheezel | North Melbourne | 18.57 |
 | 10 | Noah Anderson | Gold Coast | 23 |  | Errol Gulden | Sydney | 18.53 |
 
+*<small>Prediction for the 2024 AFL Brownlow medal for a singe random forest classifier model. Left hand side is for awarding 3-2-1 votes whislt the right hand side corresponds to the expected votes. </small>*
+
 Depending on if you prefer the 3-2-1 scheme or the expected votes, we have a couple of likely winners. Under the expected votes scheme, it is clear it is expected to be close between Lachie Neale and Nick Daicos. 3-2-1 voting has Nick Daicos as a runaway winner.
 
 #### Model 2
@@ -335,6 +344,8 @@ Below, I prove the predictions for our second random forest model (i.e. averagin
 | 8 | Zach Merrett | Essendon | 25 |  | Noah Anderson | Gold Coast | 17.16 | 
 | 9 | Noah Anderson | Gold Coast | 23 |  | Harry Sheezel | North Melbourne | 17.08 |
 | 10 | Max Gawn | Melbourne | 23 |  | Errol Gulden | Sydney | 17.06 |
+
+*<small>Prediction for the 2024 AFL Brownlow medal determined using 100 different random forest classifier models. Left hand side is for awarding 3-2-1 votes whislt the right hand side corresponds to the expected votes. </small>*
 
 Unsurprisingly these are fairly similar to our other model. However, I have a higher degree of trust in these owing to the larger number of random forests averaged over (less randomness). This randomness only really impacts awarding the 3-2-1 based on ranked probabilities, with more differences observed on the left-hand side of the table. Under the expected votes scheme, the results are very similar, however, we have Nick Daicos being a clear winner (randomness had previously made it appear closer).
 
@@ -358,6 +369,8 @@ Below you can find our 2024 predictions for the SBI approach. However, huge caut
 | 9 | Isaac Heeney | Sydney | 25 |
 | 10 | Zach Merrett | Essendon | 25 |
 
+*<small>Prediction for the 2024 AFL Brownlow medal using our SBI model. Assumes 3-2-1 voting only. </small>*
+
 For the most part, this top 10 is fairly similar to those provided by our random forest approaches above. The top 3-4 remain the same, however, there are few changes in the bottom half of the table. Tom Green, Zak Butters and Isaac Heeney in place of Adam Treloar, Rowan Marshall and Harry Sheezel. SBI at least removed the ruckman!
 
 ### Performance Against Actual Result
@@ -377,6 +390,8 @@ Below is the actual outcome of the 2024 Brownlow:
 | 8 | Errol Gulden | Sydney | 25 |
 | 9 | Matt Rowell | Gold Coast | 25 |
 | 10 | Jai Newcombe | Hawthorn | 24 |
+
+*<small>The actual results for the 2024 AFL Brownlow medal. </small>*
 
 Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for all of my models Cripps barely scraped into the top 5 with the models underpredicting his tally by a significant 10 - 20 votes. 
 
@@ -401,6 +416,7 @@ To compare the performance of this new feature, I retrained the random forest mo
 In the below figure I provide the prediction accuracy for each season for obtaining 3 votes (solid curves), 2 votes (dashed curves) and 1 vote (dotted curves). The black curve corresponds to the original model (used earlier) and the red curve is the model considering the new margin feature (in place of the winner feature).
 
 ![Considering a feature for the game margin](https://github.com/BradGreig/brownlow-predictor/blob/main/data/MarginFeature.png?raw=true)
+*<small>Comparison of the accuracy to predict 3 vote (solid), 2 vote (dashed) and 1 vote (dotted) performances over a single season for all seasons. Black lines correspond to our original model, the red lines correspond to the inclusion of a game margin feature. </small>*
 
 In short, using the margin instead of the simple binary win/loss results in very little difference in the prediction accuracy. Overall, this margin feature does improve the performance, but only very marginally. Notably, it does do a little better for the 1 and 2 votes than it does for the 3 votes.
 
@@ -411,6 +427,7 @@ Another statistic that was discussed to improve the model was the addition of ex
 Again, like above, to explore this coaches vote feature, I compare the prediction accuracy for the 3-2-1 votes in the season, for all available seasons of information compared to the original model used in our earlier analysis.
 
 ![Adding a feature for Coaches Votes](https://github.com/BradGreig/brownlow-predictor/blob/main/data/CoachVoteFeature.png?raw=true)
+*<small>Comparison of the accuracy to predict 3 vote (solid), 2 vote (dashed) and 1 vote (dotted) performances over a single season for all seasons. Black lines correspond to our original model, the red lines correspond to the inclusion of a feature including AFL Coaches votes. </small>*
 
 In this case, we see a notable improvement in the prediction accuracy for 3 votes in each season. By adding the Coaches Votes information we go from an accuracy of 45-60 per cent to 50 - 65 per cent per season (roughly a 10 per cent improvement in the season). Typically we see similar improvement for the 2 vote games, now 30 - 35 per cent compared to 25 - 30 per cent seen previously. For 1 vote, Coaches votes still improve the results, but it is less significant. Consistent with the fact that a performance warranting 1 vote is considerably harder to predict (as discussed previously).
 
@@ -423,6 +440,7 @@ Adding in a feature to use information about Coaches Votes notably improved the 
 While I was here, I also decided to add back in some further available statistical information. These being Marks, Contested Marks and Hitouts. Although these do not make a notable difference (similar or less than that for the margin feature), I chose to add them anyway.
 
 ![New updated model](https://github.com/BradGreig/brownlow-predictor/blob/main/data/ImprovedModel.png?raw=true)
+*<small>Comparison of the accuracy to predict 3 vote (solid), 2 vote (dashed) and 1 vote (dotted) performances over a single season for all seasons. Black lines correspond to our original model, the red lines correspond to the inclusion of a features for the AFL Coaches votes and game margin. Additionally, I have added some additional statistics (Marks, Contested Marks and Hitouts). </small>*
 
 In the above figure, you can see the resultant improvement of this expanded model compared to the model used in our original analysis. Although the results for the updated model look very similar to those of just adding the Coaches Votes above, there are some further improvements. For example, in 2014, there is a notable improvement. A few other years show improvement as well. Overall, this expanded model improves over the addition of the Coaches Votes feature by 2-3 per cent (single seasons can be higher).
 
