@@ -454,6 +454,22 @@ Ultimately, despite the broad posteriors, which are an issue for providing expec
 
 ![Comparison of all models](https://github.com/BradGreig/brownlow-predictor/blob/main/data/AllModels.png?raw=true)
 
+### Comparing all models for top 10 performance (3-2-1 voting)
+
+![Comparing top 10 performance (PV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-PV.png?raw=true)
+
+### Comparing all models for top 10 performance (Expected votes)
+
+![Comparing top 10 performance (EV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-EV.png?raw=true)
+
+### Comparing all models by totals by team
+
+![Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/TeamTotal-all-PV.png?raw=true)
+
+### Comparing all models by individual team performance
+
+![Individal team performance (Adelaide)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/ByTeam-Adelaide.png?raw=true)
+
 ## Contact Information
 
 For any questions please contact [Brad Greig](mailto:brad.s.greig@gmail.com).
