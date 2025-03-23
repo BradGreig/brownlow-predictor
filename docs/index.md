@@ -41,6 +41,7 @@ For the purposes of creating predictive models, raw numbers are not going to be 
 To begin with, let's look at what statistics lead to 3-2-1 votes in all our historical games.
 
 ![Brownlow vote game statistics](https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png?raw=true)
+*<small>Fractional occurance of games being awarded Brownlow votes given an individual player statistic determined over all available AFL games. All votes (black), 3 votes (red), 2 votes (blue) and 1 vote (purple). This highlights how important a certain value of a statistic is for Brownlow voting. For example, obtaining over 40 disposals leads to a 90% chance of receiving at least one vote. </small>*
 
 Here, for a variety of available statistics, we are looking at the fraction of times a player with a given statistic polls 1 (purple), 2 (blue) or 3 (red) votes compared to the total number of times a player has achieved that equivalent statistic. The black curve is simply the sum of all possible voting outcomes (i.e. any vote achieved). For example, in the first panel (for total disposals), a player who achieves 40 disposals has gotten a Brownlow vote roughly 80 per cent of the time (black curve is at roughly 0.8). More specifically, it is 3 votes 50 per cent of the time, 2 votes 25 per cent of the time and 1 vote about 5 per cent of the time. 
 
@@ -67,6 +68,7 @@ As highlighted earlier, the actual raw statistics are less relevant as there is 
 Below, we show the cumulative probabilities of achieving 1, 2 or 3 votes as a function of the ranking of that statistic. The cumulative probability is simply the total probability within a range (i.e. up to a particular ranking in our case), with it can achieve a maximum of one. The advantage of using cumulative probabilities is that it allows us to quickly observe how important the ranking is to achieving Brownlow votes. If important, the cumulative probability will rapidly approach one for only the highest rankings. For those that are less relevant, the cumulative probability approaches one much more slowly, requiring us to go further down our list of rankings until we achieve all possible cases of achieving a Brownlow vote.
 
 ![Brownlow votes by ranking](https://github.com/BradGreig/brownlow-predictor/blob/main/data/rankedinfo.png?raw=true)
+*<small>Cumulative probability distributions for 3 votes (red), 2 votes (blue) and 1 vote (purple) as a function of player ranking (highest value of a given statistic). For example, 75% of the time, 3 votes are awarded to players with the highest 5 disposals.</small>*
 
 Again, these are extremely useful for understanding the importance of an individual statistic on receiving Brownlow votes. In fact, these are more informative than what we observed previously.
 
@@ -178,6 +180,7 @@ In preparation for this validation step, we provide the 2023 Brownlow top 10.
 | 8 | Caleb Serong | Fremantle | 24 |
 | 9 | Noah Anderson | Gold Coast | 22 |
 | 10 | Patrick Cripps | Carlton | 22 |
+*<small>The actual results for the 2023 AFL Brownlow voting. </small>*
 
 Lachie Neale was the eventual winner. However, what is important to know is that this was somewhat of a surprise. Most people (and predictive models) did not anticipate him winning. Therefore, in our validation, it is important to remember this as predicting the winner might be difficult.
 
@@ -453,22 +456,32 @@ Ultimately, despite the broad posteriors, which are an issue for providing expec
 ### Comparing all predictive models
 
 ![Comparison of all models](https://github.com/BradGreig/brownlow-predictor/blob/main/data/AllModels.png?raw=true)
+*<small>Accuracy for predicting 3 votes games within a season (by year) for all predictive models. Models are re-trained to predict a single year, using all other seasons as a training set. Models are denoted by different coloured points: random forest (red), XGBoost (blue), ordinal logistic regression (orange), SBI (purple) and Auto-ML (green). </small>*
 
 ### Comparing all models for top 10 performance (3-2-1 voting)
 
 ![Comparing top 10 performance (PV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-PV.png?raw=true)
+*<small>The predicted top 10 for the AFL Brownlow in 2024 using all available models. For this, I assign only 3-2-1.</small>*
 
 ### Comparing all models for top 10 performance (Expected votes)
 
 ![Comparing top 10 performance (EV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-EV.png?raw=true)
+*<small>The predicted top 10 for the AFL Brownlow in 2024 using all available models. For this, I consider the expected votes. </small>*
 
 ### Comparing all models by totals by team
 
 ![Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/TeamTotal-all-PV.png?raw=true)
+*<small>The total votes awarded in 2024 sorted by team. Here, I only consider awarding 3-2-1 votes. </small>*
+
+Go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/) for the team totals by expected votes.
+
 
 ### Comparing all models by individual team performance
 
 ![Individal team performance (Adelaide)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/ByTeam-Adelaide.png?raw=true)
+*<small>The season total for predicted Brownlow votes for the 2024 season based on an individal team. Here, I am considering the results for Adelaide. </small>*
+
+Go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/) for all individual team voting predictions.
 
 ## Contact Information
 
