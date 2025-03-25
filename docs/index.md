@@ -41,7 +41,7 @@ For the purposes of creating predictive models, raw numbers are not going to be 
 To begin with, let's look at what statistics lead to 3-2-1 votes in all our historical games.
 
 ![Brownlow vote game statistics](https://github.com/BradGreig/brownlow-predictor/blob/main/data/raw_info.png?raw=true)
-*<small>Fractional occurance of games being awarded Brownlow votes given an individual player statistic determined over all available AFL games. All votes (black), 3 votes (red), 2 votes (blue) and 1 vote (purple). This highlights how important a certain value of a statistic is for Brownlow voting. For example, obtaining over 40 disposals leads to a 90% chance of receiving at least one vote. </small>*
+*<small>Fractional occurence of games being awarded Brownlow votes given an individual player statistic determined over all available AFL games. All votes (black), 3 votes (red), 2 votes (blue) and 1 vote (purple). This highlights how important a certain value of a statistic is for Brownlow voting. For example, obtaining over 40 disposals leads to a 90% chance of receiving at least one vote. </small>*
 
 Here, for a variety of available statistics, we are looking at the fraction of times a player with a given statistic polls 1 (purple), 2 (blue) or 3 (red) votes compared to the total number of times a player has achieved that equivalent statistic. The black curve is simply the sum of all possible voting outcomes (i.e. any vote achieved). For example, in the first panel (for total disposals), a player who achieves 40 disposals has gotten a Brownlow vote roughly 80 per cent of the time (black curve is at roughly 0.8). More specifically, it is 3 votes 50 per cent of the time, 2 votes 25 per cent of the time and 1 vote about 5 per cent of the time. 
 
@@ -323,7 +323,7 @@ First up, our first random forest model.
 | 9 | Harry Sheezel | North Melbourne | 23 |  | Harry Sheezel | North Melbourne | 18.57 |
 | 10 | Noah Anderson | Gold Coast | 23 |  | Errol Gulden | Sydney | 18.53 |
 
-*<small>Prediction for the 2024 AFL Brownlow medal for a singe random forest classifier model. Left hand side is for awarding 3-2-1 votes whislt the right hand side corresponds to the expected votes. </small>*
+*<small>Prediction for the 2024 AFL Brownlow medal for a singe random forest classifier model. Left hand side is for awarding 3-2-1 votes whilst the right hand side corresponds to the expected votes. </small>*
 
 Depending on if you prefer the 3-2-1 scheme or the expected votes, we have a couple of likely winners. Under the expected votes scheme, it is clear it is expected to be close between Lachie Neale and Nick Daicos. 3-2-1 voting has Nick Daicos as a runaway winner.
 
@@ -345,7 +345,7 @@ Below, I prove the predictions for our second random forest model (i.e. averagin
 | 9 | Noah Anderson | Gold Coast | 23 |  | Harry Sheezel | North Melbourne | 17.08 |
 | 10 | Max Gawn | Melbourne | 23 |  | Errol Gulden | Sydney | 17.06 |
 
-*<small>Prediction for the 2024 AFL Brownlow medal determined using 100 different random forest classifier models. Left hand side is for awarding 3-2-1 votes whislt the right hand side corresponds to the expected votes. </small>*
+*<small>Prediction for the 2024 AFL Brownlow medal determined using 100 different random forest classifier models. Left hand side is for awarding 3-2-1 votes whilst the right hand side corresponds to the expected votes. </small>*
 
 Unsurprisingly these are fairly similar to our other model. However, I have a higher degree of trust in these owing to the larger number of random forests averaged over (less randomness). This randomness only really impacts awarding the 3-2-1 based on ranked probabilities, with more differences observed on the left-hand side of the table. Under the expected votes scheme, the results are very similar, however, we have Nick Daicos being a clear winner (randomness had previously made it appear closer).
 
@@ -393,7 +393,7 @@ Below is the actual outcome of the 2024 Brownlow:
 
 *<small>The actual results for the 2024 AFL Brownlow medal. </small>*
 
-Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for all of my models Cripps barely scraped into the top 5 with the models underpredicting his tally by a significant 10 - 20 votes. 
+Well, the two different approaches did not predict the winner, with Patrick Cripps winning with a record smashing 45! However, they did predict it to be a high count, and predicted Nick Daicos' tally almost perfectly. Interestingly, for all of my models Cripps barely scraped into the top 5 with the models under predicting his tally by a significant 10 - 20 votes. 
 
 So, what went wrong? Well, most likely nothing actually! It seems the quirky, subjective nature of the Brownlow voting played a significant impact. I found an interesting analysis [here](https://www.foxsports.com.au/afl/brownlow-medal/weird-votes-that-let-cripps-smash-record-did-umps-pick-the-wrong-daicos-brownlow-talking-pts/news-story/de783aa761c2af1cc9e9b678c2f7b3b5?gaa_at=la&gaa_n=AWsEHT5-0cFMHnnroJrumDpxreZNUDY5DAUUxsl6ZbITxDo_Kn07laa9nubbGWF3Hu0%3D&gaa_ts=66f20026&utm_source=newsshowcase&utm_medium=discover&utm_campaign=CCwQlY-RlaeSpORTGP7-h4nqsYK5uQEqQwgwEJmd3dDEjtzDIhjPoZ6E9dOr5KABKioIACIQ34S7JIkL8vNsZnoS3qv1FSoUCAoiEN-EuySJC_LzbGZ6Et6r9RU&utm_content=related&gaa_sig=XrTO3sTkjE9JEh-BitgSf0XRn_62n-K1alPmNbm617STHLXIe9kgdlWwnarIF9nObdwZT2Og-EwX2tUwtwInFw%3D%3D). In short, Cripps polled votes (or more votes than expected) in a bunch of games (8 extra votes according to the [Wheelo](https://www.wheeloratings.com/afl_brownlow_live.html) model). While this is not anything new, typically this is balanced out by a player receiving fewer votes than expected in a similar number of games. However, for Cripps, this did not happen. Hence the astronomical number of votes. Poor Nick Daicos...
 
@@ -418,7 +418,7 @@ In the below figure I provide the prediction accuracy for each season for obtain
 ![Considering a feature for the game margin](https://github.com/BradGreig/brownlow-predictor/blob/main/data/MarginFeature.png?raw=true)
 *<small>Comparison of the accuracy to predict 3 vote (solid), 2 vote (dashed) and 1 vote (dotted) performances over a single season for all seasons. Black lines correspond to our original model, the red lines correspond to the inclusion of a game margin feature. </small>*
 
-In short, using the margin instead of the simple binary win/loss results in very little difference in the prediction accuracy. Overall, this margin feature does improve the performance, but only very marginally. Notably, it does do a little better for the 1 and 2 votes than it does for the 3 votes.
+In short, using the margin instead of the simple binary win/loss results in very little difference in the prediction accuracy. Overall, this margin feature does improve the performance, but only very marginally. Notably, it does do a little better for the 1 and 2 votes than it does for the 3 votes which is unsurprising given the higher probability of 1 and 2 votes being awarded to players in losing teams.
 
 ### Adding in coaches votes as a feature
 
@@ -446,15 +446,17 @@ In the above figure, you can see the resultant improvement of this expanded mode
 
 ### New predictive models
 
-By the annoucement of the 2024 Brownlow Medal winner, I only had 1.5 models working. The random forest approach was working and simulation based inference was kind of working. I intended to also have Ordinal Logistic Regression working, but did not find the time.
+By the announcement of the 2024 Brownlow Medal winner, I only had 1.5 models working. The random forest approach was working and simulation based inference was kind of working. I intended to also have Ordinal Logistic Regression working, but did not find the time.
 
-Since then, I have found some time to tweak the existing models and get a few new ones also working. For example, I now have Ordinal Logistic Regression working, plus have two other models working; an popular, alternative Random Forest library (XGBoost) and Automated Machine Learning (AutoML). Further, I performed some more exploration into the simulation based inference model.
+Since then, I have found some time to tweak the existing models and get a few new ones working as well. For example, I now have Ordinal Logistic Regression working, plus have two other models working; an popular, alternative Random Forest library (XGBoost) and Automated Machine Learning (AutoML). Further, I performed some more exploration into the simulation based inference model.
 
 Below, I provide a brief description of the motivations for including these models, and the main components of relevance to understand the models. Later, I will compare the performance of all models at the same time rather than investigating a single model at a time like I did above.
 
 #### Ordinal Logistic Regression
 
-My interest in this approach was inspired entirely by the Monte ChaRlo approach. Ordinal Logistic Regression is a mathematical technique for predicting the outcome of ordered results (3-2-1 voting in our case).
+My interest in this approach was inspired entirely by the Monte ChaRlo approach (whose original webpage now seems to have disappeared). Ordinal Logistic Regression (OLR) is a mathematical technique for predicting the outcome of ordered results (3-2-1 voting in our case).
+
+I will refrain from going into the mathematical details for brevity, however, basically OLR is a regression model for ordered data. It seeks to determine the probabilities (and boundaries) of the various ordered outcomes. In our case, it determines the probabilities (and boundaries) for a player achieving 3 votes, 2 votes and 1 vote based on our historical data. To applying OLR, I used the statistical programming language R owing to the better available libraries provided.
 
 #### Automated Machine Learning (AutoML)
 
@@ -462,7 +464,7 @@ Again, I was inspired to look into this approach based off a [model developed by
 
 #### Different Random Forest approach (XGBoost)
 
-This is not a new approach, but instead a different library for building up a random forest. It uses gradient descent to train the branches of the random forest and is popular owing to both its computational efficiency and accuracy. Therefore, I chose to add this to the list of models.
+This is not a new approach, but instead a different library for building up a random forest. It uses gradient descent to train the branches of the random forest and is popular owing to both its computational efficiency and accuracy. Therefore, I chose to add this to the list of models to see if any significant performance improvements might become available (unlikely).
 
 #### Simulated Based Inference
 
@@ -474,33 +476,66 @@ Ultimately, despite the broad posteriors, which are an issue for providing expec
 
 ### Comparing all predictive models
 
+Now, with over 5 different predictive models for predicting the result of the AFL Brownlow medal, it is worth looking into whether one model performs optimally over all others. To do this, I will compare the prediction accuracy of all 3 vote games within a single AFL season over 2007 - 2024. For each prediction year, the models are retrained using the available information from all previous years of data (e.g. for prediction the results for 2016, the models are trained on 2007 - 2015 and 2017 - 2024 data).
+
+In the below figure, I provide the prediction accuracy of all 3 vote games for the 5 different predictive models. The various coloured points denote each different model type: random forest (red), XGBoost (also a random forest, blue), OLR (orange), SBI (purple) and Auto-ML (teal). The data points are grouped by their prediction year and separated by vertical dashed lines to aid readability. Horizontal dashed lines denote increments of 5%.
+
 ![Comparison of all models](https://github.com/BradGreig/brownlow-predictor/blob/main/data/AllModels.png?raw=true)
 *<small>Accuracy for predicting 3 votes games within a season (by year) for all predictive models. Models are re-trained to predict a single year, using all other seasons as a training set. Models are denoted by different coloured points: random forest (red), XGBoost (blue), ordinal logistic regression (orange), SBI (purple) and Auto-ML (green). </small>*
 
+There are a few notable observations from this figure. Firstly, there is no single model that is consistently the most accurate over the years. Remember, for each model I re-train the model 30 times and average the results in order to minimise statistical variations which can occur when using only a single model (i.e. different initial conditions etc.). Therefore, any of the explored approaches have produced viable predictive models.
+
+Secondly, the predictive accuracy of the models varies significantly by season. For the past two years, the models are only ~55% accurate at predicting 3 vote performances. Contrast this with previous years where the accuracy has been between 65 - 70%. Further, in 2007 - 2009, the predictive accuracy was only 45 - 50%. This highlights both the difficulty in achieving an accurate model for the AFL Brownlow medal and the significant seasonal variation in predictive accuracy that can occur. Essentially, it highlights the subjectivity of the AFL Brownlow voting. 
+
+This also highlights that 2024 was a particularly difficult season to predict. With a prediction accuracy of 55 per cent, it is one of the least accurate (most difficult) seasons to predict. Of course, it is not possible to know this prior to the awarding of the AFL Brownlow, but this can explain some of the notable differences in our predictions relative to the actual results.
+
 ### Comparing all models for top 10 performance (3-2-1 voting)
+
+I have added additional statistics (notably Coaches votes) and a further 3 predictive approaches for the AFL Brownlow medal. Therefore, it is worth exploring the predicted top-10 for the 2024 season for all individual models that I have considered. For example, to observe how similar/different the various approaches may be in predicting the results. First, I consider the predicted voting when I specifically award 3-2-1 votes to the 3 highest probabilities in a single match. The listed votes are the median awarded votes awarded over the sample of 30 models.
 
 ![Comparing top 10 performance (PV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-PV.png?raw=true)
 *<small>The predicted top 10 for the AFL Brownlow in 2024 using all available models. For this, I assign only 3-2-1.</small>*
 
+Remember, previously our random forest model predicted Nick Daicos to be the winner, with Patrick Cripps (the eventual winner) only 3rd and 5th. Following the inclusion of coaches vote information (and other statistics) the random forest model now predicts Patrick Cripps to win (33 votes). However, a full 12 votes below his actual winning tally. Previously, Nick Daicos was predicted to win with 37, but now is predicted to finish second with 32 votes. Although the predicted ordering has improved, the predicted tally is further from the actual results. Understanding why this may be the case would require deeper investigations.
+
+Interestingly, the early predictions from the random forest model included two ruckmen in the top-10 (Max Gawn and Rowan Marshall). Following the inclusion of coaches votes and a few other statistics, these ruckmen are no longer to be seen. Instead, they were replaced with Zak Butters and Isaac Heeney, both of whom featured in the actual top-10 (3rd and =4th). This highlights the improved predictive performance following the addition of the coaches votes into the models.
+
+Looking across the various predictive models, the results are fairly consistent. The two random forest approaches correctly predicted the winners, while the remaining approaches marginally preferred Nick Daicos as the winner. Further, the names featured in the predicted top-10 across all the models is fairly consistent, with only slight variations in the ordering of those towards the bottom of the top 10. 
+
+Therefore, irrespective of the actual predictive model selected, I obtained fairly consistent results. Quite clearly, the inclusion of the coaches votes have also notably improved the predictive performance of the models. Overall, I consistently recover 6 of the final top 10.
+
 ### Comparing all models for top 10 performance (Expected votes)
+
+Instead of considering the 3-2-1 voting, I now perform the same comparison as above except considering expected votes. As a reminder, the idea of expected votes are to better account for voting in games where it is less obvious who the standout best performer was (e.g. many equal players worth of obtaining votes). Every player in every match is awarded an expected vote with an overall 6 expected votes awarded per game (same as 3-2-1). By considering expected votes, the actual tally is less relevant (as the maximum expected vote is consistently less than 3), instead it is the ordering that matters most. Also as a reminder, I do not consider the SBI model, as the awarded votes are considerably lower than they should be (owing to issues discussed earlier).
 
 ![Comparing top 10 performance (EV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-EV.png?raw=true)
 *<small>The predicted top 10 for the AFL Brownlow in 2024 using all available models. For this, I consider the expected votes. </small>*
 
+Across the 4 available models, Nick Daicos was consistently predicted to be the winner (actually finished 2nd) with Patrick Cripps consistently 3rd (eventual winner). This discrepancy is not too surprising though, given Patrick Cripps received the maximum of 3 votes in 12 matches while Nick Daicos only had 7 3 vote performances. Therefore the expected votes is always going to under predict the final tally, and potentially the incorrect order if a player recieves a disproportionally large number of 3 votes.
+
+Once again, the predicted top 10 across the various models is fairly consistent, with a similar selection of players and consistent ordering. Unlike the 3-2-1 models which correctly predicted 6 of the top 10, using expected votes predicted 7 of the top 10. Errol Gulden now consistently appears at the expense of Zach Merrett who did not feature in the actual top 10.
+
+Interestingly, both sets of models predicted large tallies for Lachie Neale (the 2023 winner) and Marcus Bontempelli (a typical strong performer). Both of whom both did not feature in the actual top-10. The lower than expected tallies for both was a surprise on the night.
+
 ### Comparing all models by totals by team
+
+So far I have only considered predicting the AFL Brownlow medal top 10. However, I can also look into other quantities. For example, while we may be incorrectly predicting which players receive the votes, we should be more accurate at predicting which team they come from (votes typically go to players from the winning team).
+
+Below, I produce a table that compares the total team votes for the 2024 season to the actual team totals. For each of the 5 different models, I provided the predicted total, the difference from the true total and also the recovered range across the 30 randomly trained versions of each model. For equivalent information for expected votes, the corresponding table can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/).
 
 ![Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/TeamTotal-all-PV.png?raw=true)
 *<small>The total votes awarded in 2024 sorted by team. Here, I only consider awarding 3-2-1 votes. </small>*
 
-Go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/) for the team totals by expected votes.
-
+In general, most team totals are predicted to within about 5 votes, with a few larger outliers for some teams. Further, across the various models, the teams with the largest discrepancies appear to be the same. This tends to highlight the consistency across the various models. Interestingly, the largest discrepancies are Sydney (finished 1st), Brisbane (finished 5th) and Essendon (finished 11th). Sydney was consistently under predicted, while Brisbane and Essendon were over predicted. It may be possible to establish a deeper meaning to these discrepancies, however, for now I refrain from doing so.
 
 ### Comparing all models by individual team performance
 
-![Individal team performance (Adelaide)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/ByTeam-Adelaide.png?raw=true)
-*<small>The season total for predicted Brownlow votes for the 2024 season based on an individal team. Here, I am considering the results for Adelaide. </small>*
+Rather than looking at the overall team total, I can also look at the performance of players from individual teams. That is, how good are the predictive models at predicting the highest polling player from the 18 individual teams. Below, I provide an example of this table for the Adelaide Crows, providing the top 5 for both the 3-2-1 voting (top) and expected votes (bottom) for all 5 predictive models. Tables for each of the 18 individual teams can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/).
 
-Go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/) for all individual team voting predictions.
+![Individual team performance (Adelaide)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/ByTeam-Adelaide.png?raw=true)
+*<small>The season total for predicted Brownlow votes for the 2024 season based on an individual team. Here, I am considering the results for Adelaide. </small>*
+
+I will not analyse these in great detail owing to the sheer amount of information. However, I will note that the models predicted the top performer in each team correctly for 14-15 of the 18 individual teams. For GWS it was 50/50 between the correct player, whilst they consistently got Gold Coast (predicted N. Anderson instead of M. Rowell), Melbourne (M. Gawn instead of C. Petracca) and the Western Bulldogs (M. Bontempelli instead of A. Treloar) wrong. In these 3 incorrect cases, the top two were correctly identified, just the incorrect ordering.
 
 ## Contact Information
 
