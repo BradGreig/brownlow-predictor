@@ -9,6 +9,8 @@ On this page you can find the following:
 - [2024 Predictions](#2024-predictions)
 - [Improvements post 2024](#Improvements-to-the-model-since-the-2024-Brownlow)
 
+Various individual Jupyter Notebooks are provided for most of the predictive models along with the underlying historical statistical information spanning 2007-2024. For these data, please go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/VariousModels/). 
+
 ## What is the Brownlow and why predict it?
 
 The AFL [Brownlow](https://en.wikipedia.org/wiki/Brownlow_Medal) medal is awarded to the best and fairest player over the course of the AFL season (players suspended for a match are deemed ineligible). Voting is performed after each game by the three officiating match umpires in a 3-2-1 fashion (3 being the best). At the end of the season the votes are collated and the Brownlow medal (a.k.a Charlie after its namesake) is awarded. 
