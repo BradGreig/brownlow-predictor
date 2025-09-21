@@ -432,7 +432,7 @@ All in all, I would have to say I am quite happy with the performance of these p
 
 Since the completion of the 2024 Brownlow medal, I have found some time to play around with a few of the suggested model improvements mentioned above. Further, I have also implemented a few additional models to quantify their performance.
 
-Below I will outline the main updates.{#improvements-2024}
+Below I will outline the main updates.
 
 ### Adding in a feature for the margin
 
@@ -566,4 +566,4 @@ I will not analyse these in great detail owing to the sheer amount of informatio
 
 ## Contact Information
 
-For any questions please contact [Brad Greig](mailto:brad.s.greig@gmail.com).
+For any questions please contact [Brad Greig](mailto:brad.s.greig@gmail.com).{#improvements-2024}
