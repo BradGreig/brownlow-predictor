@@ -8,7 +8,7 @@ On this page you can find the following:
 - [Data Insights](#data-insights)
 - [Predictive models](#predictive-models)
 - [2024 Predictions](#2024-predictions)
-- [Improvements to the model since the 2024 Brownlow](#improvements-to-the-model-since-the-2024-brownlow)
+- [Improvements post 2024](#improvements-to-the-model-since-the-2024-brownlow)
 
 Various individual Jupyter Notebooks are provided for most of the predictive models along with the underlying historical statistical information spanning 2007-2024. For these data, please go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/VariousModels/). 
 
@@ -16,7 +16,7 @@ Various individual Jupyter Notebooks are provided for most of the predictive mod
 
 To be honest, the most important thing is the forthcoming predictions. So, I have moved the latest (2025) predictions to the top of the page. For anyone interested in the actual methodology, data or testing please feel free to continue to read through the rest of the content on the page.
 
-For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, jump to [Improvements to the model since the 2024 Brownlow](#improvements-to-the-model-since-the-2024-brownlow).
+For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, [read here](#improvements-to-the-model-since-the-2024-brownlow).
 
 As is usually the case, I will report the results when adhering to a strict 3-2-1 voting system as is the case for the Brownlow (3 highest probability performances are awarded 3-2-1). Also, I will provide expected votes, which is a measure of how likely an individual performance is to receive votes. This is designed to better handle variance (subjectivity in the umpires voting).
 
