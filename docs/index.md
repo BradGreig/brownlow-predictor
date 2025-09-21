@@ -8,7 +8,7 @@ On this page you can find the following:
 - [Data Insights](#data-insights)
 - [Predictive models](#predictive-models)
 - [2024 Predictions](#2024-predictions)
-- [Improvements to the model since the 2024 Brownlow](#improvements-to-the-model-since-the-2024-Brownlow)
+- [Improvements to the model since the 2024 Brownlow](#improvements-to-the-model-since-the-2024-brownlow)
 
 Various individual Jupyter Notebooks are provided for most of the predictive models along with the underlying historical statistical information spanning 2007-2024. For these data, please go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/VariousModels/). 
 
