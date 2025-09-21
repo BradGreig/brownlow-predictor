@@ -1,7 +1,8 @@
-This page contains a detailed summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all models into their own GitHub repos for sharing. There is a fair bit of information below providing a lot of context. If you are only interested in the final predictions, feel free to jump straight to the 2024 predictions (or equally the comparisons against 2023).
+This page contains a detailed summary of an exploration into building models to predict the AFL Brownlow medal. Eventually it is my goal to place all models into their own GitHub repos for sharing. There is a fair bit of information below providing a lot of context. If you are only interested in the final predictions, feel free to jump straight to a specific years season prediction. 
 
 On this page you can find the following:
 
+- [2025 Predictions](#2025-predictions)
 - [What is the Brownlow and why predict it?](#what-is-the-brownlow-and-why-predict-it)
 - [Available data](#available-data)
 - [Data Insights](#data-insights)
@@ -10,6 +11,29 @@ On this page you can find the following:
 - [Improvements post 2024](#Improvements-to-the-model-since-the-2024-Brownlow)
 
 Various individual Jupyter Notebooks are provided for most of the predictive models along with the underlying historical statistical information spanning 2007-2024. For these data, please go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/VariousModels/). 
+
+## 2025 Predictions
+
+To be honest, the most important thing is the forthcoming predictions. So, I have moved the latest (2025) predictions to the top of the page. For anyone interested in the actual methodology, data or testing please feel free to continue to read through the rest of the content on the page.
+
+For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, jump to the section [Improvements post 2024](#Improvements-to-the-model-since-the-2024-Brownlow).
+
+As is usually the case, I will report the results when adhering to a strict 3-2-1 voting system as is the case for the Brownlow (3 highest probability performances are awarded 3-2-1). Also, I will provide expected votes, which is a measure of how likely an individual performance is to receive votes. This is designed to better handle variance (subjectivity in the umpires voting).
+
+The top-10 predictions across the 5 statistical models and two voting schemes is provided below;
+
+![Top-10 predictions for the 2025 Brownlow](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2025/Top10-all.png?raw=true)
+*<small>The predicted top 10 for the 2025 AFL Brownlow using all available predictive models and two methodology for the voting. Note, I have included the SBI results this year for the expected votes, despite their low number (due to broad posteriors). The order is what is important, not the number in that instance.</small>*
+
+It seems it will be a two-horse race, with either Bailey Smith of Geelong or Nick Naicos of Collingwood to take out the 2025 Brownlow. Both Noah Anderson and Matt Rowell of Gold Coast feature in the top-5, likely taking votes off one another limiting their chances. However, they could be considered good outsiders.
+
+Below, I provide the predictions for the number of votes awarded to each individual team for all the models. Tables for top-5 performers for all 18 individual teams can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2025).
+
+![2025 Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2025/Team-total-all.png?raw=true)
+*<small>The 2025 team totals. For all predictive models and voting methodology. </small>*
+
+Guess we will find out soon enough how well the models performed for 2025!
+
 
 ## What is the Brownlow and why predict it?
 
@@ -496,7 +520,7 @@ This also highlights that 2024 was a particularly difficult season to predict. W
 
 I have added additional statistics (notably Coaches votes) and a further 3 predictive approaches for the AFL Brownlow medal. Therefore, it is worth exploring the predicted top-10 for the 2024 season for all individual models that I have considered. For example, to observe how similar/different the various approaches may be in predicting the results. First, I consider the predicted voting when I specifically award 3-2-1 votes to the 3 highest probabilities in a single match. The listed votes are the median awarded votes awarded over the sample of 30 models.
 
-![Comparing top 10 performance (PV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-PV.png?raw=true)
+![Comparing top 10 performance (PV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2024/Top10-all-PV.png?raw=true)
 *<small>The predicted top 10 for the AFL Brownlow in 2024 using all available models. For this, I assign only 3-2-1.</small>*
 
 Remember, previously our random forest model predicted Nick Daicos to be the winner, with Patrick Cripps (the eventual winner) only 3rd and 5th. Following the inclusion of coaches vote information (and other statistics) the random forest model now predicts Patrick Cripps to win (33 votes). However, a full 12 votes below his actual winning tally. Previously, Nick Daicos was predicted to win with 37, but now is predicted to finish second with 32 votes. Although the predicted ordering has improved, the predicted tally is further from the actual results. Understanding why this may be the case would require deeper investigations.
@@ -511,7 +535,7 @@ Therefore, irrespective of the actual predictive model selected, I obtained fair
 
 Instead of considering the 3-2-1 voting, I now perform the same comparison as above except considering expected votes. As a reminder, the idea of expected votes are to better account for voting in games where it is less obvious who the standout best performer was (e.g. many equal players worth of obtaining votes). Every player in every match is awarded an expected vote with an overall 6 expected votes awarded per game (same as 3-2-1). By considering expected votes, the actual tally is less relevant (as the maximum expected vote is consistently less than 3), instead it is the ordering that matters most. Also as a reminder, I do not consider the SBI model, as the awarded votes are considerably lower than they should be (owing to issues discussed earlier).
 
-![Comparing top 10 performance (EV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/Top10-all-EV.png?raw=true)
+![Comparing top 10 performance (EV)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2024/Top10-all-EV.png?raw=true)
 *<small>The predicted top 10 for the AFL Brownlow in 2024 using all available models. For this, I consider the expected votes. </small>*
 
 Across the 4 available models, Nick Daicos was consistently predicted to be the winner (actually finished 2nd) with Patrick Cripps consistently 3rd (eventual winner). This discrepancy is not too surprising though, given Patrick Cripps received the maximum of 3 votes in 12 matches while Nick Daicos only had 7 3 vote performances. Therefore the expected votes is always going to under predict the final tally, and potentially the incorrect order if a player recieves a disproportionally large number of 3 votes.
@@ -524,18 +548,18 @@ Interestingly, both sets of models predicted large tallies for Lachie Neale (the
 
 So far I have only considered predicting the AFL Brownlow medal top 10. However, I can also look into other quantities. For example, while we may be incorrectly predicting which players receive the votes, we should be more accurate at predicting which team they come from (votes typically go to players from the winning team).
 
-Below, I produce a table that compares the total team votes for the 2024 season to the actual team totals. For each of the 5 different models, I provided the predicted total, the difference from the true total and also the recovered range across the 30 randomly trained versions of each model. For equivalent information for expected votes, the corresponding table can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/).
+Below, I produce a table that compares the total team votes for the 2024 season to the actual team totals. For each of the 5 different models, I provided the predicted total, the difference from the true total and also the recovered range across the 30 randomly trained versions of each model. For equivalent information for expected votes, the corresponding table can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2024).
 
-![Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/TeamTotal-all-PV.png?raw=true)
+![Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2024/TeamTotal-all-PV.png?raw=true)
 *<small>The total votes awarded in 2024 sorted by team. Here, I only consider awarding 3-2-1 votes. </small>*
 
 In general, most team totals are predicted to within about 5 votes, with a few larger outliers for some teams. Further, across the various models, the teams with the largest discrepancies appear to be the same. This tends to highlight the consistency across the various models. Interestingly, the largest discrepancies are Sydney (finished 1st), Brisbane (finished 5th) and Essendon (finished 11th). Sydney was consistently under predicted, while Brisbane and Essendon were over predicted. It may be possible to establish a deeper meaning to these discrepancies, however, for now I refrain from doing so.
 
 ### Comparing all models by individual team performance
 
-Rather than looking at the overall team total, I can also look at the performance of players from individual teams. That is, how good are the predictive models at predicting the highest polling player from the 18 individual teams. Below, I provide an example of this table for the Adelaide Crows, providing the top 5 for both the 3-2-1 voting (top) and expected votes (bottom) for all 5 predictive models. Tables for each of the 18 individual teams can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/).
+Rather than looking at the overall team total, I can also look at the performance of players from individual teams. That is, how good are the predictive models at predicting the highest polling player from the 18 individual teams. Below, I provide an example of this table for the Adelaide Crows, providing the top 5 for both the 3-2-1 voting (top) and expected votes (bottom) for all 5 predictive models. Tables for each of the 18 individual teams can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2024).
 
-![Individual team performance (Adelaide)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/ByTeam-Adelaide.png?raw=true)
+![Individual team performance (Adelaide)](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2024/ByTeam-Adelaide.png?raw=true)
 *<small>The season total for predicted Brownlow votes for the 2024 season based on an individual team. Here, I am considering the results for Adelaide. </small>*
 
 I will not analyse these in great detail owing to the sheer amount of information. However, I will note that the models predicted the top performer in each team correctly for 14-15 of the 18 individual teams. For GWS it was 50/50 between the correct player, whilst they consistently got Gold Coast (predicted N. Anderson instead of M. Rowell), Melbourne (M. Gawn instead of C. Petracca) and the Western Bulldogs (M. Bontempelli instead of A. Treloar) wrong. In these 3 incorrect cases, the top two were correctly identified, just the incorrect ordering.
