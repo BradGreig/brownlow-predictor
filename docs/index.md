@@ -16,7 +16,7 @@ Various individual Jupyter Notebooks are provided for most of the predictive mod
 
 To be honest, the most important thing is the forthcoming predictions. So, I have moved the latest (2025) predictions to the top of the page. For anyone interested in the actual methodology, data or testing please feel free to continue to read through the rest of the content on the page.
 
-For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, jump to ...
+For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, jump to [test](#improvements-2024)...
 
 As is usually the case, I will report the results when adhering to a strict 3-2-1 voting system as is the case for the Brownlow (3 highest probability performances are awarded 3-2-1). Also, I will provide expected votes, which is a measure of how likely an individual performance is to receive votes. This is designed to better handle variance (subjectivity in the umpires voting).
 
@@ -432,7 +432,7 @@ All in all, I would have to say I am quite happy with the performance of these p
 
 Since the completion of the 2024 Brownlow medal, I have found some time to play around with a few of the suggested model improvements mentioned above. Further, I have also implemented a few additional models to quantify their performance.
 
-Below I will outline the main updates.
+Below I will outline the main updates.{#improvements-2024}
 
 ### Adding in a feature for the margin
 
