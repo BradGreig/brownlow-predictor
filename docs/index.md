@@ -2,37 +2,22 @@ This page contains a detailed summary of an exploration into building models to 
 
 On this page you can find the following:
 
-- [2025 Predictions](#2025-predictions)
+- [2026 Brownlow](#2026-brownlow)
 - [What is the Brownlow and why predict it?](#what-is-the-brownlow-and-why-predict-it)
 - [Available data](#available-data)
 - [Data Insights](#data-insights)
 - [Predictive models](#predictive-models)
-- [2024 Predictions](#2024-predictions)
+- [2025 Brownlow](#2025-brownlow)
+- [2024 Brownlow](#2024-brownlow)
 - [Improvements post 2024](#improvements-to-the-model-since-the-2024-brownlow)
 
 Various individual Jupyter Notebooks are provided for most of the predictive models along with the underlying historical statistical information spanning 2007-2024. For these data, please go [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/VariousModels/). 
 
-## 2025 Predictions
+## 2026 Brownlow
 
-To be honest, the most important thing is the forthcoming predictions. So, I have moved the latest (2025) predictions to the top of the page. For anyone interested in the actual methodology, data or testing please feel free to continue to read through the rest of the content on the page.
+### Predictions
 
-For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, [read here](#improvements-to-the-model-since-the-2024-brownlow).
-
-As is usually the case, I will report the results when adhering to a strict 3-2-1 voting system as is the case for the Brownlow (3 highest probability performances are awarded 3-2-1). Also, I will provide expected votes, which is a measure of how likely an individual performance is to receive votes. This is designed to better handle variance (subjectivity in the umpires voting).
-
-The top-10 predictions across the 5 statistical models and two voting schemes is provided below;
-
-![Top-10 predictions for the 2025 Brownlow](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2025/Top-10-all.png?raw=true)
-*<small>The predicted top 10 for the 2025 AFL Brownlow using all available predictive models and two methodology for the voting. Note, I have included the SBI results this year for the expected votes, despite their low number (due to broad posteriors). The order is what is important, not the number in that instance.</small>*
-
-It seems it will be a two-horse race, with either Bailey Smith of Geelong or Nick Naicos of Collingwood to take out the 2025 Brownlow. Both Noah Anderson and Matt Rowell of Gold Coast feature in the top-5, likely taking votes off one another limiting their chances. However, they could be considered good outsiders.
-
-Below, I provide the predictions for the number of votes awarded to each individual team for all the models. Tables for top-5 performers for all 18 individual teams can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2025).
-
-![2025 Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2025/Team-total-all.png?raw=true)
-*<small>The 2025 team totals. For all predictive models and voting methodology. </small>*
-
-Guess we will find out soon enough how well the models performed for 2025!
+### Results
 
 
 ## What is the Brownlow and why predict it?
@@ -326,7 +311,39 @@ While 3 votes have only been awarded to a player on a losing team 10 per cent of
 
 One of the biggest issues with predicting the Brownlow medal is the subjective nature of the voting rendering the raw player statistics less effective. However, during the season we have other more subjective measures of a player's performance. For example, after each game each of the two opposition coaches award 5-4-3-2-1 votes (for a maximum match total of 10). While they almost certainly will have a different opinion than the officiating umpires, this data should improve the predictive nature of our models. Media outlets can also have their own internal award system, awarded by journalists or other members. Therefore, there is potentially a wealth of additional subjective data available to add to our predictive models. I will investigate this in the future.
 
-## 2024 Predictions
+## 2025 Brownlow
+
+To be honest, the most important thing is the forthcoming predictions. So, I have moved the latest (2025) predictions to the top of the page. For anyone interested in the actual methodology, data or testing please feel free to continue to read through the rest of the content on the page.
+
+### Predictions
+
+For 2025, I will be providing results using all 5 of the statistical models that I have developed over the past couple of years. Most relevant to these were the inclusion of Coaches Votes and some additional predictive model variants. For more information, [read here](#improvements-to-the-model-since-the-2024-brownlow).
+
+As is usually the case, I will report the results when adhering to a strict 3-2-1 voting system as is the case for the Brownlow (3 highest probability performances are awarded 3-2-1). Also, I will provide expected votes, which is a measure of how likely an individual performance is to receive votes. This is designed to better handle variance (subjectivity in the umpires voting).
+
+The top-10 predictions across the 5 statistical models and two voting schemes is provided below;
+
+![Top-10 predictions for the 2025 Brownlow](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2025/Top-10-all.png?raw=true)
+*<small>The predicted top 10 for the 2025 AFL Brownlow using all available predictive models and two methodology for the voting. Note, I have included the SBI results this year for the expected votes, despite their low number (due to broad posteriors). The order is what is important, not the number in that instance.</small>*
+
+It seems it will be a two-horse race, with either Bailey Smith of Geelong or Nick Naicos of Collingwood to take out the 2025 Brownlow. Both Noah Anderson and Matt Rowell of Gold Coast feature in the top-5, likely taking votes off one another limiting their chances. However, they could be considered good outsiders.
+
+Below, I provide the predictions for the number of votes awarded to each individual team for all the models. Tables for top-5 performers for all 18 individual teams can be found [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2025).
+
+![2025 Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2025/Team-total-all.png?raw=true)
+*<small>The 2025 team totals. For all predictive models and voting methodology. </small>*
+
+Guess we will find out soon enough how well the models performed for 2025!
+
+### Results
+
+So how did the predictive models go? Well, Matt Rowell won quite comfortably and caught everyone by surprise. Shocked, might be a better word, Matt included. Matt was top-5 in most models, at best 5th in most 3-2-1 models and up as high as 4th in the expected votes models. Fairly consistent with most predictive models out there.
+
+The fickle nature of Brownlow medal predictors! The subjective nature of umpire voting and only 3-2-1 being awarded across 46 matchday players makes it so tough.
+
+Better luck next year!
+
+## 2024 Brownlow
 
 In preparation for the upcoming 2024 Brownlow medal, below I provide the predictions for the various models I have considered (or gotten working) thus far.
 
