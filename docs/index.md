@@ -15,7 +15,36 @@ Various individual Jupyter Notebooks are provided for most of the predictive mod
 
 ## 2026 Brownlow
 
+Ok, another AFL season has passed meaning another Brownlow to predict. Perhaps this is the year that the models finally predict the winner (looks at betting markets and realises it's already a foregone conclusion and we shouldn't really need the models). At least the models should have a cheap win this year. 
+
+Below are the predictions. Feel free to scoll on below to delve into the methodology etc.
+
 ### Predictions
+
+As I was marginally more organised this year (predictions live the Friday before the Brownlow, really gotta get my act together) I've tweaked the model predictions this year. Rather than running just a single model per methodology, I trained an ensemble (varying number of models per method). Thus, the predictions will be reported on the median results across a sensible number of models per method.
+
+The top-10 predictions across the 5 statistical models and two voting schemes is provided below;
+
+![Top-10 predictions for the 2026 Brownlow](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2026/Top-10-all.png?raw=true)
+*<small>The predicted top 10 for the 2026 AFL Brownlow using all available predictive models and two methodology for the voting. Note, I have included the SBI results this year for the expected votes, despite their low number (due to broad posteriors). The order is what is important, not the number in that instance.</small>*
+
+Should be a very comfortable victory for Nick Daicos. Third times the charm perhaps? Nick has been one of the favourites the last couple of years.
+
+Below, I provide the predictions for the number of votes awarded to each individual team for all the models. No tables for top-5 performers by each of the 18 clubs though. Data exists, just didn't think it was as interesting.
+
+![2026 Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2026/Team-total-all.png?raw=true)
+*<small>The 2026 team totals. For all predictive models and voting methodology. </small>*
+
+Guess we will find out soon enough how well the models performed for 2025!
+
+### Observations
+
+One of the interesting things for this years AFL Brownlow is that it is the first time the matchday umpires are permitted to access the Champion Data statistics when delivering their 3-2-1 votes. Given the models are built on these statistics (amongst others), it'll be interesting to see if it has a notable impact on the predictive model accuracy.
+
+In the past (#updated-model), I have demonstrated the relative performance of these predictive models at predicting 3-2-1 votes. Typically correctly predicting 3 votes sits at 40-60% across a given season. It'll be interesting to see if that remains the same or leads to an relative predictive improvement.
+
+Stay tuned for this.
+
 
 ### Results
 
@@ -338,6 +367,8 @@ Guess we will find out soon enough how well the models performed for 2025!
 ### Results
 
 So how did the predictive models go? Well, Matt Rowell won quite comfortably and caught everyone by surprise. Shocked, might be a better word, Matt included. Matt was top-5 in most models, at best 5th in most 3-2-1 models and up as high as 4th in the expected votes models. Fairly consistent with most predictive models out there.
+
+However, I did claim that Matt Rowell might be a good smoky. I did also claim Matt and Noah could also take votes off one another...
 
 The fickle nature of Brownlow medal predictors! The subjective nature of umpire voting and only 3-2-1 being awarded across 46 matchday players makes it so tough.
 
