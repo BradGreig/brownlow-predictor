@@ -39,7 +39,7 @@ Below, I provide the predictions for the number of votes awarded to each individ
 ![2026 Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2026/Team-total-all.png?raw=true)
 *<small>The 2026 team totals. For all predictive models and voting methodology. </small>*
 
-Guess we will find out soon enough how well the models performed for 2025!
+Guess we will find out soon enough how well the models performed for 2026!
 
 ### Observations
 
