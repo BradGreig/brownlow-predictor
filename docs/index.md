@@ -28,7 +28,9 @@ The top-10 predictions across the 5 statistical models and two voting schemes is
 ![Top-10 predictions for the 2026 Brownlow](https://github.com/BradGreig/brownlow-predictor/blob/main/data/IndividualPredictions/2026/Top-10-all.png?raw=true)
 *<small>The predicted top 10 for the 2026 AFL Brownlow using all available predictive models and two methodology for the voting. Note, I have included the SBI results this year for the expected votes, despite their low number (due to broad posteriors). The order is what is important, not the number in that instance.</small>*
 
-Should be a very comfortable victory for Nick Daicos. Third times the charm perhaps? Nick has been one of the favourites the last couple of years.
+Should be a very comfortable victory for Nick Daicos. Third times the charm perhaps? Nick has been one of the favourites the last couple of years. 
+
+I guess the thing of interest this year is not who wins, but by how much. Further, whether the record of Patrick Cripps (45 votes) can be eclipsed. Seems possible given the predictions. In any case, looks like it'll be a record breaking evening in some capacity.
 
 Below, I provide the predictions for the number of votes awarded to each individual team for all the models. No tables for top-5 performers by each of the 18 clubs though. Data exists, just didn't think it was as interesting.
 
@@ -41,7 +43,7 @@ Guess we will find out soon enough how well the models performed for 2025!
 
 One of the interesting things for this years AFL Brownlow is that it is the first time the matchday umpires are permitted to access the Champion Data statistics when delivering their 3-2-1 votes. Given the models are built on these statistics (amongst others), it'll be interesting to see if it has a notable impact on the predictive model accuracy.
 
-In the past (#updated-model), I have demonstrated the relative performance of these predictive models at predicting 3-2-1 votes. Typically correctly predicting 3 votes sits at 40-60% across a given season. It'll be interesting to see if that remains the same or leads to an relative predictive improvement.
+In the past, I have demonstrated the relative performance of these predictive models at predicting 3-2-1 [votes](#updated-model). Typically correctly predicting 3 votes sits at 40-60% across a given season. It'll be interesting to see if that remains the same or leads to an relative predictive improvement.
 
 Stay tuned for this.
 
