@@ -34,7 +34,7 @@ I guess the thing of interest this year is not who wins, but by how much. Furthe
 
 The next few are the usual suspects, Bailey Smith and Marcus Bontempelli. Consistently Will Ashcroft performs quite strongly, perhaps finally delivering back-to-back Norm Smith performances more consistently in the regular season. As usual Max Gawn appears, the models appear to rank ruckmen quite highly, the umpires typically less so. Let's see if that changes this year. 
 
-Below, I provide the predictions for the number of votes awarded to each individual team for all the models. No tables for top-5 performers by each of the 18 clubs though. Data exists, just didn't think it was as interesting.
+Below, I provide the predictions for the number of votes awarded to each individual team for all the models. No tables for top-5 performers by each of the 18 clubs though. Couldn't be bothered curating it. But, I've added the data [here](https://github.com/BradGreig/brownlow-predictor/blob/main/data/VariousData/ByTeamResults/2026).
 
 ![2026 Team totals](https://github.com/BradGreig/brownlow-predictor/blob/main/data/TeamTotals/2026/Team-total-all.png?raw=true)
 *<small>The 2026 team totals. For all predictive models and voting methodology. </small>*

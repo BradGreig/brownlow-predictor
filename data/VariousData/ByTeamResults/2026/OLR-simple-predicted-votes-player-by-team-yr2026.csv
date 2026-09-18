@@ -1,0 +1,669 @@
+,PlayerName,Team,PredictedVotes
+659,Jordan Dawson,Adelaide,21.0
+657,Izak Rankine,Adelaide,21.0
+629,Wayne Milera,Adelaide,10.0
+618,Sam Berry,Adelaide,8.0
+599,Josh Rachele,Adelaide,6.0
+586,Riley Thilthorpe,Adelaide,4.0
+589,Taylor Walker,Adelaide,4.0
+553,Darcy Fogarty,Adelaide,3.0
+512,Daniel Curtin,Adelaide,2.0
+535,Mark Keane,Adelaide,2.0
+475,James Peatling,Adelaide,1.0
+492,Rory Laird,Adelaide,1.0
+483,Lachlan McAndrew,Adelaide,1.0
+336,Nick Murray,Adelaide,0.0
+353,Oscar Ryan,Adelaide,0.0
+360,Reilly OBrien,Adelaide,0.0
+407,Toby Murray,Adelaide,0.0
+453,Zac Taylor,Adelaide,0.0
+117,Finnbar Maley,Adelaide,0.0
+151,Isaac Cumming,Adelaide,0.0
+147,Hugo Hall-Kahan,Adelaide,0.0
+145,Hugh Bond,Adelaide,0.0
+33,Ben Keays,Adelaide,0.0
+37,Billy Dowling,Adelaide,0.0
+22,Archie Ludowyke,Adelaide,0.0
+8,Alex Neal-Bullen,Adelaide,0.0
+71,Charlie Edwards,Adelaide,0.0
+74,Chayce Jones,Adelaide,0.0
+49,Brayden Cook,Adelaide,0.0
+59,Callum Ah Chee,Adelaide,0.0
+282,Luke Nankervis,Adelaide,0.0
+283,Luke Pedlar,Adelaide,0.0
+322,Mitchell Hinge,Adelaide,0.0
+311,Max Michalanney,Adelaide,0.0
+193,Jake Soligo,Adelaide,0.0
+195,James Borlase,Adelaide,0.0
+234,Josh Worrell,Adelaide,0.0
+226,Jordon Butts,Adelaide,0.0
+664,Will Ashcroft,Brisbane,26.0
+651,Lachie Neale,Brisbane,18.0
+643,Zac Bailey,Brisbane,13.0
+608,Logan Morris,Brisbane,7.0
+577,Darcy Wilmot,Brisbane,4.0
+578,Harris Andrews,Brisbane,4.0
+583,Kai Lohmann,Brisbane,4.0
+557,Jarrod Berry,Brisbane,3.0
+555,Hugh McCluggage,Brisbane,3.0
+508,Charlie Cameron,Brisbane,2.0
+531,Levi Ashcroft,Brisbane,2.0
+544,Ryan Lester,Brisbane,2.0
+529,Josh Dunkley,Brisbane,2.0
+383,Sam Draper,Brisbane,0.0
+387,Sam Marshall,Brisbane,0.0
+396,Shadeau Brain,Brisbane,0.0
+339,Noah Answerth,Brisbane,0.0
+352,Oscar Allen,Brisbane,0.0
+439,Will McLachlan,Brisbane,0.0
+460,Zane Zakostelsky,Brisbane,0.0
+426,Ty Gallop,Brisbane,0.0
+113,Eric Hipwood,Brisbane,0.0
+102,Dayne Zorko,Brisbane,0.0
+95,Daniel Annable,Brisbane,0.0
+97,Darcy Fort,Brisbane,0.0
+98,Darcy Gardiner,Brisbane,0.0
+101,Darragh Joyce,Brisbane,0.0
+84,Conor McKenna,Brisbane,0.0
+79,Cody Curtin,Brisbane,0.0
+63,Cam Rayner,Brisbane,0.0
+55,Bruce Reville,Brisbane,0.0
+274,Lincoln McCarthy,Brisbane,0.0
+200,James Tunstill,Brisbane,0.0
+204,Jaspa Fletcher,Brisbane,0.0
+242,Keidean Coleman,Brisbane,0.0
+661,Patrick Cripps,Carlton,22.0
+641,Sam Walsh,Carlton,13.0
+631,George Hewett,Carlton,11.0
+626,Jagga Smith,Carlton,10.0
+519,Francis Evans,Carlton,2.0
+506,Ben Ainsworth,Carlton,2.0
+546,Talor Byrne,Carlton,2.0
+540,Oliver Florent,Carlton,2.0
+472,Harry McKay,Carlton,1.0
+464,Brodie Kemp,Carlton,1.0
+487,Matthew Carroll,Carlton,1.0
+485,Marc Pittonet,Carlton,1.0
+348,Oliver Hollands,Carlton,0.0
+436,Will Hayward,Carlton,0.0
+454,Zac Williams,Carlton,0.0
+1,Adam Cerra,Carlton,0.0
+430,Wade Derksen,Carlton,0.0
+333,Nick Haynes,Carlton,0.0
+110,Elijah Hollands,Carlton,0.0
+119,Flynn Riley,Carlton,0.0
+120,Flynn Young,Carlton,0.0
+89,Cooper Lord,Carlton,0.0
+166,Jack Ison,Carlton,0.0
+144,Hudson O'Keeffe,Carlton,0.0
+130,Harry Dean,Carlton,0.0
+25,Ashton Moir,Carlton,0.0
+39,Billy Wilson,Carlton,0.0
+2,Adam Saad,Carlton,0.0
+40,Blake Acres,Carlton,0.0
+65,Campbell Chesser,Carlton,0.0
+272,Liam Reidy,Carlton,0.0
+254,Lachlan Cowan,Carlton,0.0
+265,Lewis Young,Carlton,0.0
+317,Mitch McGovern,Carlton,0.0
+330,Nic Newman,Carlton,0.0
+302,Matthew Cottrell,Carlton,0.0
+182,Jacob Weitering,Carlton,0.0
+247,Lachie Fogarty,Carlton,0.0
+223,Jordan Boyd,Carlton,0.0
+667,Nick Daicos,Collingwood,42.0
+614,Jordan de Goey,Collingwood,8.0
+615,Josh Daicos,Collingwood,8.0
+604,Darcy Cameron,Collingwood,7.0
+576,Daniel McStay,Collingwood,4.0
+550,Beau McCreery,Collingwood,3.0
+570,Scott Pendlebury,Collingwood,3.0
+511,Dan Houston,Collingwood,2.0
+542,Patrick Lipinski,Collingwood,2.0
+473,Harry Perryman,Collingwood,1.0
+478,Jeremy Howe,Collingwood,1.0
+495,Tim Membrey,Collingwood,1.0
+369,Roan Steele,Collingwood,0.0
+388,Sam Swadling,Collingwood,0.0
+340,Noah Howes,Collingwood,0.0
+354,Oscar Steene,Collingwood,0.0
+397,Steele Sidebottom,Collingwood,0.0
+444,William Hayes,Collingwood,0.0
+432,Wil Parker,Collingwood,0.0
+108,Edward Allan,Collingwood,0.0
+99,Darcy Moore,Collingwood,0.0
+154,Isaac Quaynor,Collingwood,0.0
+158,Jack Buller,Collingwood,0.0
+160,Jack Crisp,Collingwood,0.0
+138,Harvey Harrison,Collingwood,0.0
+38,Billy Frampton,Collingwood,0.0
+14,Angus Anderson,Collingwood,0.0
+73,Charlie West,Collingwood,0.0
+51,Brayden Maynard,Collingwood,0.0
+271,Liam Puncher,Collingwood,0.0
+258,Lachlan Sullivan,Collingwood,0.0
+319,Mitch Podhajski,Collingwood,0.0
+326,Ned Long,Collingwood,0.0
+250,Lachie Schultz,Collingwood,0.0
+203,Jamie Elliott,Collingwood,0.0
+594,Archie Roberts,Essendon,6.0
+601,Zach Merrett,Essendon,6.0
+591,Darcy Parish,Essendon,5.0
+587,Sam Durham,Essendon,4.0
+538,Nate Caddy,Essendon,2.0
+539,Nick Bryan,Essendon,2.0
+501,Will Setterfield,Essendon,1.0
+375,Saad El-Hawli,Essendon,0.0
+365,Rhys Unwin,Essendon,0.0
+338,Nik Cox,Essendon,0.0
+359,Peter Wright,Essendon,0.0
+399,Sullivan Robey,Essendon,0.0
+447,Xavier Duursma,Essendon,0.0
+456,Zach Reid,Essendon,0.0
+457,Zak Johnson,Essendon,0.0
+402,Thomas Edwards,Essendon,0.0
+429,Vigo Visentini,Essendon,0.0
+107,Dyson Sharp,Essendon,0.0
+111,Elijah Tsatas,Essendon,0.0
+125,Harrison Jones,Essendon,0.0
+150,Hussien El Achkar,Essendon,0.0
+152,Isaac Kako,Essendon,0.0
+23,Archie Perkins,Essendon,0.0
+34,Ben McKay,Essendon,0.0
+20,Archer May,Essendon,0.0
+19,Archer Day-Wicks,Essendon,0.0
+12,Andrew McGrath,Essendon,0.0
+15,Angus Clarke,Essendon,0.0
+50,Brayden Fiorini,Essendon,0.0
+252,Lachlan Blakiston,Essendon,0.0
+293,Mason Redman,Essendon,0.0
+297,Matt Guelfi,Essendon,0.0
+310,Max Kondogiannis,Essendon,0.0
+206,Jaxon Artemis,Essendon,0.0
+177,Jacob Farrow,Essendon,0.0
+183,Jade Gresham,Essendon,0.0
+207,Jaxon Prior,Essendon,0.0
+210,Jayden Nguyen,Essendon,0.0
+238,Jye Caldwell,Essendon,0.0
+246,Kyle Langford,Essendon,0.0
+225,Jordan Ridley,Essendon,0.0
+660,Luke Jackson,Fremantle,21.0
+645,Caleb Serong,Fremantle,15.0
+642,Shai Bolton,Fremantle,13.0
+639,Murphy Reid,Fremantle,12.0
+630,Andrew Brayshaw,Fremantle,11.0
+621,Josh Treacy,Fremantle,9.0
+616,Jye Amiss,Fremantle,8.0
+561,Jordan Clark,Fremantle,3.0
+567,Patrick Voss,Fremantle,3.0
+565,Matthew Johnson,Fremantle,3.0
+563,Karl Worner,Fremantle,3.0
+541,Oscar McDonald,Fremantle,2.0
+533,Luke Ryan,Fremantle,2.0
+389,Sam Switkowski,Fremantle,0.0
+394,Sean Darcy,Fremantle,0.0
+410,Tobyn Murray,Fremantle,0.0
+91,Corey Wagner,Fremantle,0.0
+155,Isaiah Dudley,Fremantle,0.0
+141,Hayden Young,Fremantle,0.0
+142,Heath Chapman,Fremantle,0.0
+26,Bailey Banfield,Fremantle,0.0
+9,Alex Pearce,Fremantle,0.0
+77,Christopher Scerri,Fremantle,0.0
+47,Brandon Walker,Fremantle,0.0
+52,Brennan Cox,Fremantle,0.0
+292,Mason Cox,Fremantle,0.0
+313,Michael Frederick,Fremantle,0.0
+325,Nathan O'Driscoll,Fremantle,0.0
+329,Neil Erasmus,Fremantle,0.0
+184,Jaeger OMeara,Fremantle,0.0
+235,Judd McVee,Fremantle,0.0
+213,Jeremy Sharp,Fremantle,0.0
+665,Bailey Smith,Geelong,27.0
+649,Max Holmes,Geelong,17.0
+634,Shaun Mannagh,Geelong,11.0
+593,Oliver Dempsey,Geelong,5.0
+588,Tanner Bruhn,Geelong,4.0
+584,Patrick Dangerfield,Geelong,4.0
+552,Connor O'Sullivan,Geelong,3.0
+559,Jeremy Cameron,Geelong,3.0
+571,Shannon Neale,Geelong,3.0
+530,Lawson Humphries,Geelong,2.0
+471,Gryan Miers,Geelong,1.0
+500,Tom Stewart,Geelong,1.0
+486,Mark Blicavs,Geelong,1.0
+490,Oliver Henry,Geelong,1.0
+382,Sam De Koning,Geelong,0.0
+343,Oisin Mullin,Geelong,0.0
+349,Oliver Wiltshire,Geelong,0.0
+364,Rhys Stanley,Geelong,0.0
+455,Zach Guthrie,Geelong,0.0
+413,Tom Atkins,Geelong,0.0
+121,George Stevens,Geelong,0.0
+156,Jack Bowes,Geelong,0.0
+163,Jack Henry,Geelong,0.0
+44,Brad Close,Geelong,0.0
+291,Mark OConnor,Geelong,0.0
+316,Mitch Knevitt,Geelong,0.0
+321,Mitchell Edwards,Geelong,0.0
+201,James Worpel,Geelong,0.0
+187,Jake Kolodjashnij,Geelong,0.0
+169,Jack Martin,Geelong,0.0
+208,Jay Polkinghorne,Geelong,0.0
+216,Jhye Clark,Geelong,0.0
+636,Christian Petracca,Gold Coast,12.0
+627,Matt Rowell,Gold Coast,10.0
+624,Touk Miller,Gold Coast,9.0
+613,John Noble,Gold Coast,8.0
+617,Noah Anderson,Gold Coast,8.0
+595,Bodhi Uwland,Gold Coast,6.0
+548,Bailey Humphrey,Gold Coast,3.0
+513,Daniel Rioli,Gold Coast,2.0
+525,Jarrod Witts,Gold Coast,2.0
+547,Zeke Uwland,Gold Coast,2.0
+462,Ben Long,Gold Coast,1.0
+461,Ben King,Gold Coast,1.0
+379,Sam Collins,Gold Coast,0.0
+378,Sam Clohesy,Gold Coast,0.0
+351,Oscar Adams,Gold Coast,0.0
+435,Will Graham,Gold Coast,0.0
+433,Wil Powell,Gold Coast,0.0
+106,Dylan Patterson,Gold Coast,0.0
+114,Ethan Read,Gold Coast,0.0
+31,Beau Addinsall,Gold Coast,0.0
+32,Ben Jepson,Gold Coast,0.0
+7,Alex Davies,Gold Coast,0.0
+69,Charlie Ballard,Gold Coast,0.0
+58,Caleb Lewis,Gold Coast,0.0
+287,Mac Andrew,Gold Coast,0.0
+255,Lachlan Gulbin,Gold Coast,0.0
+263,Leonardo Lombard,Gold Coast,0.0
+327,Ned Moyle,Gold Coast,0.0
+251,Lachie Weller,Gold Coast,0.0
+192,Jake Rogers,Gold Coast,0.0
+194,Jamarra Ugle-Hagan,Gold Coast,0.0
+186,Jai Murray,Gold Coast,0.0
+237,Jy Farrar,Gold Coast,0.0
+211,Jed Walter,Gold Coast,0.0
+221,Joel Jeffrey,Gold Coast,0.0
+334,Nick Holman,Gold Coast,0.0
+644,Clayton Oliver,Greater Western Sydney,14.0
+623,Toby Greene,Greater Western Sydney,9.0
+607,Lachie Whitfield,Greater Western Sydney,7.0
+596,Finn Callaghan,Greater Western Sydney,6.0
+600,Lachie Ash,Greater Western Sydney,6.0
+592,Jake Stringer,Greater Western Sydney,5.0
+521,Harvey Thomas,Greater Western Sydney,2.0
+545,Stephen Coniglio,Greater Western Sydney,2.0
+543,Phoenix Gothard,Greater Western Sydney,2.0
+467,Connor Idun,Greater Western Sydney,1.0
+371,Ryan Angwin,Greater Western Sydney,0.0
+390,Sam Taylor,Greater Western Sydney,0.0
+367,Riley Hamilton,Greater Western Sydney,0.0
+346,Oliver Hannaford,Greater Western Sydney,0.0
+449,Xavier O'Halloran,Greater Western Sydney,0.0
+405,Toby Bedford,Greater Western Sydney,0.0
+406,Toby McMullin,Greater Western Sydney,0.0
+0,Aaron Cadman,Greater Western Sydney,0.0
+85,Conor Stone,Greater Western Sydney,0.0
+157,Jack Buckley,Greater Western Sydney,0.0
+126,Harrison Oliver,Greater Western Sydney,0.0
+132,Harry Himmelberg,Greater Western Sydney,0.0
+135,Harry Rowston,Greater Western Sydney,0.0
+78,Cody Angove,Greater Western Sydney,0.0
+60,Callum Brown,Greater Western Sydney,0.0
+53,Brent Daniels,Greater Western Sydney,0.0
+262,Leek Aleer,Greater Western Sydney,0.0
+331,Nicholas Madden,Greater Western Sydney,0.0
+307,Max Gruzewski,Greater Western Sydney,0.0
+191,Jake Riccardi,Greater Western Sydney,0.0
+197,James Leake,Greater Western Sydney,0.0
+170,Jack Ough,Greater Western Sydney,0.0
+209,Jayden Laverde,Greater Western Sydney,0.0
+243,Kieren Briggs,Greater Western Sydney,0.0
+215,Jesse Hogan,Greater Western Sydney,0.0
+219,Joe Fonti,Greater Western Sydney,0.0
+227,Josaia Delana,Greater Western Sydney,0.0
+658,Jai Newcombe,Hawthorn,21.0
+633,Jarman Impey,Hawthorn,11.0
+625,Connor Macdonald,Hawthorn,10.0
+610,Nick Watson,Hawthorn,7.0
+597,Jack Gunston,Hawthorn,6.0
+582,James Sicily,Hawthorn,4.0
+574,Blake Hardwick,Hawthorn,4.0
+579,Jack Ginnivan,Hawthorn,4.0
+575,Cam Mackenzie,Hawthorn,4.0
+590,Will Day,Hawthorn,4.0
+562,Josh Ward,Hawthorn,3.0
+564,Lloyd Meek,Hawthorn,3.0
+514,Dylan Moore,Hawthorn,2.0
+509,Conor Nash,Hawthorn,2.0
+480,Josh Battle,Hawthorn,1.0
+489,Mitch Lewis,Hawthorn,1.0
+377,Sam Butler,Hawthorn,0.0
+341,Noah Mraz,Hawthorn,0.0
+345,Oliver Greeves,Hawthorn,0.0
+445,William McCabe,Hawthorn,0.0
+414,Tom Barrass,Hawthorn,0.0
+116,Finn Maginness,Hawthorn,0.0
+118,Flynn Perez,Hawthorn,0.0
+161,Jack Dalton,Hawthorn,0.0
+134,Harry Morrison,Hawthorn,0.0
+143,Henry Hustwaite,Hawthorn,0.0
+28,Bailey Macdonald,Hawthorn,0.0
+6,Aidan Schubert,Hawthorn,0.0
+43,Bodie Ryan,Hawthorn,0.0
+64,Cameron Nairn,Hawthorn,0.0
+62,Calsher Dear,Hawthorn,0.0
+286,Mabior Chol,Hawthorn,0.0
+328,Ned Reeves,Hawthorn,0.0
+312,Max Ramsden,Hawthorn,0.0
+295,Massimo DAmbrosio,Hawthorn,0.0
+298,Matt Hill,Hawthorn,0.0
+306,Max Beattie,Hawthorn,0.0
+171,Jack Scrimshaw,Hawthorn,0.0
+233,Josh Weddle,Hawthorn,0.0
+241,Karl Amon,Hawthorn,0.0
+663,Max Gawn,Melbourne,23.0
+650,Kysaiah Pickett,Melbourne,18.0
+635,Tom Sparrow,Melbourne,11.0
+632,Jacob van Rooyen,Melbourne,11.0
+606,Kade Chandler,Melbourne,7.0
+581,Jack Steele,Melbourne,4.0
+554,Harvey Langford,Melbourne,3.0
+556,Jake Bowey,Melbourne,3.0
+520,Harry Petty,Melbourne,2.0
+516,Ed Langdon,Melbourne,2.0
+505,Bayley Fritsch,Melbourne,2.0
+527,Joel Fitzgerald,Melbourne,2.0
+474,Harry Sharp,Melbourne,1.0
+465,Caleb Windsor,Melbourne,1.0
+469,Daniel Turner,Melbourne,1.0
+356,Paddy Cross,Melbourne,0.0
+448,Xavier Lindsay,Melbourne,0.0
+450,Xavier Taylor,Melbourne,0.0
+423,Tom McDonald,Melbourne,0.0
+425,Trent Rivers,Melbourne,0.0
+27,Bailey Laurie,Melbourne,0.0
+5,Aidan Johnson,Melbourne,0.0
+13,Andy Moniz-Wakefield,Melbourne,0.0
+41,Blake Howes,Melbourne,0.0
+68,Changkuoth Jiath,Melbourne,0.0
+76,Christian Salem,Melbourne,0.0
+54,Brody Mihocek,Melbourne,0.0
+278,Lukas Cooke,Melbourne,0.0
+285,Luker Kentfield,Melbourne,0.0
+261,Latrelle Pickett,Melbourne,0.0
+303,Matthew Jefferson,Melbourne,0.0
+308,Max Heath,Melbourne,0.0
+188,Jake Lever,Melbourne,0.0
+190,Jake Melksham,Melbourne,0.0
+185,Jai Culley,Melbourne,0.0
+244,Koltyn Tholstrup,Melbourne,0.0
+655,Harry Sheezel,North Melbourne,20.0
+648,Luke Davies-Uniacke,North Melbourne,16.0
+611,Caleb Daniel,North Melbourne,8.0
+619,Tristan Xerri,North Melbourne,8.0
+585,Paul Curtis,North Melbourne,4.0
+551,Charlie Comben,North Melbourne,3.0
+522,Jack Darling,North Melbourne,2.0
+518,Finn O'Sullivan,North Melbourne,2.0
+515,Dylan Stephens,North Melbourne,2.0
+510,Cooper Trembath,North Melbourne,2.0
+466,Cameron Zurhaar,North Melbourne,1.0
+481,Jy Simpkin,North Melbourne,1.0
+484,Luke Parker,North Melbourne,1.0
+368,Riley Hardeman,North Melbourne,0.0
+451,Zac Banch,North Melbourne,0.0
+452,Zac Fisher,North Melbourne,0.0
+458,Zane Duursma,North Melbourne,0.0
+431,Wil Dawson,North Melbourne,0.0
+415,Tom Blamires,North Melbourne,0.0
+401,Taylor Goad,North Melbourne,0.0
+409,Toby Pink,North Melbourne,0.0
+424,Tom Powell,North Melbourne,0.0
+335,Nick Larkey,North Melbourne,0.0
+122,George Wardlaw,North Melbourne,0.0
+87,Cooper Harvey,North Melbourne,0.0
+123,Griffin Logue,North Melbourne,0.0
+29,Bailey Scott,North Melbourne,0.0
+81,Colby McKercher,North Melbourne,0.0
+4,Aidan Corr,North Melbourne,0.0
+72,Charlie Spargo,North Melbourne,0.0
+61,Callum Coleman-Jones,North Melbourne,0.0
+281,Luke McDonald,North Melbourne,0.0
+259,Lachy Dovaston,North Melbourne,0.0
+300,Matt Whitlock,North Melbourne,0.0
+179,Jacob Konstanty,North Melbourne,0.0
+230,Josh Goater,North Melbourne,0.0
+656,Jason Horne-Francis,Port Adelaide,20.0
+653,Zak Butters,Port Adelaide,18.0
+573,Aliir Aliir,Port Adelaide,4.0
+558,Jase Burgoyne,Port Adelaide,3.0
+517,Esava Ratugolea,Port Adelaide,2.0
+526,Joe Richards,Port Adelaide,2.0
+537,Mitch Georgiades,Port Adelaide,2.0
+479,Jordon Sweet,Port Adelaide,1.0
+470,Darcy Byrne-Jones,Port Adelaide,1.0
+491,Ollie Wines,Port Adelaide,1.0
+350,Ollie Lord,Port Adelaide,0.0
+434,Will Brodie,Port Adelaide,0.0
+438,Will Lorenz,Port Adelaide,0.0
+440,Willem Drew,Port Adelaide,0.0
+446,Xavier Bamert,Port Adelaide,0.0
+411,Todd Marshall,Port Adelaide,0.0
+412,Tom Anastasopoulos,Port Adelaide,0.0
+418,Tom Cochrane,Port Adelaide,0.0
+115,Ewan Mackinlay,Port Adelaide,0.0
+90,Corey Durdin,Port Adelaide,0.0
+96,Dante Visentini,Port Adelaide,0.0
+127,Harrison Ramm,Port Adelaide,0.0
+83,Connor Rozee,Port Adelaide,0.0
+30,Balyn O'Brien,Port Adelaide,0.0
+10,Alex Van Wyk,Port Adelaide,0.0
+75,Christian Moraes,Port Adelaide,0.0
+48,Brandon Zerk-Thatcher,Port Adelaide,0.0
+167,Jack Lukosius,Port Adelaide,0.0
+275,Logan Evans,Port Adelaide,0.0
+315,Miles Bergman,Port Adelaide,0.0
+320,Mitch Zadow,Port Adelaide,0.0
+249,Lachie Jones,Port Adelaide,0.0
+173,Jack Watkins,Port Adelaide,0.0
+174,Jack Whitlock,Port Adelaide,0.0
+176,Jackson Mead,Port Adelaide,0.0
+181,Jacob Wehr,Port Adelaide,0.0
+231,Josh Lai,Port Adelaide,0.0
+239,Kane Farrell,Port Adelaide,0.0
+218,Joe Berry,Port Adelaide,0.0
+628,Tim Taranto,Richmond,10.0
+580,Jack Ross,Richmond,4.0
+566,Noah Balta,Richmond,3.0
+477,Jayden Short,Richmond,1.0
+380,Sam Cumming,Richmond,0.0
+376,Sam Banks,Richmond,0.0
+385,Sam Grlj,Richmond,0.0
+386,Sam Lalor,Richmond,0.0
+392,Samson Ryan,Richmond,0.0
+395,Seth Campbell,Richmond,0.0
+337,Nick Vlastuin,Richmond,0.0
+342,Noah Roberts-Thomson,Richmond,0.0
+347,Oliver Hayes-Brown,Richmond,0.0
+357,Patrick Retschko,Richmond,0.0
+398,Steely Green,Richmond,0.0
+362,Rhyan Mansell,Richmond,0.0
+459,Zane Peucker,Richmond,0.0
+400,Taj Hotton,Richmond,0.0
+408,Toby Nankervis,Richmond,0.0
+416,Tom Brown,Richmond,0.0
+417,Tom Burton,Richmond,0.0
+422,Tom Lynch,Richmond,0.0
+428,Tyler Sonsie,Richmond,0.0
+104,Dion Prestia,Richmond,0.0
+148,Hugo Ralphsmith,Richmond,0.0
+128,Harry Armstrong,Richmond,0.0
+35,Ben Miller,Richmond,0.0
+66,Campbell Gray,Richmond,0.0
+284,Luke Trainor,Richmond,0.0
+268,Liam Fawcett,Richmond,0.0
+323,Mykelti Lefau,Richmond,0.0
+324,Nathan Broad,Richmond,0.0
+305,Maurice Rioli,Richmond,0.0
+199,James Trezise,Richmond,0.0
+205,Jasper Alger,Richmond,0.0
+178,Jacob Hopper,Richmond,0.0
+236,Judson Clarke,Richmond,0.0
+240,Kane McAuliffe,Richmond,0.0
+245,Kye Annand,Richmond,0.0
+229,Josh Gibcus,Richmond,0.0
+222,Jonty Faull,Richmond,0.0
+652,Nasiah Wanganeen-Milera,St Kilda,18.0
+638,Max Hall,St Kilda,12.0
+622,Rowan Marshall,St Kilda,9.0
+612,Hugo Garcia,St Kilda,8.0
+603,Callum Wilkie,St Kilda,7.0
+602,Bradley Hill,St Kilda,7.0
+598,Jack Sinclair,St Kilda,6.0
+532,Liam Ryan,St Kilda,2.0
+468,Cooper Sharman,St Kilda,1.0
+496,Tom De Koning,St Kilda,1.0
+372,Ryan Byrnes,St Kilda,0.0
+384,Sam Flanders,St Kilda,0.0
+404,Tobie Travaglia,St Kilda,0.0
+105,Dougal Howard,St Kilda,0.0
+93,Dan Butler,St Kilda,0.0
+100,Darcy Wilson,St Kilda,0.0
+146,Hugh Boxshall,St Kilda,0.0
+149,Hunter Clark,St Kilda,0.0
+153,Isaac Keeler,St Kilda,0.0
+159,Jack Carroll,St Kilda,0.0
+164,Jack Higgins,St Kilda,0.0
+11,Alix Tauru,St Kilda,0.0
+16,Angus Hastie,St Kilda,0.0
+18,Anthony Caminiti,St Kilda,0.0
+67,Campbell Lake,St Kilda,0.0
+70,Charlie Banfield,St Kilda,0.0
+273,Liam Stocker,St Kilda,0.0
+270,Liam O'Connell,St Kilda,0.0
+269,Liam Henry,St Kilda,0.0
+290,Marcus Windhager,St Kilda,0.0
+168,Jack Macrae,St Kilda,0.0
+318,Mitch Owens,St Kilda,0.0
+294,Mason Wood,St Kilda,0.0
+301,Mattaes Phillipou,St Kilda,0.0
+309,Max King,St Kilda,0.0
+172,Jack Silvagni,St Kilda,0.0
+662,Isaac Heeney,Sydney,23.0
+647,Errol Gulden,Sydney,16.0
+646,Brodie Grundy,Sydney,16.0
+640,Chad Warner,Sydney,13.0
+620,Charlie Curnow,Sydney,9.0
+605,Justin McInerney,Sydney,7.0
+609,Nick Blakey,Sydney,7.0
+560,Joel Amartey,Sydney,3.0
+507,Callum Mills,Sydney,2.0
+523,Jai Serong,Sydney,2.0
+534,Malcolm Rosas,Sydney,2.0
+476,James Rowbottom,Sydney,1.0
+463,Braeden Campbell,Sydney,1.0
+499,Tom Papley,Sydney,1.0
+498,Tom McCartin,Sydney,1.0
+391,Sam Wicks,Sydney,0.0
+358,Peter Ladhams,Sydney,0.0
+366,Riley Bice,Sydney,0.0
+442,William Edwards,Sydney,0.0
+443,William Green,Sydney,0.0
+421,Tom Hanily,Sydney,0.0
+92,Corey Warner,Sydney,0.0
+94,Dane Rampe,Sydney,0.0
+129,Harry Cunningham,Sydney,0.0
+133,Harry Kyle,Sydney,0.0
+140,Hayden McLean,Sydney,0.0
+36,Billy Cootee,Sydney,0.0
+17,Angus Sheldrick,Sydney,0.0
+57,Caiden Cleary,Sydney,0.0
+276,Logan McDonald,Sydney,0.0
+264,Lewis Melican,Sydney,0.0
+299,Matt Roberts,Sydney,0.0
+196,James Jordon,Sydney,0.0
+189,Jake Lloyd,Sydney,0.0
+214,Jesse Dattoli,Sydney,0.0
+220,Joel Hamling,Sydney,0.0
+637,Harley Reid,West Coast,12.0
+549,Bailey Williams,West Coast,3.0
+568,Reuben Ginbey,West Coast,3.0
+524,Jake Waterman,West Coast,2.0
+497,Tom McCarthy,West Coast,1.0
+494,Tim Kelly,West Coast,1.0
+488,Milan Murdock,West Coast,1.0
+374,Ryan Maric,West Coast,0.0
+393,Sandy Brock,West Coast,0.0
+344,Oliver Francou,West Coast,0.0
+361,Rhett Bazzo,West Coast,0.0
+441,Willem Duursma,West Coast,0.0
+419,Tom Cole,West Coast,0.0
+420,Tom Gross,West Coast,0.0
+427,Tylar Young,West Coast,0.0
+109,Elijah Hewett,West Coast,0.0
+112,Elliot Yeo,West Coast,0.0
+103,Deven Robertson,West Coast,0.0
+124,Hamish Davis,West Coast,0.0
+86,Cooper Duff-Tytler,West Coast,0.0
+162,Jack Graham,West Coast,0.0
+131,Harry Edwards,West Coast,0.0
+136,Harry Schoenberg,West Coast,0.0
+139,Harvey Johnston,West Coast,0.0
+21,Archer Reid,West Coast,0.0
+42,Bo Allan,West Coast,0.0
+45,Brady Hough,West Coast,0.0
+46,Brandon Starcevich,West Coast,0.0
+165,Jack Hutchinson,West Coast,0.0
+288,Malakai Champion,West Coast,0.0
+289,Marcus Herbert,West Coast,0.0
+266,Liam Baker,West Coast,0.0
+267,Liam Duggan,West Coast,0.0
+296,Matt Flynn,West Coast,0.0
+304,Matthew Owies,West Coast,0.0
+202,Jamie Cripps,West Coast,0.0
+175,Jack Williams,West Coast,0.0
+180,Jacob Newton,West Coast,0.0
+232,Josh Lindsay,West Coast,0.0
+217,Jobe Shanahan,West Coast,0.0
+666,Marcus Bontempelli,Western Bulldogs,30.0
+654,Ed Richards,Western Bulldogs,20.0
+572,Tom Liberatore,Western Bulldogs,3.0
+569,Ryley Sanders,Western Bulldogs,3.0
+502,Aaron Naughton,Western Bulldogs,2.0
+504,Bailey Williams,Western Bulldogs,2.0
+503,Bailey Dale,Western Bulldogs,2.0
+528,Joel Freijah,Western Bulldogs,2.0
+536,Matthew Kennedy,Western Bulldogs,2.0
+482,Lachlan Bramble,Western Bulldogs,1.0
+493,Sam Darcy,Western Bulldogs,1.0
+373,Ryan Gardner,Western Bulldogs,0.0
+370,Rory Lobb,Western Bulldogs,0.0
+381,Sam Davidson,Western Bulldogs,0.0
+355,Oskar Baker,Western Bulldogs,0.0
+363,Rhylee West,Western Bulldogs,0.0
+437,Will Lewis,Western Bulldogs,0.0
+403,Tim English,Western Bulldogs,0.0
+88,Cooper Hynes,Western Bulldogs,0.0
+137,Harvey Gallagher,Western Bulldogs,0.0
+82,Connor Budarick,Western Bulldogs,0.0
+24,Arthur Jones,Western Bulldogs,0.0
+3,Adam Treloar,Western Bulldogs,0.0
+80,Cody Weightman,Western Bulldogs,0.0
+56,Buku Khamis,Western Bulldogs,0.0
+332,Nick Coffield,Western Bulldogs,0.0
+277,Louis Emmett,Western Bulldogs,0.0
+279,Luke Cleary,Western Bulldogs,0.0
+280,Luke Kennedy,Western Bulldogs,0.0
+253,Lachlan Carmichael,Western Bulldogs,0.0
+256,Lachlan McNeil,Western Bulldogs,0.0
+257,Lachlan Smith,Western Bulldogs,0.0
+260,Laitham Vandermeer,Western Bulldogs,0.0
+314,Michael Sellwood,Western Bulldogs,0.0
+198,James O'Donnell,Western Bulldogs,0.0
+248,Lachie Jaques,Western Bulldogs,0.0
+228,Josh Dolan,Western Bulldogs,0.0
+212,Jedd Busslinger,Western Bulldogs,0.0
+224,Jordan Croft,Western Bulldogs,0.0
